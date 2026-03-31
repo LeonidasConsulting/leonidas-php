@@ -1,0 +1,15 @@
+# Secrets — upload to GoDaddy directly via SFTP, never commit
+includes/config.php
+chat/api.php
+chat/blog-api.php
+
+# Build artifacts
+node_modules/
+assets/css/tailwind.min.css
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+*.log
+*.lock
