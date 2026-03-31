@@ -1,13 +1,25 @@
+# ── Directory index — PHP takes priority over HTML ────────────────────────────
+DirectoryIndex index.php index.html
+
 # ── HTTPS redirect ────────────────────────────────────────────────────────────
 RewriteEngine On
 RewriteCond %{HTTPS} off
+RewriteCond %{REQUEST_URI} !^/chat/
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # ── www → non-www ─────────────────────────────────────────────────────────────
 RewriteCond %{HTTP_HOST} ^www\.leonidastek\.com [NC]
+RewriteCond %{REQUEST_URI} !^/chat/
 RewriteRule ^ https://leonidastek.com%{REQUEST_URI} [L,R=301]
 
+# ── Force index.php over index.html at root ───────────────────────────────────
+RewriteCond %{THE_REQUEST} \s/index\.html[\s?]
+RewriteRule ^ / [R=301,L]
+RewriteCond %{DOCUMENT_ROOT}/index.php -f
+RewriteRule ^$ index.php [L]
+
 # ── HTML → PHP URL rewrites ────────────────────────────────────────────────────
+RewriteRule ^index\.html$ / [R=301,L]
 RewriteRule ^about\.html$ /about.php [R=301,L]
 RewriteRule ^contact\.html$ /contact.php [R=301,L]
 RewriteRule ^privacy-policy\.html$ /privacy-policy.php [R=301,L]
@@ -18,6 +30,14 @@ RewriteRule ^services/network-engineering\.html$ /services/network-engineering.p
 RewriteRule ^services/unified-communications\.html$ /services/unified-communications.php [R=301,L]
 RewriteRule ^services/telecom-wan\.html$ /services/telecom-wan.php [R=301,L]
 RewriteRule ^services/desktop-support\.html$ /services/desktop-support.php [R=301,L]
+RewriteRule ^industries/healthcare\.html$ /industries/healthcare.php [R=301,L]
+RewriteRule ^industries/legal\.html$ /industries/legal.php [R=301,L]
+RewriteRule ^industries/construction\.html$ /industries/construction.php [R=301,L]
+RewriteRule ^industries/hospitality\.html$ /industries/hospitality.php [R=301,L]
+RewriteRule ^industries/government-contractors\.html$ /industries/government-contractors.php [R=301,L]
+RewriteRule ^industries/professional-services\.html$ /industries/professional-services.php [R=301,L]
+RewriteRule ^blog/index\.html$ /blog/ [R=301,L]
+RewriteRule ^blog/post\.html$ /blog/ [R=301,L]
 
 # ── Blog pretty URLs ─────────────────────────────────────────────────────────
 RewriteCond %{REQUEST_FILENAME} !-f
@@ -30,10 +50,10 @@ RewriteRule ^feed\.xml$ /feed.php [L]
 
 # ── Block sensitive paths ─────────────────────────────────────────────────────
 RedirectMatch 404 /\.git
-RedirectMatch 404 /includes/
-RedirectMatch 404 /lib/
-RedirectMatch 404 /chat/
-RedirectMatch 404 /config/
+RedirectMatch 404 ^/includes/$
+RedirectMatch 404 ^/lib/$
+RedirectMatch 404 ^/chat/$
+RedirectMatch 404 ^/config/$
 
 # ── Security headers for static files ────────────────────────────────────────
 <IfModule mod_headers.c>

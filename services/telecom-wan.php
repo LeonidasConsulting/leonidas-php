@@ -12,7 +12,7 @@ require_once dirname(__DIR__) . '/includes/header.php';
     <div class="orb" style="width:600px; height:600px; background:radial-gradient(circle, rgba(212,168,67,0.07) 0%, transparent 70%); top:-150px; right:-100px;"></div>
     <div class="max-w-7xl mx-auto px-6">
       <nav class="flex items-center gap-2 text-sm mb-8" style="color:#6B7280;" aria-label="Breadcrumb">
-        <a href="/" style="color:#6B7280; text-decoration:none;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#6B7280'">Home</a>
+        <a href="<?= $b ?>/" style="color:#6B7280; text-decoration:none;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#6B7280'">Home</a>
         <span>/</span><span style="color:#6B7280;">Services</span>
         <span>/</span><span style="color:#D4A843;">Telecom &amp; WAN</span>
       </nav>
@@ -21,7 +21,7 @@ require_once dirname(__DIR__) . '/includes/header.php';
         <h1 class="fade-in fade-in-delay-1" style="font-size:clamp(2.8rem,6vw,5rem); font-weight:900; letter-spacing:-0.03em; line-height:1.05; color:#FFFFFF;">Connectivity Your<br>Business <span style="color:#D4A843;">Depends On.</span></h1>
         <p class="fade-in fade-in-delay-2 mt-6 text-lg leading-relaxed max-w-2xl" style="color:#9CA3AF;">We help businesses evaluate, procure, and manage their connectivity. From fiber circuit sourcing to SD-WAN migrations to POTS line replacement — we handle the complexity so you get reliable, cost-effective connectivity without the vendor negotiation headaches.</p>
         <div class="flex flex-wrap gap-4 mt-10 fade-in fade-in-delay-3">
-          <a href="/contact.php" class="btn-primary">Get a Connectivity Review <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="<?= $b ?>/contact.php" class="btn-primary">Get a Connectivity Review <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <a href="tel:8506149343" class="btn-ghost">850-614-9343</a>
         </div>
       </div>
@@ -92,10 +92,10 @@ require_once dirname(__DIR__) . '/includes/header.php';
     <div class="max-w-7xl mx-auto">
       <div class="mb-10 fade-in"><div class="section-label">From the Blog</div><h2 style="font-size:clamp(1.5rem,3vw,2.2rem); font-weight:900; letter-spacing:-0.02em; color:#F9FAFB;">Telecom &amp; connectivity insights.</h2></div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <a href="../blog/post.html?slug=pots-line-replacement" class="blog-card fade-in"><div class="text-xs font-bold tracking-wider mb-3" style="color:#D4A843;">TELECOM</div><h3 style="font-weight:700; color:#FFFFFF; font-size:0.95rem; line-height:1.4; margin-bottom:0.75rem;">POTS Line Replacement: Modern Alternatives for Elevator Phones, Alarms, and Fax Lines</h3><div class="text-sm font-semibold" style="color:#D4A843;">Read article →</div></a>
-        <a href="../blog/post.html?slug=telecom-expense-management" class="blog-card fade-in fade-in-delay-1"><div class="text-xs font-bold tracking-wider mb-3" style="color:#D4A843;">TELECOM</div><h3 style="font-weight:700; color:#FFFFFF; font-size:0.95rem; line-height:1.4; margin-bottom:0.75rem;">Telecom Expense Management: Stop Overpaying for Connectivity</h3><div class="text-sm font-semibold" style="color:#D4A843;">Read article →</div></a>
-        <a href="../blog/post.html?slug=5g-fixed-wireless-business" class="blog-card fade-in fade-in-delay-2"><div class="text-xs font-bold tracking-wider mb-3" style="color:#D4A843;">NETWORKING</div><h3 style="font-weight:700; color:#FFFFFF; font-size:0.95rem; line-height:1.4; margin-bottom:0.75rem;">5G and Fixed Wireless Access: A Real Alternative for Business Internet?</h3><div class="text-sm font-semibold" style="color:#D4A843;">Read article →</div></a>
-        <a href="../blog/post.html?slug=fiber-internet-business" class="blog-card fade-in fade-in-delay-3"><div class="text-xs font-bold tracking-wider mb-3" style="color:#D4A843;">NETWORKING</div><h3 style="font-weight:700; color:#FFFFFF; font-size:0.95rem; line-height:1.4; margin-bottom:0.75rem;">How Fiber Internet Is Changing Business Connectivity</h3><div class="text-sm font-semibold" style="color:#D4A843;">Read article →</div></a>
+        <a href="<?= $b ?>/blog/pots-line-replacement" class="blog-card fade-in"><div class="text-xs font-bold tracking-wider mb-3" style="color:#D4A843;">TELECOM</div><h3 style="font-weight:700; color:#FFFFFF; font-size:0.95rem; line-height:1.4; margin-bottom:0.75rem;">POTS Line Replacement: Modern Alternatives for Elevator Phones, Alarms, and Fax Lines</h3><div class="text-sm font-semibold" style="color:#D4A843;">Read article →</div></a>
+        <a href="<?= $b ?>/blog/telecom-expense-management" class="blog-card fade-in fade-in-delay-1"><div class="text-xs font-bold tracking-wider mb-3" style="color:#D4A843;">TELECOM</div><h3 style="font-weight:700; color:#FFFFFF; font-size:0.95rem; line-height:1.4; margin-bottom:0.75rem;">Telecom Expense Management: Stop Overpaying for Connectivity</h3><div class="text-sm font-semibold" style="color:#D4A843;">Read article →</div></a>
+        <a href="<?= $b ?>/blog/5g-fixed-wireless-business" class="blog-card fade-in fade-in-delay-2"><div class="text-xs font-bold tracking-wider mb-3" style="color:#D4A843;">NETWORKING</div><h3 style="font-weight:700; color:#FFFFFF; font-size:0.95rem; line-height:1.4; margin-bottom:0.75rem;">5G and Fixed Wireless Access: A Real Alternative for Business Internet?</h3><div class="text-sm font-semibold" style="color:#D4A843;">Read article →</div></a>
+        <a href="<?= $b ?>/blog/fiber-internet-business" class="blog-card fade-in fade-in-delay-3"><div class="text-xs font-bold tracking-wider mb-3" style="color:#D4A843;">NETWORKING</div><h3 style="font-weight:700; color:#FFFFFF; font-size:0.95rem; line-height:1.4; margin-bottom:0.75rem;">How Fiber Internet Is Changing Business Connectivity</h3><div class="text-sm font-semibold" style="color:#D4A843;">Read article →</div></a>
       </div>
     </div>
   </section>
@@ -106,7 +106,7 @@ require_once dirname(__DIR__) . '/includes/header.php';
       <h2 style="font-size:clamp(2rem,4vw,3.2rem); font-weight:900; letter-spacing:-0.03em; color:#F9FAFB;">Stop overpaying for<br><span style="color:#D4A843;">connectivity you hate.</span></h2>
       <p class="mt-6 text-lg leading-relaxed" style="color:#9CA3AF;">A connectivity review takes 30 minutes and often uncovers significant savings. We audit your current services and show you what better looks like.</p>
       <div class="flex flex-wrap gap-4 justify-center mt-10">
-        <a href="/contact.php" class="btn-primary">Get Your Free Assessment <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="<?= $b ?>/contact.php" class="btn-primary">Get Your Free Assessment <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <a href="tel:8506149343" class="btn-ghost">850-614-9343</a>
       </div>
     </div>

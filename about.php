@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/includes/config.php';
+$b = SITE_BASE;
 
 $page_title       = 'About Leonidas | Managed IT &amp; Cybersecurity Experts — Florida Panhandle';
 $page_description = 'Learn how Leonidas has delivered managed IT, cybersecurity, and unified communications for businesses across the Florida Panhandle for over 20 years.';
@@ -46,7 +47,7 @@ require_once __DIR__ . '/includes/header.php';
               <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" stroke="#D4A843" stroke-width="1.5"/><path d="M8 13h8M8 17h5" stroke="#D4A843" stroke-width="1.5" stroke-linecap="round"/><path d="M8 4h8v3H8z" stroke="#D4A843" stroke-width="1.5"/></svg>
             </div>
             <div>
-              <a href="/services/managed-it.php" style="text-decoration:none; cursor:pointer;"><h3 style="font-size:1.2rem; font-weight:800; color:#FFFFFF; transition:color 0.2s;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#FFFFFF'">Managed IT Services</h3></a>
+              <a href="<?= $b ?>/services/managed-it.php" style="text-decoration:none; cursor:pointer;"><h3 style="font-size:1.2rem; font-weight:800; color:#FFFFFF; transition:color 0.2s;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#FFFFFF'">Managed IT Services</h3></a>
               <p style="font-size:0.8rem; color:#6B7280; margin-top:0.2rem;">Proactive monitoring, patch management, helpdesk &amp; strategic planning</p>
             </div>
           </div>
@@ -55,7 +56,7 @@ require_once __DIR__ . '/includes/header.php';
           <div class="check-item"><svg class="check-icon" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="rgba(212,168,67,0.3)"/><path d="M5.5 9l2.5 2.5L12.5 6" stroke="#D4A843" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="color:#9CA3AF; font-size:0.88rem;">Cloud migration strategy and hybrid IT architecture design</span></div>
           <div class="check-item"><svg class="check-icon" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="rgba(212,168,67,0.3)"/><path d="M5.5 9l2.5 2.5L12.5 6" stroke="#D4A843" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="color:#9CA3AF; font-size:0.88rem;">Microsoft 365 administration and optimization</span></div>
           <div class="check-item"><svg class="check-icon" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="rgba(212,168,67,0.3)"/><path d="M5.5 9l2.5 2.5L12.5 6" stroke="#D4A843" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="color:#9CA3AF; font-size:0.88rem;">Technology roadmap development aligned to business goals</span></div>
-          <a href="/services/managed-it.php" class="learn-more mt-4 inline-flex items-center gap-2 text-sm font-semibold" style="color:#D4A843;">Learn more <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="<?= $b ?>/services/managed-it.php" class="learn-more mt-4 inline-flex items-center gap-2 text-sm font-semibold" style="color:#D4A843;">Learn more <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
 
         <!-- Cybersecurity -->
@@ -65,7 +66,7 @@ require_once __DIR__ . '/includes/header.php';
               <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M12 2L4 6v6c0 6 4 9.5 8 10.5C16 21.5 20 18 20 12V6L12 2z" stroke="#D4A843" stroke-width="1.5"/><path d="M8.5 12l3 3L16 9" stroke="#D4A843" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
             <div>
-              <a href="/services/cybersecurity.php" style="text-decoration:none; cursor:pointer;"><h3 style="font-size:1.2rem; font-weight:800; color:#FFFFFF; transition:color 0.2s;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#FFFFFF'">Cybersecurity</h3></a>
+              <a href="<?= $b ?>/services/cybersecurity.php" style="text-decoration:none; cursor:pointer;"><h3 style="font-size:1.2rem; font-weight:800; color:#FFFFFF; transition:color 0.2s;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#FFFFFF'">Cybersecurity</h3></a>
               <p style="font-size:0.8rem; color:#6B7280; margin-top:0.2rem;">Layered security programs beyond checkbox compliance</p>
             </div>
           </div>
@@ -74,7 +75,7 @@ require_once __DIR__ . '/includes/header.php';
           <div class="check-item"><svg class="check-icon" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="rgba(212,168,67,0.3)"/><path d="M5.5 9l2.5 2.5L12.5 6" stroke="#D4A843" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="color:#9CA3AF; font-size:0.88rem;">Privileged Access Management (PAM) and MFA enforcement</span></div>
           <div class="check-item"><svg class="check-icon" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="rgba(212,168,67,0.3)"/><path d="M5.5 9l2.5 2.5L12.5 6" stroke="#D4A843" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="color:#9CA3AF; font-size:0.88rem;">NIST CSF, CIS Controls, CMMC compliance framework alignment</span></div>
           <div class="check-item"><svg class="check-icon" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="rgba(212,168,67,0.3)"/><path d="M5.5 9l2.5 2.5L12.5 6" stroke="#D4A843" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="color:#9CA3AF; font-size:0.88rem;">Virtual CISO (vCISO) services for executive-level security leadership</span></div>
-          <a href="/services/cybersecurity.php" class="learn-more mt-4 inline-flex items-center gap-2 text-sm font-semibold" style="color:#D4A843;">Learn more <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="<?= $b ?>/services/cybersecurity.php" class="learn-more mt-4 inline-flex items-center gap-2 text-sm font-semibold" style="color:#D4A843;">Learn more <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
 
         <!-- Network Engineering -->
@@ -84,7 +85,7 @@ require_once __DIR__ . '/includes/header.php';
               <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5" stroke="#D4A843" stroke-width="1.5"/><circle cx="4" cy="6" r="2" stroke="#D4A843" stroke-width="1.5"/><circle cx="20" cy="6" r="2" stroke="#D4A843" stroke-width="1.5"/><circle cx="4" cy="18" r="2" stroke="#D4A843" stroke-width="1.5"/><circle cx="20" cy="18" r="2" stroke="#D4A843" stroke-width="1.5"/><path d="M6 7L9 10M15 10l3-3M6 17l3-4M15 14l3 3" stroke="#D4A843" stroke-width="1.2"/></svg>
             </div>
             <div>
-              <a href="/services/network-engineering.php" style="text-decoration:none; cursor:pointer;"><h3 style="font-size:1.2rem; font-weight:800; color:#FFFFFF; transition:color 0.2s;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#FFFFFF'">Network Engineering</h3></a>
+              <a href="<?= $b ?>/services/network-engineering.php" style="text-decoration:none; cursor:pointer;"><h3 style="font-size:1.2rem; font-weight:800; color:#FFFFFF; transition:color 0.2s;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#FFFFFF'">Network Engineering</h3></a>
               <p style="font-size:0.8rem; color:#6B7280; margin-top:0.2rem;">Design, implementation, and ongoing optimization</p>
             </div>
           </div>
@@ -93,7 +94,7 @@ require_once __DIR__ . '/includes/header.php';
           <div class="check-item"><svg class="check-icon" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="rgba(212,168,67,0.3)"/><path d="M5.5 9l2.5 2.5L12.5 6" stroke="#D4A843" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="color:#9CA3AF; font-size:0.88rem;">Wireless network design with professional site surveys</span></div>
           <div class="check-item"><svg class="check-icon" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="rgba(212,168,67,0.3)"/><path d="M5.5 9l2.5 2.5L12.5 6" stroke="#D4A843" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="color:#9CA3AF; font-size:0.88rem;">Firewall deployment, configuration, and ongoing management</span></div>
           <div class="check-item"><svg class="check-icon" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="rgba(212,168,67,0.3)"/><path d="M5.5 9l2.5 2.5L12.5 6" stroke="#D4A843" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="color:#9CA3AF; font-size:0.88rem;">Wi-Fi 7 and next-generation wireless planning</span></div>
-          <a href="/services/network-engineering.php" class="learn-more mt-4 inline-flex items-center gap-2 text-sm font-semibold" style="color:#D4A843;">Learn more <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="<?= $b ?>/services/network-engineering.php" class="learn-more mt-4 inline-flex items-center gap-2 text-sm font-semibold" style="color:#D4A843;">Learn more <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
 
         <!-- UCaaS -->
@@ -103,7 +104,7 @@ require_once __DIR__ . '/includes/header.php';
               <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M4 4h16a1 1 0 011 1v9a1 1 0 01-1 1h-7l-4 3V15H4a1 1 0 01-1-1V5a1 1 0 011-1z" stroke="#D4A843" stroke-width="1.5"/></svg>
             </div>
             <div>
-              <a href="/services/unified-communications.php" style="text-decoration:none; cursor:pointer;"><h3 style="font-size:1.2rem; font-weight:800; color:#FFFFFF; transition:color 0.2s;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#FFFFFF'">Unified Communications &amp; VoIP</h3></a>
+              <a href="<?= $b ?>/services/unified-communications.php" style="text-decoration:none; cursor:pointer;"><h3 style="font-size:1.2rem; font-weight:800; color:#FFFFFF; transition:color 0.2s;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#FFFFFF'">Unified Communications &amp; VoIP</h3></a>
               <p style="font-size:0.8rem; color:#6B7280; margin-top:0.2rem;">Design, deploy, and support cloud phone systems</p>
             </div>
           </div>
@@ -112,7 +113,7 @@ require_once __DIR__ . '/includes/header.php';
           <div class="check-item"><svg class="check-icon" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="rgba(212,168,67,0.3)"/><path d="M5.5 9l2.5 2.5L12.5 6" stroke="#D4A843" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="color:#9CA3AF; font-size:0.88rem;">Contact center deployment (RingCX, Five9)</span></div>
           <div class="check-item"><svg class="check-icon" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="rgba(212,168,67,0.3)"/><path d="M5.5 9l2.5 2.5L12.5 6" stroke="#D4A843" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="color:#9CA3AF; font-size:0.88rem;">IP phone and softphone provisioning and training</span></div>
           <p class="text-xs mt-3" style="color:#6B7280;"><span style="color:#D4A843; font-weight:600;">Platforms:</span> RingCentral, Teams Phone, Five9, Zoom Phone, 8x8, Vonage, Dialpad, Nextiva, GoTo Connect, Mitel</p>
-          <a href="/services/unified-communications.php" class="learn-more mt-4 inline-flex items-center gap-2 text-sm font-semibold" style="color:#D4A843;">Learn more <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="<?= $b ?>/services/unified-communications.php" class="learn-more mt-4 inline-flex items-center gap-2 text-sm font-semibold" style="color:#D4A843;">Learn more <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
 
         <!-- Telecom & WAN -->
@@ -122,7 +123,7 @@ require_once __DIR__ . '/includes/header.php';
               <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M12 2C8 2 5 5.3 5 9.5c0 2.5 1.2 4.7 3 6" stroke="#D4A843" stroke-width="1.5"/><path d="M12 2c4 0 7 3.3 7 7.5c0 2.5-1.2 4.7-3 6" stroke="#D4A843" stroke-width="1.5"/><path d="M12 6c-2 0-3.5 1.7-3.5 4s1.5 4 3.5 4 3.5-1.7 3.5-4-1.5-4-3.5-4z" stroke="#D4A843" stroke-width="1.5"/><line x1="12" y1="14" x2="12" y2="21" stroke="#D4A843" stroke-width="1.5"/><line x1="8" y1="21" x2="16" y2="21" stroke="#D4A843" stroke-width="1.5"/></svg>
             </div>
             <div>
-              <a href="/services/telecom-wan.php" style="text-decoration:none; cursor:pointer;"><h3 style="font-size:1.2rem; font-weight:800; color:#FFFFFF; transition:color 0.2s;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#FFFFFF'">Telecom &amp; WAN Solutions</h3></a>
+              <a href="<?= $b ?>/services/telecom-wan.php" style="text-decoration:none; cursor:pointer;"><h3 style="font-size:1.2rem; font-weight:800; color:#FFFFFF; transition:color 0.2s;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#FFFFFF'">Telecom &amp; WAN Solutions</h3></a>
               <p style="font-size:0.8rem; color:#6B7280; margin-top:0.2rem;">Connectivity procurement, management, and optimization</p>
             </div>
           </div>
@@ -131,7 +132,7 @@ require_once __DIR__ . '/includes/header.php';
           <div class="check-item"><svg class="check-icon" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="rgba(212,168,67,0.3)"/><path d="M5.5 9l2.5 2.5L12.5 6" stroke="#D4A843" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="color:#9CA3AF; font-size:0.88rem;">POTS line replacement for elevator phones, alarms, fax, and gate access</span></div>
           <div class="check-item"><svg class="check-icon" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="rgba(212,168,67,0.3)"/><path d="M5.5 9l2.5 2.5L12.5 6" stroke="#D4A843" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="color:#9CA3AF; font-size:0.88rem;">Telecom expense management and bill auditing</span></div>
           <div class="check-item"><svg class="check-icon" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="rgba(212,168,67,0.3)"/><path d="M5.5 9l2.5 2.5L12.5 6" stroke="#D4A843" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="color:#9CA3AF; font-size:0.88rem;">Access to 300+ carriers and connectivity vendors</span></div>
-          <a href="/services/telecom-wan.php" class="learn-more mt-4 inline-flex items-center gap-2 text-sm font-semibold" style="color:#D4A843;">Learn more <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="<?= $b ?>/services/telecom-wan.php" class="learn-more mt-4 inline-flex items-center gap-2 text-sm font-semibold" style="color:#D4A843;">Learn more <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
 
         <!-- Desktop Support -->
@@ -141,12 +142,12 @@ require_once __DIR__ . '/includes/header.php';
               <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" stroke="#D4A843" stroke-width="1.5"/><line x1="12" y1="17" x2="12" y2="21" stroke="#D4A843" stroke-width="1.5"/><line x1="8" y1="21" x2="16" y2="21" stroke="#D4A843" stroke-width="1.5"/></svg>
             </div>
             <div>
-              <a href="/services/desktop-support.php" style="text-decoration:none; cursor:pointer;"><h3 style="font-size:1.2rem; font-weight:800; color:#FFFFFF; transition:color 0.2s;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#FFFFFF'">Desktop Support</h3></a>
+              <a href="<?= $b ?>/services/desktop-support.php" style="text-decoration:none; cursor:pointer;"><h3 style="font-size:1.2rem; font-weight:800; color:#FFFFFF; transition:color 0.2s;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#FFFFFF'">Desktop Support</h3></a>
               <p style="font-size:0.8rem; color:#6B7280; margin-top:0.2rem;">Fast, reliable end-user support — remote or on-site</p>
             </div>
           </div>
           <p style="color:#9CA3AF; font-size:0.9rem; line-height:1.7;">Fast, reliable support for workstations, laptops, printers, and end-user applications. We resolve hardware and software issues, manage device deployments, handle OS upgrades and driver conflicts, and keep your workforce productive. Whether remote or on-site, our support team responds quickly and resolves issues the first time.</p>
-          <a href="/services/desktop-support.php" class="learn-more mt-4 inline-flex items-center gap-2 text-sm font-semibold" style="color:#D4A843;">Learn more <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="<?= $b ?>/services/desktop-support.php" class="learn-more mt-4 inline-flex items-center gap-2 text-sm font-semibold" style="color:#D4A843;">Learn more <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
 
       </div>
@@ -309,7 +310,7 @@ require_once __DIR__ . '/includes/header.php';
       <h2 style="font-size:clamp(2rem,4vw,3.2rem); font-weight:900; letter-spacing:-0.03em; color:#F9FAFB;">The conversation<br>is always free.</h2>
       <p class="mt-6 text-lg leading-relaxed" style="color:#9CA3AF;">Whether you need a full managed IT partner, a cybersecurity assessment, a VoIP deployment, or a second opinion on your current setup — start here.</p>
       <div class="flex flex-wrap gap-4 justify-center mt-10">
-        <a href="/contact.php" class="btn-primary">Contact Leonidas <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="<?= $b ?>/contact.php" class="btn-primary">Contact Leonidas <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <a href="tel:<?= COMPANY_PHONE_TEL ?>" class="btn-ghost"><?= COMPANY_PHONE ?></a>
       </div>
       <p class="mt-8 text-sm" style="color:#6B7280;"><a href="mailto:<?= COMPANY_EMAIL ?>" style="color:#D4A843; text-decoration:none;"><?= COMPANY_EMAIL ?></a> · <?= COMPANY_ADDRESS ?></p>

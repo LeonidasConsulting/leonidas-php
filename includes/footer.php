@@ -1,14 +1,16 @@
 <?php
-// includes/footer.php
+// SITE_BASE is always defined by the time footer.php is included
+// (header.php required config.php first). This is a safety fallback.
+defined('SITE_BASE') || define('SITE_BASE', '');
+$b = SITE_BASE;
 ?>
-</main>
-
+<!-- FOOTER -->
 <footer style="background:#050510; border-top:1px solid rgba(212,168,67,0.08); position:relative; z-index:1;">
   <div class="max-w-7xl mx-auto px-6 pt-16 pb-10">
     <div class="grid grid-cols-1 md:grid-cols-12 gap-10 mb-14">
       <div class="md:col-span-5">
-        <a href="/" class="inline-flex items-center gap-3 mb-5">
-          <img src="/content/images/LeoHelmet132.png"
+        <a href="<?= $b ?>/" class="inline-flex items-center gap-3 mb-5">
+          <img src="<?= $b ?>/content/images/Leonidas Consulting - LOGO.png"
                alt="Leonidas — Managed IT, Cybersecurity &amp; Unified Communications"
                width="32" height="32"
                style="height:32px;width:auto;display:block;object-fit:contain;"
@@ -29,61 +31,44 @@
       <div class="md:col-span-3 md:col-start-7">
         <p class="text-xs font-bold tracking-widest mb-5" style="color:#D4A843; letter-spacing:0.15em;">SERVICES</p>
         <nav class="flex flex-col gap-3" aria-label="Footer services">
-          <a href="/services/managed-it.php" class="text-sm" style="color:#6B7280;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#6B7280'">Managed IT</a>
-          <a href="/services/cybersecurity.php" class="text-sm" style="color:#6B7280;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#6B7280'">Cybersecurity</a>
-          <a href="/services/network-engineering.php" class="text-sm" style="color:#6B7280;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#6B7280'">Network Engineering</a>
-          <a href="/services/unified-communications.php" class="text-sm" style="color:#6B7280;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#6B7280'">Unified Communications</a>
-          <a href="/services/telecom-wan.php" class="text-sm" style="color:#6B7280;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#6B7280'">Telecom &amp; WAN</a>
-          <a href="/services/desktop-support.php" class="text-sm" style="color:#6B7280;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#6B7280'">Desktop Support</a>
+          <a href="<?= $b ?>/services/managed-it.php"             class="text-sm" style="color:#6B7280;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#6B7280'">Managed IT</a>
+          <a href="<?= $b ?>/services/cybersecurity.php"          class="text-sm" style="color:#6B7280;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#6B7280'">Cybersecurity</a>
+          <a href="<?= $b ?>/services/network-engineering.php"    class="text-sm" style="color:#6B7280;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#6B7280'">Network Engineering</a>
+          <a href="<?= $b ?>/services/unified-communications.php" class="text-sm" style="color:#6B7280;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#6B7280'">Unified Communications</a>
+          <a href="<?= $b ?>/services/telecom-wan.php"            class="text-sm" style="color:#6B7280;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#6B7280'">Telecom &amp; WAN</a>
+          <a href="<?= $b ?>/services/desktop-support.php"        class="text-sm" style="color:#6B7280;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#6B7280'">Desktop Support</a>
         </nav>
       </div>
       <div class="md:col-span-3 md:col-start-10">
         <p class="text-xs font-bold tracking-widest mb-5" style="color:#D4A843; letter-spacing:0.15em;">CONTACT</p>
         <div class="flex flex-col gap-3">
-          <a href="tel:<?= COMPANY_PHONE_TEL ?>" class="text-sm" style="color:#6B7280;" onmouseover="this.style.color='#FFFFFF'" onmouseout="this.style.color='#6B7280'"><?= COMPANY_PHONE ?></a>
-          <a href="mailto:<?= COMPANY_EMAIL ?>" class="text-sm" style="color:#6B7280;" onmouseover="this.style.color='#FFFFFF'" onmouseout="this.style.color='#6B7280'"><?= COMPANY_EMAIL ?></a>
+          <a href="tel:8506149343"                 class="text-sm" style="color:#6B7280;" onmouseover="this.style.color='#FFFFFF'" onmouseout="this.style.color='#6B7280'">850-614-9343</a>
+          <a href="mailto:sales@leonidastek.com"   class="text-sm" style="color:#6B7280;" onmouseover="this.style.color='#FFFFFF'" onmouseout="this.style.color='#6B7280'">sales@leonidastek.com</a>
           <p class="text-sm leading-relaxed" style="color:#6B7280;">8219 Front Beach Rd<br>Ste B #2080<br>Panama City Beach, FL 32407</p>
-          <a href="/about.php" class="text-sm" style="color:#6B7280;" onmouseover="this.style.color='#FFFFFF'" onmouseout="this.style.color='#6B7280'">About</a>
-          <a href="/blog/" class="text-sm" style="color:#6B7280;" onmouseover="this.style.color='#FFFFFF'" onmouseout="this.style.color='#6B7280'">Blog</a>
+          <a href="<?= $b ?>/about.php"  class="text-sm" style="color:#6B7280;" onmouseover="this.style.color='#FFFFFF'" onmouseout="this.style.color='#6B7280'">About</a>
+          <a href="<?= $b ?>/blog/"      class="text-sm" style="color:#6B7280;" onmouseover="this.style.color='#FFFFFF'" onmouseout="this.style.color='#6B7280'">Blog</a>
         </div>
       </div>
     </div>
     <div style="border-top:1px solid rgba(255,255,255,0.05); padding-top:1.5rem;" class="flex flex-col md:flex-row justify-between items-center gap-3">
-      <p class="text-xs" style="color:#374151;">© 2026 Leonidas. All rights reserved. Panama City Beach, FL. · <a href="/privacy-policy.php" style="color:#6B7280; text-decoration:none;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#6B7280'">Privacy Policy</a> · <a href="/terms-and-conditions.php" style="color:#6B7280; text-decoration:none;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#6B7280'">Terms &amp; Conditions</a></p>
+      <p class="text-xs" style="color:#374151;">© <?= date('Y') ?> Leonidas. All rights reserved. Panama City Beach, FL. · <a href="<?= $b ?>/privacy-policy.php" style="color:#6B7280; text-decoration:none;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#6B7280'">Privacy Policy</a> · <a href="<?= $b ?>/terms-and-conditions.php" style="color:#6B7280; text-decoration:none;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#6B7280'">Terms &amp; Conditions</a></p>
       <p class="text-xs" style="color:#374151;">Managed IT · Cybersecurity · Unified Communications</p>
     </div>
   </div>
 </footer>
-
-<!-- Global JS: scroll animations + animated counters -->
 <script>
 (function(){
-  var els=document.querySelectorAll('.fade-in');
-  if(els.length){
-    var obs=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
-    },{threshold:0.1});
-    els.forEach(function(el){obs.observe(el);});
+  var els = document.querySelectorAll('.fade-in');
+  if (!els.length || !window.IntersectionObserver) {
+    els.forEach(function(el){ el.classList.add('visible'); });
+    return;
   }
-  var counters=document.querySelectorAll('[data-count]');
-  if(counters.length){
-    var cObs=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(!e.isIntersecting)return;
-        var el=e.target,target=parseInt(el.getAttribute('data-count'),10);
-        var suffix=el.getAttribute('data-suffix')||'',dur=1800,start=performance.now();
-        function tick(now){
-          var p=Math.min((now-start)/dur,1);
-          el.textContent=Math.floor(p*target)+(p>=1?suffix:'');
-          if(p<1)requestAnimationFrame(tick);
-        }
-        requestAnimationFrame(tick);
-        cObs.unobserve(el);
-      });
-    },{threshold:0.5});
-    counters.forEach(function(el){cObs.observe(el);});
-  }
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  els.forEach(function(el){ obs.observe(el); });
 })();
 </script>
-<script src="/assets/chat-widget.js" defer></script>
-<?php echo minify_html(ob_get_clean()); ?>
+<script src="<?= $b ?>/assets/chat-widget.js" defer></script>

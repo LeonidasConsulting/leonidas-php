@@ -2,35 +2,59 @@
 require_once dirname(__DIR__) . '/includes/config.php';
 require_once dirname(__DIR__) . '/lib/BlogManager.php';
 
-$blog    = new BlogManager(BLOG_JSON);
-$page    = max(1, (int)($_GET['page'] ?? 1));
-$posts   = $blog->paginate($page);
-$total   = $blog->totalPages();
+$blog  = new BlogManager(BLOG_JSON);
+$posts = $blog->all();
+$cats  = $blog->categories();
+sort($cats);
 
 $page_title       = 'IT &amp; Cybersecurity Blog | Leonidas — The New Standard';
 $page_description = 'Expert insights on managed IT, cybersecurity, network engineering, and unified communications for Florida Panhandle businesses.';
 $page_url         = SITE_URL . '/blog/';
 
+$catColors = [
+    'Cybersecurity'   => '#EF4444',
+    'Networking'      => '#3B82F6',
+    'VoIP'            => '#8B5CF6',
+    'Telecom'         => '#10B981',
+    'Industry Trends' => '#F59E0B',
+    'Managed IT'      => '#D4A843',
+    'Leonidas'        => '#D4A843',
+];
+
+$page_css = '
+  .filter-btn {
+    padding: 0.4rem 1rem; border-radius: 2rem; font-size: 0.75rem;
+    font-weight: 600; letter-spacing: 0.05em; cursor: pointer;
+    border: 1px solid rgba(255,255,255,0.1); background: transparent;
+    color: #9CA3AF; transition: all 0.2s;
+  }
+  .filter-btn:hover { background: rgba(212,168,67,0.12); color: #D4A843; border-color: rgba(212,168,67,0.3); }
+  .filter-btn.active { background: #D4A843; color: #0A0A1A; border-color: #D4A843; }
+  .post-card { transition: border-color 0.2s, opacity 0.2s; }
+  .post-card.card-hidden { display: none !important; }
+';
+
 require_once dirname(__DIR__) . '/includes/header.php';
 ?>
 
-  <!-- HERO -->
-  <section style="padding-top:8rem; padding-bottom:4rem; position:relative; overflow:hidden;">
-    <div class="orb" style="width:600px; height:600px; background:radial-gradient(circle, rgba(212,168,67,0.06) 0%, transparent 70%); top:-150px; right:-150px;"></div>
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="max-w-3xl">
-        <div class="section-label fade-in">Insights &amp; Resources</div>
-        <h1 class="fade-in fade-in-delay-1" style="font-size:clamp(2.5rem,5vw,4rem); font-weight:900; letter-spacing:-0.03em; line-height:1.05; color:#FFFFFF;">IT &amp; Security<br><span style="color:#D4A843;">Intelligence.</span></h1>
-        <p class="fade-in fade-in-delay-2 mt-6 text-lg leading-relaxed max-w-xl" style="color:#9CA3AF;">Practical guidance on managed IT, cybersecurity, network engineering, and unified communications for Florida Panhandle businesses.</p>
-      </div>
+<!-- HERO -->
+<section style="padding-top:8rem;padding-bottom:4rem;position:relative;overflow:hidden;">
+  <div class="orb" style="width:600px;height:600px;background:radial-gradient(circle,rgba(212,168,67,0.06) 0%,transparent 70%);top:-150px;right:-150px;"></div>
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-3xl">
+      <div class="section-label fade-in">Insights &amp; Resources</div>
+      <h1 class="fade-in fade-in-delay-1" style="font-size:clamp(2.5rem,5vw,4rem);font-weight:900;letter-spacing:-0.03em;line-height:1.05;color:#FFFFFF;">IT &amp; Security<br><span style="color:#D4A843;">Intelligence.</span></h1>
+      <p class="fade-in fade-in-delay-2 mt-6 text-lg leading-relaxed max-w-xl" style="color:#9CA3AF;">Practical guidance on managed IT, cybersecurity, network engineering, and unified communications for Florida Panhandle businesses.</p>
+      <div class="fade-in fade-in-delay-3 mt-4" style="font-size:0.82rem;color:#6B7280;"><?= count($posts) ?> articles published</div>
     </div>
-  </section>
+  </div>
+</section>
 
 <!-- Blog AI Assistant -->
 <?php
 $manifest = implode("\n", array_map(
-    fn($p) => ($p['category'] ?? 'General') . '|' . $p['title'] . '|' . $p['slug'],
-    $blog->all()
+    fn($p) => ($p['category'] ?? 'General') . '|' . $p['title'] . '|' . $p['slug'] . '|' . BlogManager::getTopicsForCategory($p['category'] ?? ''),
+    $posts
 ));
 ?>
 <section style="max-width:1280px;margin:0 auto;padding:0 1.5rem 3rem;">
@@ -56,15 +80,20 @@ $manifest = implode("\n", array_map(
 <script>
 window.BLOG_MANIFEST = <?= json_encode($manifest) ?>;
 (function(){
-  var history=[],sending=false;
+  var chatHistory=[],sending=false;
   var msgBox=document.getElementById('baMessages');
   var input=document.getElementById('baInput');
   var btn=document.getElementById('baBtn');
-  function escHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+  function escHtml(s){
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+  // baFormat: input is API text — escaped first, then markdown converted to safe HTML
   function baFormat(text){
     var s=escHtml(text);
-    s=s.replace(/\[([^\]]+)\]\(([^)]+)\)/g,'<a href="$2" style="color:#D4A843;">$1</a>');
-    s=s.replace(/\*\*([^*\n]+)\*\*/g,'<strong>$1</strong>');
+    // Convert [Title](/blog/slug) links — only allow relative /blog/ paths
+    s=s.replace(/\[([^\]]{1,120})\]\((\/blog\/[a-z0-9\-]{1,80})\)/g,'<a href="$2" style="color:#D4A843;">$1</a>');
+    s=s.replace(/\*\*([^*\n]{1,200})\*\*/g,'<strong>$1</strong>');
     s=s.replace(/\n\n+/g,'</p><p>').replace(/\n/g,'<br>');
     return '<p>'+s+'</p>';
   }
@@ -84,11 +113,20 @@ window.BLOG_MANIFEST = <?= json_encode($manifest) ?>;
     if(!text||sending)return;
     sending=true;input.value='';btn.disabled=true;
     addMsg('user',escHtml(text));
-    history.push({role:'user',content:text});
-    var dots=addMsg('bot','<span style="opacity:0.5">…</span>');
-    fetch('/chat/blog-api.php',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:history,manifest:window.BLOG_MANIFEST||''})})
+    chatHistory.push({role:'user',content:text});
+    var dots=addMsg('bot','<span style="opacity:0.5">&#8230;</span>');
+    fetch('<?= SITE_URL ?>/chat/blog-api.php',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({messages:chatHistory,manifest:window.BLOG_MANIFEST||''})
+    })
     .then(function(r){return r.json();})
-    .then(function(data){dots.remove();var reply=data.reply||data.error||'Sorry, something went wrong.';history.push({role:'assistant',content:reply});addMsg('bot',baFormat(reply));})
+    .then(function(data){
+      dots.remove();
+      var reply=data.reply||data.error||'Sorry, something went wrong.';
+      chatHistory.push({role:'assistant',content:reply});
+      addMsg('bot',baFormat(reply));
+    })
     .catch(function(){dots.remove();addMsg('bot','Connection error. Try browsing the articles below.');})
     .finally(function(){sending=false;btn.disabled=false;input.focus();});
   }
@@ -97,39 +135,75 @@ window.BLOG_MANIFEST = <?= json_encode($manifest) ?>;
 })();
 </script>
 
+<!-- Category Filter Bar -->
+<section style="max-width:1280px;margin:0 auto;padding:0 1.5rem 2rem;">
+  <div id="filterBar" style="display:flex;flex-wrap:wrap;gap:0.5rem;align-items:center;">
+    <button class="filter-btn active" data-cat="all">All Posts</button>
+    <?php foreach ($cats as $cat): ?>
+    <button class="filter-btn" data-cat="<?= htmlspecialchars($cat) ?>"><?= htmlspecialchars($cat) ?></button>
+    <?php endforeach; ?>
+  </div>
+  <div id="postCount" style="font-size:0.78rem;color:#6B7280;margin-top:0.75rem;"><?= count($posts) ?> articles</div>
+</section>
+
 <!-- Post Grid -->
 <section style="max-width:1280px;margin:0 auto;padding:0 1.5rem 4rem;">
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem;">
-    <?php foreach ($posts as $post): ?>
-    <article style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:1rem;padding:1.5rem;transition:border-color 0.2s;"
-             onmouseover="this.style.borderColor='rgba(212,168,67,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.06)'">
-      <?php if (!empty($post['category'])): ?>
-      <span style="font-size:0.68rem;font-weight:700;letter-spacing:0.15em;color:#D4A843;text-transform:uppercase;"><?= htmlspecialchars($post['category']) ?></span>
-      <?php endif; ?>
+  <div id="postGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem;">
+    <?php foreach ($posts as $post):
+      $cat    = $post['category'] ?? 'General';
+      $color  = $catColors[$cat] ?? '#D4A843';
+      $excerpt = $post['excerpt'] ?? '';
+      if (empty($excerpt) && !empty($post['body'])) {
+          $excerpt = substr(strip_tags($post['body']), 0, 120) . '…';
+      }
+      if (empty($excerpt)) {
+          $catExcerpts = [
+              'Cybersecurity'   => 'Expert guidance on protecting your business from modern cyber threats.',
+              'Networking'      => 'Practical insights on building resilient, high-performance business networks.',
+              'VoIP'            => 'What you need to know about modern cloud communications and UCaaS.',
+              'Telecom'         => 'Vendor-agnostic telecom guidance for businesses in the Florida Panhandle.',
+              'Industry Trends' => 'Ground-level perspective on the IT trends shaping business in 2026.',
+              'Managed IT'      => 'How proactive IT management drives business outcomes and reduces risk.',
+              'Leonidas'        => 'Inside look at how Leonidas approaches technology and client partnerships.',
+          ];
+          $excerpt = $catExcerpts[$cat] ?? 'Insights from Leonidas on managed IT, cybersecurity, and unified communications.';
+      }
+    ?>
+    <article class="post-card fade-in"
+             data-category="<?= htmlspecialchars($cat) ?>"
+             style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:1rem;padding:1.5rem;"
+             onmouseover="this.style.borderColor='rgba(212,168,67,0.2)'"
+             onmouseout="this.style.borderColor='rgba(255,255,255,0.06)'">
+      <span style="font-size:0.68rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:<?= $color ?>;"><?= htmlspecialchars($cat) ?></span>
       <h2 style="font-size:1rem;font-weight:700;color:#FFFFFF;margin:0.5rem 0 0.75rem;line-height:1.4;">
-        <a href="/blog/<?= htmlspecialchars($post['slug']) ?>" style="text-decoration:none;color:inherit;"><?= htmlspecialchars($post['title']) ?></a>
+        <a href="<?= $b ?>/blog/<?= htmlspecialchars($post['slug']) ?>" style="text-decoration:none;color:inherit;"><?= htmlspecialchars($post['title']) ?></a>
       </h2>
-      <?php if (!empty($post['excerpt'])): ?>
-      <p style="font-size:0.82rem;color:#9CA3AF;line-height:1.6;margin-bottom:1rem;"><?= htmlspecialchars($post['excerpt']) ?></p>
-      <?php endif; ?>
+      <p style="font-size:0.82rem;color:#9CA3AF;line-height:1.6;margin-bottom:1rem;"><?= htmlspecialchars($excerpt) ?></p>
       <div style="display:flex;align-items:center;justify-content:space-between;">
         <span style="font-size:0.72rem;color:#6B7280;"><?= htmlspecialchars($post['date'] ?? '') ?></span>
-        <a href="/blog/<?= htmlspecialchars($post['slug']) ?>" style="font-size:0.78rem;font-weight:600;color:#D4A843;text-decoration:none;">Read →</a>
+        <a href="<?= $b ?>/blog/<?= htmlspecialchars($post['slug']) ?>" style="font-size:0.78rem;font-weight:600;color:#D4A843;text-decoration:none;">Read →</a>
       </div>
     </article>
     <?php endforeach; ?>
   </div>
-
-  <?php if ($total > 1): ?>
-  <nav style="margin-top:3rem;display:flex;gap:0.5rem;justify-content:center;" aria-label="Blog pagination">
-    <?php for ($i = 1; $i <= $total; $i++): ?>
-    <a href="/blog/?page=<?= $i ?>"
-       style="width:2rem;height:2rem;display:flex;align-items:center;justify-content:center;border-radius:0.375rem;font-size:0.82rem;text-decoration:none;
-              <?= $i === $page ? 'background:#D4A843;color:#0A0A1A;font-weight:700;' : 'border:1px solid rgba(255,255,255,0.1);color:#9CA3AF;' ?>"
-       <?= $i === $page ? 'aria-current="page"' : '' ?>><?= $i ?></a>
-    <?php endfor; ?>
-  </nav>
-  <?php endif; ?>
 </section>
+
+<script>
+document.getElementById('filterBar').addEventListener('click', function(e) {
+  var btn = e.target.closest('.filter-btn');
+  if (!btn) return;
+  var cat = btn.dataset.cat;
+  document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  var cards = document.querySelectorAll('.post-card');
+  var visible = 0;
+  cards.forEach(function(card){
+    var match = (cat === 'all' || card.dataset.category === cat);
+    card.classList.toggle('card-hidden', !match);
+    if (match) visible++;
+  });
+  document.getElementById('postCount').textContent = visible + ' article' + (visible !== 1 ? 's' : '');
+});
+</script>
 
 <?php require_once dirname(__DIR__) . '/includes/footer.php'; ?>

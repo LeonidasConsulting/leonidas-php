@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/includes/config.php';
+$b = SITE_BASE;
 
 $page_title       = 'Contact Leonidas | Managed IT &amp; Cybersecurity — Florida Panhandle';
 $page_description = 'Contact Leonidas for managed IT services, cybersecurity, and unified communications in the Florida Panhandle. Call 850-614-9343 or request a free assessment.';
@@ -41,7 +42,7 @@ require_once __DIR__ . '/includes/header.php';
             <h2 style="font-size:1.4rem; font-weight:800; color:#FFFFFF; margin-bottom:0.5rem; letter-spacing:-0.02em;">Send us a message</h2>
             <p style="color:#6B7280; font-size:0.9rem; margin-bottom:2rem;">We respond within one business day. Typically much faster.</p>
 
-            <form id="contact-form" action="/contact-proxy.php" method="POST" novalidate>
+            <form id="contact-form" action="<?= $b ?>/contact-proxy.php" method="POST" novalidate>
 
               <div class="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-4">
                 <div class="form-group">
@@ -222,7 +223,7 @@ require_once __DIR__ . '/includes/header.php';
     };
 
     try {
-      var response = await fetch('/contact-proxy.php', {
+      var response = await fetch('<?= $b ?>/contact-proxy.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
@@ -234,10 +235,11 @@ require_once __DIR__ . '/includes/header.php';
         if (window.gtag) { gtag('event', 'form_submit', { event_category: 'contact' }); }
       } else {
         errorMsg.style.display = 'block';
-        errorMsg.querySelector('strong') && (errorMsg.innerHTML = data.error || 'Something went wrong. Please call us at <?= COMPANY_PHONE ?>.');
+        errorMsg.textContent = data.error || 'Something went wrong. Please call us at <?= COMPANY_PHONE ?>.';
       }
     } catch (err) {
       errorMsg.style.display = 'block';
+      errorMsg.textContent = 'Could not reach the server. Please call <?= COMPANY_PHONE ?> or email <?= COMPANY_EMAIL ?>.';
     } finally {
       submitBtn.disabled = false;
       submitBtn.innerHTML = 'Send Message <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';

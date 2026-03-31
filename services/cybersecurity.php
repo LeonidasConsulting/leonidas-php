@@ -12,7 +12,7 @@ require_once dirname(__DIR__) . '/includes/header.php';
     <div class="orb" style="width:600px; height:600px; background:radial-gradient(circle, rgba(212,168,67,0.07) 0%, transparent 70%); top:-150px; right:-100px;"></div>
     <div class="max-w-7xl mx-auto px-6">
       <nav class="flex items-center gap-2 text-sm mb-8" style="color:#6B7280;" aria-label="Breadcrumb">
-        <a href="/" style="color:#6B7280; text-decoration:none;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#6B7280'">Home</a>
+        <a href="<?= $b ?>/" style="color:#6B7280; text-decoration:none;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#6B7280'">Home</a>
         <span>/</span><span style="color:#6B7280;">Services</span>
         <span>/</span><span style="color:#D4A843;">Cybersecurity</span>
       </nav>
@@ -21,7 +21,7 @@ require_once dirname(__DIR__) . '/includes/header.php';
         <h1 class="fade-in fade-in-delay-1" style="font-size:clamp(2.8rem,6vw,5rem); font-weight:900; letter-spacing:-0.03em; line-height:1.05; color:#FFFFFF;">Layered Security.<br><span style="color:#D4A843;">No Shortcuts.</span></h1>
         <p class="fade-in fade-in-delay-2 mt-6 text-lg leading-relaxed max-w-2xl" style="color:#9CA3AF;">We build security programs that go beyond checkbox compliance. Every layer is intentional — from DNS filtering to privileged access management to virtual CISO leadership. Security is not an add-on. It is foundational.</p>
         <div class="flex flex-wrap gap-4 mt-10 fade-in fade-in-delay-3">
-          <a href="/contact.php" class="btn-primary">Get a Free Security Assessment <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="<?= $b ?>/contact.php" class="btn-primary">Get a Free Security Assessment <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <a href="tel:8506149343" class="btn-ghost">850-614-9343</a>
         </div>
       </div>
@@ -125,22 +125,22 @@ require_once dirname(__DIR__) . '/includes/header.php';
         <h2 style="font-size:clamp(1.5rem,3vw,2.2rem); font-weight:900; letter-spacing:-0.02em; color:#F9FAFB;">Cybersecurity insights.</h2>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <a href="../blog/post.html?slug=5-cybersecurity-threats-2026" class="blog-card fade-in">
+        <a href="<?= $b ?>/blog/5-cybersecurity-threats-2026" class="blog-card fade-in">
           <div class="text-xs font-bold tracking-wider mb-3" style="color:#D4A843;">CYBERSECURITY</div>
           <h3 style="font-weight:700; color:#FFFFFF; font-size:0.95rem; line-height:1.4; margin-bottom:0.75rem;">5 Cybersecurity Threats Every Business Must Prepare for in 2026</h3>
           <div class="text-sm font-semibold" style="color:#D4A843;">Read article →</div>
         </a>
-        <a href="../blog/post.html?slug=zero-trust-security-smbs" class="blog-card fade-in fade-in-delay-1">
+        <a href="<?= $b ?>/blog/zero-trust-security-smbs" class="blog-card fade-in fade-in-delay-1">
           <div class="text-xs font-bold tracking-wider mb-3" style="color:#D4A843;">CYBERSECURITY</div>
           <h3 style="font-weight:700; color:#FFFFFF; font-size:0.95rem; line-height:1.4; margin-bottom:0.75rem;">Zero Trust Security: A Practical Guide for Small Businesses</h3>
           <div class="text-sm font-semibold" style="color:#D4A843;">Read article →</div>
         </a>
-        <a href="../blog/post.html?slug=dark-web-monitoring" class="blog-card fade-in fade-in-delay-2">
+        <a href="<?= $b ?>/blog/dark-web-monitoring" class="blog-card fade-in fade-in-delay-2">
           <div class="text-xs font-bold tracking-wider mb-3" style="color:#D4A843;">CYBERSECURITY</div>
           <h3 style="font-weight:700; color:#FFFFFF; font-size:0.95rem; line-height:1.4; margin-bottom:0.75rem;">Dark Web Monitoring: Why Your Business Can't Afford to Ignore It</h3>
           <div class="text-sm font-semibold" style="color:#D4A843;">Read article →</div>
         </a>
-        <a href="../blog/post.html?slug=multi-factor-authentication-2026" class="blog-card fade-in fade-in-delay-3">
+        <a href="<?= $b ?>/blog/multi-factor-authentication-2026" class="blog-card fade-in fade-in-delay-3">
           <div class="text-xs font-bold tracking-wider mb-3" style="color:#D4A843;">CYBERSECURITY</div>
           <h3 style="font-weight:700; color:#FFFFFF; font-size:0.95rem; line-height:1.4; margin-bottom:0.75rem;">Why Multi-Factor Authentication Is Non-Negotiable in 2026</h3>
           <div class="text-sm font-semibold" style="color:#D4A843;">Read article →</div>
@@ -155,7 +155,7 @@ require_once dirname(__DIR__) . '/includes/header.php';
       <h2 style="font-size:clamp(2rem,4vw,3.2rem); font-weight:900; letter-spacing:-0.03em; color:#F9FAFB;">Know your security posture.<br><span style="color:#D4A843;">Before attackers do.</span></h2>
       <p class="mt-6 text-lg leading-relaxed" style="color:#9CA3AF;">A free security assessment identifies your exposure across endpoints, identity, email, and network. No commitment required — just clarity.</p>
       <div class="flex flex-wrap gap-4 justify-center mt-10">
-        <a href="/contact.php" class="btn-primary">Get Your Free Assessment <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="<?= $b ?>/contact.php" class="btn-primary">Get Your Free Assessment <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <a href="tel:8506149343" class="btn-ghost">850-614-9343</a>
       </div>
     </div>

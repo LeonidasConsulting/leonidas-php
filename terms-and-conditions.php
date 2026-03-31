@@ -1,8 +1,31 @@
 <?php
 require_once __DIR__ . '/includes/config.php';
+$b = SITE_BASE;
 $page_title = 'Terms and Conditions | Leonidas';
 $page_description = 'Terms and conditions governing the use of Leonidas managed IT, cybersecurity, and unified communications services.';
 $page_url = SITE_URL . '/terms-and-conditions';
+$page_css = '
+  .prose-policy { color: #D0D0D0; font-size: 1rem; line-height: 1.8; }
+  .prose-policy h2 {
+    font-size: 1.3rem; font-weight: 800; color: #FFFFFF;
+    margin: 2.5rem 0 0.9rem; letter-spacing: -0.02em;
+    padding-bottom: 0.5rem; border-bottom: 1px solid rgba(212,168,67,0.15);
+  }
+  .prose-policy h3 {
+    font-size: 1.05rem; font-weight: 700; color: #E5E5E5;
+    margin: 1.75rem 0 0.6rem;
+  }
+  .prose-policy p { margin-bottom: 1.2rem; }
+  .prose-policy ul, .prose-policy ol {
+    margin: 0.5rem 0 1.2rem 1.5rem; display: flex; flex-direction: column; gap: 0.4rem;
+  }
+  .prose-policy li { color: #C8C8C8; }
+  .prose-policy ul li::marker { color: #D4A843; }
+  .prose-policy ol li::marker { color: #D4A843; font-weight: 700; }
+  .prose-policy strong { color: #FFFFFF; font-weight: 600; }
+  .prose-policy a { color: #D4A843; text-decoration: underline; text-underline-offset: 3px; }
+  .prose-policy a:hover { color: #F0C060; }
+';
 require_once __DIR__ . '/includes/header.php';
 ?>
   <section style="padding: 8rem 1.5rem 5rem;">
@@ -102,7 +125,7 @@ require_once __DIR__ . '/includes/header.php';
         <p>If any provision of these Terms is found to be unenforceable or invalid, that provision will be limited or eliminated to the minimum extent necessary so that the remaining Terms will otherwise remain in full force and effect.</p>
 
         <h2>17. Entire Agreement</h2>
-        <p>These Terms, together with our <a href="privacy-policy.html">Privacy Policy</a> and any applicable Service Agreement, constitute the entire agreement between you and Leonidas with respect to your use of this website and supersede all prior agreements and understandings.</p>
+        <p>These Terms, together with our <a href="privacy-policy.php">Privacy Policy</a> and any applicable Service Agreement, constitute the entire agreement between you and Leonidas with respect to your use of this website and supersede all prior agreements and understandings.</p>
 
         <h2>18. Contact Us</h2>
         <p>If you have questions about these Terms and Conditions, please contact us:</p>

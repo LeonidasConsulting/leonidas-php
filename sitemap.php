@@ -18,6 +18,12 @@ $static_pages = [
     ['loc'=>'/services/unified-communications', 'changefreq'=>'monthly', 'priority'=>'0.8'],
     ['loc'=>'/services/telecom-wan', 'changefreq'=>'monthly', 'priority'=>'0.8'],
     ['loc'=>'/services/desktop-support', 'changefreq'=>'monthly', 'priority'=>'0.8'],
+    ['loc'=>'/industries/healthcare', 'changefreq'=>'monthly', 'priority'=>'0.7'],
+    ['loc'=>'/industries/legal', 'changefreq'=>'monthly', 'priority'=>'0.7'],
+    ['loc'=>'/industries/construction', 'changefreq'=>'monthly', 'priority'=>'0.7'],
+    ['loc'=>'/industries/hospitality', 'changefreq'=>'monthly', 'priority'=>'0.7'],
+    ['loc'=>'/industries/government-contractors', 'changefreq'=>'monthly', 'priority'=>'0.7'],
+    ['loc'=>'/industries/professional-services', 'changefreq'=>'monthly', 'priority'=>'0.7'],
     ['loc'=>'/privacy-policy', 'changefreq'=>'yearly', 'priority'=>'0.2'],
     ['loc'=>'/terms-and-conditions', 'changefreq'=>'yearly', 'priority'=>'0.2'],
 ];
