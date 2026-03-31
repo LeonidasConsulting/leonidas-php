@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://leonidastek.com/sitemap.xml

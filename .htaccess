@@ -1,0 +1,67 @@
+# ── HTTPS redirect ────────────────────────────────────────────────────────────
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ── www → non-www ─────────────────────────────────────────────────────────────
+RewriteCond %{HTTP_HOST} ^www\.leonidastek\.com [NC]
+RewriteRule ^ https://leonidastek.com%{REQUEST_URI} [L,R=301]
+
+# ── HTML → PHP URL rewrites ────────────────────────────────────────────────────
+RewriteRule ^about\.html$ /about.php [R=301,L]
+RewriteRule ^contact\.html$ /contact.php [R=301,L]
+RewriteRule ^privacy-policy\.html$ /privacy-policy.php [R=301,L]
+RewriteRule ^terms-and-conditions\.html$ /terms-and-conditions.php [R=301,L]
+RewriteRule ^services/managed-it\.html$ /services/managed-it.php [R=301,L]
+RewriteRule ^services/cybersecurity\.html$ /services/cybersecurity.php [R=301,L]
+RewriteRule ^services/network-engineering\.html$ /services/network-engineering.php [R=301,L]
+RewriteRule ^services/unified-communications\.html$ /services/unified-communications.php [R=301,L]
+RewriteRule ^services/telecom-wan\.html$ /services/telecom-wan.php [R=301,L]
+RewriteRule ^services/desktop-support\.html$ /services/desktop-support.php [R=301,L]
+
+# ── Blog pretty URLs ─────────────────────────────────────────────────────────
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^blog/([a-z0-9\-]+)/?$ /blog/post.php?slug=$1 [QSA,L]
+
+# ── Sitemap + Feed → dynamic PHP ─────────────────────────────────────────────
+RewriteRule ^sitemap\.xml$ /sitemap.php [L]
+RewriteRule ^feed\.xml$ /feed.php [L]
+
+# ── Block sensitive paths ─────────────────────────────────────────────────────
+RedirectMatch 404 /\.git
+RedirectMatch 404 /includes/
+RedirectMatch 404 /lib/
+RedirectMatch 404 /chat/
+RedirectMatch 404 /config/
+
+# ── Security headers for static files ────────────────────────────────────────
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+</IfModule>
+
+# ── GZip compression ──────────────────────────────────────────────────────────
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json
+</IfModule>
+
+# ── Browser caching ───────────────────────────────────────────────────────────
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType image/png "access plus 6 months"
+  ExpiresByType image/jpeg "access plus 6 months"
+  ExpiresByType image/svg+xml "access plus 6 months"
+  ExpiresByType image/webp "access plus 6 months"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+# ── Directory listing off ──────────────────────────────────────────────────────
+Options -Indexes
+
+# ── Custom error pages ────────────────────────────────────────────────────────
+ErrorDocument 404 /404.php
