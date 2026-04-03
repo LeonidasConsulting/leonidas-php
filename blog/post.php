@@ -89,11 +89,22 @@ require_once dirname(__DIR__) . '/includes/header.php';
 
   <div class="fade-in article-body" itemprop="articleBody">
     <?php if (!empty($post['body'])): ?>
-      <?= nl2br(htmlspecialchars($post['body'])) ?>
+      <?= $post['body'] ?>
     <?php else: ?>
       <?= BlogManager::generateBody($post) ?>
     <?php endif; ?>
   </div>
+
+  <?php if (!empty($post['sources'])): ?>
+  <div class="fade-in" style="margin-top:2.5rem;padding:1.25rem 1.5rem;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.07);border-radius:0.75rem;">
+    <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#6B7280;margin-bottom:0.75rem;">Sources</div>
+    <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0.4rem;">
+      <?php foreach ($post['sources'] as $src): ?>
+      <li style="font-size:0.82rem;"><a href="<?= htmlspecialchars($src['url']) ?>" target="_blank" rel="noopener noreferrer" style="color:#D4A843;text-decoration:none;opacity:0.8;"><?= htmlspecialchars($src['label']) ?></a></li>
+      <?php endforeach; ?>
+    </ul>
+  </div>
+  <?php endif; ?>
 
   <nav class="fade-in" style="margin-top:4rem;display:grid;grid-template-columns:1fr 1fr;gap:1rem;" aria-label="Post navigation">
     <?php if ($prev): ?>
