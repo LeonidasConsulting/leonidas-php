@@ -1,7 +1,7 @@
 <?php
 require_once dirname(__DIR__) . '/includes/config.php';
 
-$page_title       = 'Desktop Support | Leonidas';
+$page_title       = 'Desktop Support — Florida Panhandle | Leonidas';
 $page_description = 'Fast desktop support for Florida Panhandle businesses. Workstation, laptop, printer, and end-user support — remote and on-site from Leonidas.';
 $page_url         = SITE_URL . '/services/desktop-support';
 

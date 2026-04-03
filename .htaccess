@@ -50,10 +50,11 @@ RewriteRule ^feed\.xml$ /feed.php [L]
 
 # ── Block sensitive paths ─────────────────────────────────────────────────────
 RedirectMatch 404 /\.git
-RedirectMatch 404 ^/includes/$
-RedirectMatch 404 ^/lib/$
-RedirectMatch 404 ^/chat/$
-RedirectMatch 404 ^/config/$
+RedirectMatch 404 ^/includes/
+RedirectMatch 404 ^/lib/
+RedirectMatch 404 ^/chat/
+RedirectMatch 404 ^/config/
+RedirectMatch 404 ^/data/
 
 # ── Security headers for static files ────────────────────────────────────────
 <IfModule mod_headers.c>
@@ -61,6 +62,7 @@ RedirectMatch 404 ^/config/$
   Header always set X-Frame-Options "SAMEORIGIN"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
 </IfModule>
 
 # ── GZip compression ──────────────────────────────────────────────────────────

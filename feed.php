@@ -15,7 +15,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
   <link><?= SITE_URL ?>/blog/</link>
   <description>Expert IT, cybersecurity, and unified communications insights for Florida Panhandle businesses.</description>
   <language>en-us</language>
-  <atom:link href="<?= SITE_URL ?>/feed.php" rel="self" type="application/rss+xml"/>
+  <atom:link href="<?= SITE_URL ?>/feed.xml" rel="self" type="application/rss+xml"/>
   <?php foreach ($posts as $post): ?>
   <item>
     <title><?= htmlspecialchars($post['title']) ?></title>

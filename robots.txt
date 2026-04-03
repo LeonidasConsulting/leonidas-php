@@ -1,3 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /chat/
+Disallow: /contact-proxy.php
+Disallow: /includes/
+Disallow: /lib/
+Disallow: /data/
 Sitemap: https://leonidastek.com/sitemap.xml

@@ -1,7 +1,7 @@
 <?php
 require_once dirname(__DIR__) . '/includes/config.php';
 
-$page_title       = 'Cybersecurity &amp; MSSP | Leonidas';
+$page_title       = 'Cybersecurity &amp; MSSP — Florida Panhandle | Leonidas';
 $page_description = 'Layered cybersecurity for businesses in the Florida Panhandle. EDR, MDR, dark web monitoring, compliance, vCISO, and security awareness training.';
 $page_url         = SITE_URL . '/services/cybersecurity';
 

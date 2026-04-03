@@ -1,7 +1,7 @@
 <?php
 require_once dirname(__DIR__) . '/includes/config.php';
 
-$page_title       = 'Unified Communications &amp; UCaaS | Leonidas';
+$page_title       = 'Unified Communications &amp; UCaaS — Florida Panhandle | Leonidas';
 $page_description = 'Cloud phone systems and UCaaS for Florida Panhandle businesses. RingCentral, Teams Phone, Five9, Zoom Phone, contact center, and SIP trunking.';
 $page_url         = SITE_URL . '/services/unified-communications';
 

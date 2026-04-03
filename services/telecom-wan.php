@@ -1,7 +1,7 @@
 <?php
 require_once dirname(__DIR__) . '/includes/config.php';
 
-$page_title       = 'Telecom &amp; WAN Solutions | Leonidas';
+$page_title       = 'Telecom &amp; WAN Solutions — Florida Panhandle | Leonidas';
 $page_description = 'Telecom and WAN solutions for Florida Panhandle businesses. Fiber procurement, SD-WAN, POTS replacement, and telecom expense management.';
 $page_url         = SITE_URL . '/services/telecom-wan';
 

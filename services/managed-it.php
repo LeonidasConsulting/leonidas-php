@@ -1,7 +1,7 @@
 <?php
 require_once dirname(__DIR__) . '/includes/config.php';
 
-$page_title       = 'Managed IT Services | Leonidas';
+$page_title       = 'Managed IT Services — Florida Panhandle | Leonidas';
 $page_description = 'Proactive managed IT services for Florida Panhandle businesses. Monitoring, helpdesk, patch management, disaster recovery, and strategic IT planning.';
 $page_url         = SITE_URL . '/services/managed-it';
 

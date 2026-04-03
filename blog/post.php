@@ -21,18 +21,25 @@ $prev = $blog->prev($slug);
 $next = $blog->next($slug);
 
 $page_title       = htmlspecialchars($post['title']) . ' | Leonidas Blog';
-$page_description = htmlspecialchars($post['excerpt'] ?? substr(strip_tags($post['body'] ?? ''), 0, 160));
-$page_url         = SITE_URL . '/blog/' . $slug;
+$meta_description = htmlspecialchars($post['excerpt'] ?? substr(strip_tags($post['body'] ?? ''), 0, 160));
+$canonical_url    = SITE_URL . '/blog/' . $slug;
+$is_article       = true;
+
+$json_ld_image = !empty($post['image']) ? SITE_URL . '/' . ltrim($post['image'], '/') : null;
 $json_ld = [
-    '@context'       => 'https://schema.org',
-    '@type'          => 'Article',
-    'headline'       => $post['title'],
-    'datePublished'  => $post['date'] ?? '',
-    'author'         => ['@type' => 'Organization', 'name' => 'Leonidas'],
-    'publisher'      => ['@type' => 'Organization', 'name' => 'Leonidas', 'url' => SITE_URL],
-    'url'            => $page_url,
-    'description'    => $post['excerpt'] ?? '',
+    '@context'      => 'https://schema.org',
+    '@type'         => 'BlogPosting',
+    'headline'      => $post['title'],
+    'datePublished' => $post['date'] ?? '',
+    'author'        => ['@type' => 'Organization', 'name' => 'Leonidas', 'url' => SITE_URL],
+    'publisher'     => ['@type' => 'Organization', 'name' => 'Leonidas', 'url' => SITE_URL],
+    'url'           => $canonical_url,
+    'description'   => $post['excerpt'] ?? '',
 ];
+if ($json_ld_image) {
+    $json_ld['image'] = $json_ld_image;
+}
+$page_json_ld = '<script type="application/ld+json">' . json_encode($json_ld, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';
 
 $page_css = '
   .article-body { font-size: 1.05rem; line-height: 1.85; color: #D0D0D0; }

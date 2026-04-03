@@ -1,7 +1,7 @@
 <?php
 require_once dirname(__DIR__) . '/includes/config.php';
 
-$page_title       = 'Network Engineering | Leonidas';
+$page_title       = 'Network Engineering — Florida Panhandle | Leonidas';
 $page_description = 'Enterprise network engineering for Florida Panhandle businesses. SD-WAN, SASE, Wi-Fi 7, firewall management, and NOC services from Leonidas.';
 $page_url         = SITE_URL . '/services/network-engineering';
 

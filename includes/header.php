@@ -14,6 +14,7 @@
  *   $is_article        bool    (optional) true for blog posts
  */
 require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/security-headers.php';
 
 $page_title       ??= 'Managed IT &amp; Cybersecurity | Leonidas — Florida Panhandle';
 $meta_description ??= $page_description ?? 'Leonidas delivers managed IT, cybersecurity, and unified communications to businesses across the Florida Panhandle.';
@@ -84,7 +85,7 @@ $is_services = strpos($current_path, $b . '/services') === 0;
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     * { font-family: 'Inter', sans-serif; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
     body { background: #0A0A1A; color: #FFFFFF; overflow-x: hidden; }
     .grid-bg {
       position: fixed; inset: 0; z-index: 0; pointer-events: none;
@@ -179,9 +180,46 @@ $is_services = strpos($current_path, $b . '/services') === 0;
     }
     <?= $page_css ?>
   </style>
+<?php if (!empty($page_json_ld)): ?>
+  <?= $page_json_ld ?>
+<?php endif; ?>
 <?php if (empty($is_article)): ?>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"LocalBusiness","@id":"https://leonidastek.com/#business","name":"Leonidas","description":"Managed IT services, cybersecurity, network engineering, and unified communications for businesses across the Florida Panhandle.","url":"https://leonidastek.com","telephone":"850-614-9343","email":"sales@leonidastek.com","image":"https://leonidastek.com/assets/og-home.png","priceRange":"$$","address":{"@type":"PostalAddress","streetAddress":"8219 Front Beach Rd, Ste B #2080","addressLocality":"Panama City Beach","addressRegion":"FL","postalCode":"32407","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":30.1766,"longitude":-85.8055},"areaServed":{"@type":"Country","name":"United States"},"sameAs":["https://x.com/LeonidasTEK","https://facebook.com/leonidastek"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"IT Services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Managed IT Services"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Cybersecurity"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Network Engineering"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Unified Communications"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Telecom & WAN"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Desktop Support"}}]}}
+  {"@context":"https://schema.org","@type":"LocalBusiness","@id":"https://leonidastek.com/#business","name":"Leonidas","description":"Managed IT services, cybersecurity, network engineering, and unified communications for businesses across the Florida Panhandle.","url":"https://leonidastek.com","telephone":"850-614-9343","email":"sales@leonidastek.com","image":"https://leonidastek.com/assets/og-home.png","priceRange":"$$","address":{"@type":"PostalAddress","streetAddress":"8219 Front Beach Rd, Ste B #2080","addressLocality":"Panama City Beach","addressRegion":"FL","postalCode":"32407","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":30.1766,"longitude":-85.8055},"areaServed":[{"@type":"City","name":"Panama City Beach"},{"@type":"City","name":"Panama City"},{"@type":"City","name":"Destin"},{"@type":"City","name":"Fort Walton Beach"},{"@type":"City","name":"Pensacola"},{"@type":"City","name":"Niceville"},{"@type":"City","name":"Crestview"},{"@type":"City","name":"Tallahassee"}],"sameAs":["https://x.com/LeonidasTEK","https://facebook.com/leonidastek"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"IT Services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Managed IT Services"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Cybersecurity"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Network Engineering"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Unified Communications"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Telecom & WAN"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Desktop Support"}}]}}
+  </script>
+<?php endif; ?>
+<?php
+$_bc_labels = [
+  'about'=>'About','contact'=>'Contact','blog'=>'Blog',
+  'services'=>'Services','industries'=>'Industries',
+  'managed-it'=>'Managed IT','cybersecurity'=>'Cybersecurity',
+  'network-engineering'=>'Network Engineering',
+  'unified-communications'=>'Unified Communications',
+  'telecom-wan'=>'Telecom & WAN','desktop-support'=>'Desktop Support',
+  'healthcare'=>'Healthcare','legal'=>'Legal','construction'=>'Construction',
+  'hospitality'=>'Hospitality','government-contractors'=>'Government Contractors',
+  'professional-services'=>'Professional Services',
+  'privacy-policy'=>'Privacy Policy','terms-and-conditions'=>'Terms & Conditions',
+];
+$_bc_path    = trim(parse_url($canonical_url, PHP_URL_PATH) ?? '/', '/');
+$_bc_segs    = $_bc_path ? array_filter(explode('/', $_bc_path)) : [];
+if (count($_bc_segs) > 0):
+  $_bc_items   = [['@type'=>'ListItem','position'=>1,'name'=>'Leonidas','item'=>'https://leonidastek.com']];
+  $_bc_url     = 'https://leonidastek.com';
+  $_bc_pos     = 2;
+  foreach ($_bc_segs as $_bc_seg) {
+    $_bc_seg  = preg_replace('/\.php$/', '', $_bc_seg);
+    $_bc_url .= '/' . $_bc_seg;
+    $_bc_lbl  = $_bc_labels[$_bc_seg] ?? ucwords(str_replace('-', ' ', $_bc_seg));
+    if (!empty($is_article) && $_bc_pos === count($_bc_segs) + 1) {
+      $_bc_lbl = trim(preg_replace('/\s*\|.*$/', '', html_entity_decode($page_title ?? $_bc_lbl)));
+    }
+    $_bc_items[] = ['@type'=>'ListItem','position'=>$_bc_pos,'name'=>$_bc_lbl,'item'=>$_bc_url];
+    $_bc_pos++;
+  }
+?>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":<?= json_encode($_bc_items) ?>}
   </script>
 <?php endif; ?>
 </head>

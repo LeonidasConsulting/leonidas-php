@@ -5,6 +5,7 @@
  */
 (function () {
   'use strict';
+  if (document.getElementById('leo-chat-btn')) return; // prevent double-init
 
   // Production domain — hardcoded so links always resolve correctly
   // regardless of subdirectory depth or file:// local testing
@@ -16,7 +17,6 @@
 
   // ── Inject styles ────────────────────────────────────────────────────────────
   const css = `
-    html, body { overflow-x: hidden; max-width: 100%; }
     #leo-chat-btn {
       position: fixed; bottom: 28px; right: 16px; z-index: 9998;
       width: 56px; height: 56px; border-radius: 50%;
@@ -25,6 +25,7 @@
       box-shadow: 0 4px 20px rgba(212,168,67,0.45);
       display: flex; align-items: center; justify-content: center;
       transition: transform 0.2s, box-shadow 0.2s;
+      touch-action: manipulation; -webkit-tap-highlight-color: transparent;
     }
     #leo-chat-btn:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(212,168,67,0.6); }
     #leo-chat-btn svg { transition: transform 0.25s; }
@@ -213,7 +214,7 @@
         </div>
         <div class="leo-footer-note">
           Powered by Leonidas AI &nbsp;·&nbsp;
-          <a href="${ROOT_URL}/contact.html">Talk to a human</a>
+          <a href="${ROOT_URL}/contact.php">Talk to a human</a>
         </div>
       </div>
     </div>
@@ -387,7 +388,7 @@
     btn.setAttribute('aria-expanded', 'false');
   }
 
-  btn.addEventListener('click', () => isOpen ? closeChat() : openChat());
+  btn.addEventListener('click', function() { isOpen ? closeChat() : openChat(); });
   document.querySelector('#leo-chat-header .leo-close').addEventListener('click', closeChat);
 
   document.addEventListener('keydown', e => {
