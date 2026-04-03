@@ -2,8 +2,8 @@
 require_once dirname(__DIR__) . '/includes/config.php';
 
 $page_title       = 'Hospitality IT Solutions | Guest Wi-Fi & POS Security | Leonidas';
-$meta_description = 'IT and cybersecurity for hotels, resorts, and restaurants in the Florida Panhandle. Guest Wi-Fi, POS security, property management systems, and reliable connectivity.';
-$canonical_url    = 'https://leonidastek.com/industries/hospitality.php';
+$meta_description = 'IT and cybersecurity for hotels, resorts, and restaurants in the Florida Panhandle. Guest Wi-Fi, POS security, and property management system support.';
+$canonical_url    = 'https://leonidastek.com/industries/hospitality';
 
 require_once dirname(__DIR__) . '/includes/header.php';
 ?>

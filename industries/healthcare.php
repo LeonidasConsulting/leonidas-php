@@ -2,8 +2,8 @@
 require_once dirname(__DIR__) . '/includes/config.php';
 
 $page_title       = 'Healthcare IT Solutions | HIPAA-Ready Infrastructure | Leonidas';
-$meta_description = 'HIPAA-aligned IT, cybersecurity, and secure communications for healthcare organizations in the Florida Panhandle. Protect patient data and keep clinical operations running.';
-$canonical_url    = 'https://leonidastek.com/industries/healthcare.php';
+$meta_description = 'HIPAA-aligned IT and cybersecurity for healthcare organizations in the Florida Panhandle. Protect patient data and keep clinical operations running.';
+$canonical_url    = 'https://leonidastek.com/industries/healthcare';
 
 require_once dirname(__DIR__) . '/includes/header.php';
 ?>

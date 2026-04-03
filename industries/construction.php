@@ -2,8 +2,8 @@
 require_once dirname(__DIR__) . '/includes/config.php';
 
 $page_title       = 'Construction IT Solutions | Field Connectivity & MDM | Leonidas';
-$meta_description = 'IT solutions built for construction — field connectivity, mobile device management, project-site communications, and cybersecurity for contractors and builders.';
-$canonical_url    = 'https://leonidastek.com/industries/construction.php';
+$meta_description = 'IT built for construction — field connectivity, mobile device management, and cybersecurity for contractors and builders in the Florida Panhandle.';
+$canonical_url    = 'https://leonidastek.com/industries/construction';
 
 require_once dirname(__DIR__) . '/includes/header.php';
 ?>

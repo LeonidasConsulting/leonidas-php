@@ -1,9 +1,10 @@
 <?php
 require_once __DIR__ . '/includes/config.php';
 $b = SITE_BASE;
+$is_mobile = (bool)preg_match('/Mobile|Android|iPhone|iPad|BlackBerry|IEMobile|Opera Mini/i', $_SERVER['HTTP_USER_AGENT'] ?? '');
 // ── Page metadata ───────────────────────────────────────────────────────────
 $page_title       = 'Managed IT &amp; Cybersecurity | Leonidas — Florida Panhandle';
-$meta_description = 'Leonidas delivers managed IT, cybersecurity, and unified communications to businesses across the Florida Panhandle. 20+ years of experience. The new standard.';
+$meta_description = 'Leonidas delivers managed IT, cybersecurity, and unified communications to businesses across the Florida Panhandle. Based in Panama City Beach, FL.';
 $canonical_url    = 'https://leonidastek.com/';
 $og_title         = 'Leonidas — The New Standard in Managed IT &amp; Cybersecurity';
 $og_description   = $meta_description;
@@ -64,94 +65,95 @@ include 'includes/header.php';
             </a>
             <a href="<?= $b ?>/about.php" class="btn-ghost">How We Work</a>
           </div>
-          <div class="fade-in fade-in-delay-4 flex gap-8 mt-12 pt-10" style="border-top:1px solid rgba(255,255,255,0.06);">
-            <div>
-              <div class="stat-number"><span data-count="20" data-suffix="+">20+</span></div>
-              <div class="stat-label">Years Experience</div>
-            </div>
-            <div style="width:1px; background:rgba(255,255,255,0.07);"></div>
-            <div>
-              <div class="stat-number"><span data-count="300" data-suffix="+">300+</span></div>
-              <div class="stat-label">Vendor Partners</div>
-            </div>
-            <div style="width:1px; background:rgba(255,255,255,0.07);"></div>
-            <div>
-              <div class="stat-number"><span data-count="6" data-suffix="">6</span></div>
-              <div class="stat-label">Service Lines</div>
-            </div>
-          </div>
         </div>
-        <!-- Hero tech viz — threat map -->
+        <?php if (!$is_mobile): ?><!-- Hero tech viz — Live Threat Intelligence Map -->
         <div class="relative hidden xl:block" style="width:min(560px,44vw); height:min(500px,39vw); flex-shrink:0; z-index:1; isolation:isolate; overflow:hidden;">
           <canvas id="threatMap" width="580" height="520" style="position:absolute;inset:0;width:100%;height:100%;border-radius:1.5rem;"></canvas>
 
-          <!-- Network Status — top left -->
-          <div style="position:absolute;top:12px;left:12px;z-index:5;background:rgba(11,17,21,0.48);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(25,152,168,0.22);border-radius:8px;padding:7px 11px;min-width:148px;">
+          <!-- Live ticker header -->
+          <div style="position:absolute;top:0;left:0;right:0;z-index:8;height:22px;overflow:hidden;background:rgba(4,7,20,0.95);border-bottom:1px solid rgba(0,200,200,0.28);border-radius:1.5rem 1.5rem 0 0;">
+            <div style="position:absolute;left:0;top:0;bottom:0;z-index:2;display:flex;align-items:center;gap:5px;padding:0 10px;background:rgba(4,7,20,0.95);border-right:1px solid rgba(0,200,200,0.2);">
+              <span style="width:5px;height:5px;border-radius:50%;background:#00e5ff;animation:liveBlink 1.5s ease-in-out infinite;flex-shrink:0;box-shadow:0 0 4px #00e5ff;"></span>
+              <span style="font-size:8px;font-family:Inter,monospace;color:#00e5ff;font-weight:700;letter-spacing:0.12em;">LIVE</span>
+            </div>
+            <div id="classTickerText" style="position:absolute;white-space:nowrap;font-size:10px;font-family:Inter,monospace;color:rgba(0,200,200,0.75);font-weight:600;letter-spacing:0.06em;line-height:22px;top:0;left:600px;"></div>
+          </div>
+
+          <!-- SIGINT Feed — top left -->
+          <div style="position:absolute;top:28px;left:12px;z-index:5;background:rgba(4,7,20,0.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(0,200,200,0.22);border-radius:6px;padding:7px 11px;min-width:148px;">
             <div style="display:flex;align-items:center;gap:5px;margin-bottom:4px;">
-              <span style="width:5px;height:5px;border-radius:50%;background:#4ADE80;flex-shrink:0;animation:liveBlink 2s ease-in-out infinite;"></span>
-              <span style="font-size:7px;font-family:Inter,monospace;color:rgba(130,200,215,0.6);letter-spacing:0.15em;text-transform:uppercase;font-weight:700;">Network Status</span>
+              <span style="width:5px;height:5px;border-radius:50%;background:#00e5ff;flex-shrink:0;animation:liveBlink 2s ease-in-out infinite;box-shadow:0 0 5px #00e5ff;"></span>
+              <span style="font-size:7px;font-family:Inter,monospace;color:rgba(0,200,200,0.6);letter-spacing:0.15em;text-transform:uppercase;font-weight:700;">SIGINT Feed</span>
             </div>
-            <div style="font-size:10.5px;font-family:Inter,monospace;color:#4ADE80;font-weight:600;">All systems operational</div>
-            <div style="font-size:8px;font-family:Inter,monospace;color:rgba(130,200,215,0.4);margin-top:3px;">Latency: <span style="color:#21c6db;">12ms</span> · Uptime: <span id="heroUptime" style="color:#21c6db;">00:00:00</span></div>
+            <div style="font-size:10px;font-family:Inter,monospace;color:#FFFFFF;font-weight:700;letter-spacing:0.04em;">ALL SYSTEMS NOMINAL</div>
+            <div style="font-size:7.5px;font-family:Inter,monospace;color:rgba(0,200,200,0.45);margin-top:3px;">LATENCY: <span style="color:#00e5ff;">12ms</span> · UPTIME: <span id="heroUptime" style="color:#00e5ff;">00:00:00</span></div>
           </div>
 
-          <!-- Security Score — top right -->
-          <div style="position:absolute;top:12px;right:12px;z-index:5;background:rgba(11,17,21,0.48);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(25,152,168,0.22);border-radius:8px;padding:7px 11px;text-align:right;min-width:120px;">
+          <!-- Threat Level — top right -->
+          <div style="position:absolute;top:28px;right:12px;z-index:5;background:rgba(4,7,20,0.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(0,200,200,0.22);border-radius:6px;padding:7px 11px;text-align:right;min-width:120px;">
             <div style="display:flex;align-items:center;justify-content:flex-end;gap:5px;margin-bottom:4px;">
-              <span style="font-size:7px;font-family:Inter,monospace;color:rgba(130,200,215,0.6);letter-spacing:0.15em;text-transform:uppercase;font-weight:700;">Security Score</span>
-              <span style="display:inline-block;width:5px;height:5px;border-radius:50%;background:#21c6db;flex-shrink:0;"></span>
+              <span style="font-size:7px;font-family:Inter,monospace;color:rgba(0,200,200,0.6);letter-spacing:0.15em;text-transform:uppercase;font-weight:700;">Threat Level</span>
+              <span style="display:inline-block;width:5px;height:5px;border-radius:50%;background:#00e5ff;box-shadow:0 0 5px #00e5ff;flex-shrink:0;"></span>
             </div>
-            <div style="font-size:26px;font-family:Inter,monospace;font-weight:900;color:#21c6db;line-height:1;letter-spacing:-0.04em;"><span id="heroScore">98</span><span style="font-size:11px;color:rgba(130,200,215,0.45);font-weight:400;">/100</span></div>
-            <div style="font-size:7.5px;font-family:Inter,monospace;color:rgba(130,200,215,0.4);margin-top:2px;letter-spacing:0.1em;text-transform:uppercase;">Excellent</div>
+            <div style="font-size:26px;font-family:Inter,monospace;font-weight:900;color:#00e5ff;line-height:1;letter-spacing:-0.04em;text-shadow:0 0 14px rgba(0,229,255,0.35);"><span id="heroScore">98</span><span style="font-size:11px;color:rgba(0,229,255,0.4);font-weight:400;">/100</span></div>
+            <div style="font-size:7px;font-family:Inter,monospace;color:rgba(0,200,200,0.5);margin-top:2px;letter-spacing:0.1em;text-transform:uppercase;">PROTECTED</div>
           </div>
 
-          <!-- Live Events — right middle -->
-          <div style="position:absolute;right:12px;top:115px;z-index:5;width:160px;">
-            <div style="background:rgba(11,17,21,0.48);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(25,152,168,0.22);border-radius:8px;padding:7px 10px;">
+          <!-- Live Intercepts — right middle -->
+          <div style="position:absolute;right:12px;top:118px;z-index:5;width:163px;">
+            <div style="background:rgba(4,7,20,0.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(0,200,200,0.22);border-radius:6px;padding:7px 10px;">
               <div style="display:flex;align-items:center;gap:5px;margin-bottom:6px;">
-                <span style="width:5px;height:5px;border-radius:50%;background:#EF4444;flex-shrink:0;animation:liveBlink 1.2s ease-in-out infinite;"></span>
-                <span style="font-size:7px;font-family:Inter,monospace;color:rgba(130,200,215,0.6);letter-spacing:0.15em;text-transform:uppercase;font-weight:700;">Live Events</span>
+                <span style="width:5px;height:5px;border-radius:50%;background:#FF1744;flex-shrink:0;animation:liveBlink 1.2s ease-in-out infinite;box-shadow:0 0 5px #FF1744;"></span>
+                <span style="font-size:7px;font-family:Inter,monospace;color:rgba(0,200,200,0.6);letter-spacing:0.15em;text-transform:uppercase;font-weight:700;">Live Intercepts</span>
               </div>
               <div id="heroFeed" style="display:flex;flex-direction:column;gap:4px;min-height:88px;"></div>
             </div>
           </div>
 
+          <!-- Attack Vectors — left middle -->
+          <div style="position:absolute;left:12px;top:118px;z-index:5;width:136px;">
+            <div style="background:rgba(4,7,20,0.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(0,200,200,0.22);border-radius:6px;padding:7px 10px;">
+              <div style="font-size:7px;font-family:Inter,monospace;color:rgba(0,200,200,0.6);letter-spacing:0.15em;text-transform:uppercase;font-weight:700;margin-bottom:7px;">Attack Vectors</div>
+              <div id="vectorBars" style="display:flex;flex-direction:column;gap:5px;"></div>
+            </div>
+          </div>
+
           <!-- Global Intel — bottom left -->
-          <div style="position:absolute;bottom:50px;left:12px;z-index:5;background:rgba(11,17,21,0.48);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(25,152,168,0.22);border-radius:8px;padding:7px 12px;">
-            <div style="font-size:7px;font-family:Inter,monospace;color:rgba(130,200,215,0.6);letter-spacing:0.15em;text-transform:uppercase;font-weight:700;margin-bottom:6px;">Global Intel</div>
+          <div style="position:absolute;bottom:50px;left:12px;z-index:5;background:rgba(4,7,20,0.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(0,200,200,0.22);border-radius:6px;padding:7px 12px;">
+            <div style="font-size:7px;font-family:Inter,monospace;color:rgba(0,200,200,0.6);letter-spacing:0.15em;text-transform:uppercase;font-weight:700;margin-bottom:6px;">Global Intel</div>
             <div style="display:flex;gap:14px;align-items:flex-end;">
               <div>
-                <div style="font-size:6.5px;font-family:Inter,monospace;color:rgba(130,200,215,0.4);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1px;">Countries</div>
-                <div style="font-size:20px;font-family:Inter,monospace;font-weight:900;color:#EF4444;line-height:1;"><span id="heroCountries">47</span></div>
+                <div style="font-size:6.5px;font-family:Inter,monospace;color:rgba(0,200,200,0.45);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1px;">Nations</div>
+                <div style="font-size:20px;font-family:Inter,monospace;font-weight:900;color:#FF1744;line-height:1;text-shadow:0 0 8px rgba(255,23,68,0.4);"><span id="heroCountries">47</span></div>
               </div>
-              <div style="width:1px;background:rgba(25,152,168,0.18);align-self:stretch;"></div>
+              <div style="width:1px;background:rgba(0,200,200,0.12);align-self:stretch;"></div>
               <div>
-                <div style="font-size:6.5px;font-family:Inter,monospace;color:rgba(130,200,215,0.4);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1px;">Atk/Min</div>
-                <div style="font-size:20px;font-family:Inter,monospace;font-weight:900;color:#F59E0B;line-height:1;"><span id="heroAtkRate">0</span></div>
+                <div style="font-size:6.5px;font-family:Inter,monospace;color:rgba(0,200,200,0.45);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1px;">Atk/Min</div>
+                <div style="font-size:20px;font-family:Inter,monospace;font-weight:900;color:#FFD600;line-height:1;text-shadow:0 0 8px rgba(255,214,0,0.35);"><span id="heroAtkRate">0</span></div>
               </div>
-              <div style="width:1px;background:rgba(25,152,168,0.18);align-self:stretch;"></div>
+              <div style="width:1px;background:rgba(0,200,200,0.12);align-self:stretch;"></div>
               <div>
-                <div style="font-size:6.5px;font-family:Inter,monospace;color:rgba(130,200,215,0.4);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1px;">Active</div>
-                <div style="font-size:20px;font-family:Inter,monospace;font-weight:900;color:#21c6db;line-height:1;"><span id="heroActive">0</span></div>
+                <div style="font-size:6.5px;font-family:Inter,monospace;color:rgba(0,200,200,0.45);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1px;">Active</div>
+                <div style="font-size:20px;font-family:Inter,monospace;font-weight:900;color:#00e5ff;line-height:1;text-shadow:0 0 8px rgba(0,229,255,0.35);"><span id="heroActive">0</span></div>
               </div>
             </div>
           </div>
 
-          <!-- Threats Blocked — bottom right -->
-          <div style="position:absolute;bottom:50px;right:12px;z-index:5;background:rgba(11,17,21,0.48);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(25,152,168,0.22);border-radius:8px;padding:7px 14px;text-align:center;white-space:nowrap;">
+          <!-- Threats Neutralized — bottom right -->
+          <div style="position:absolute;bottom:50px;right:12px;z-index:5;background:rgba(4,7,20,0.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(0,200,200,0.22);border-radius:6px;padding:7px 14px;text-align:center;white-space:nowrap;">
             <div style="display:flex;align-items:center;justify-content:center;gap:5px;margin-bottom:3px;">
-              <span style="width:4px;height:4px;border-radius:50%;background:#EF4444;animation:liveBlink 1.2s ease-in-out infinite;"></span>
-              <span style="font-size:7px;font-family:Inter,monospace;color:rgba(130,200,215,0.6);letter-spacing:0.15em;text-transform:uppercase;font-weight:700;">Blocked Today</span>
+              <span style="width:4px;height:4px;border-radius:50%;background:#FF1744;animation:liveBlink 1.2s ease-in-out infinite;box-shadow:0 0 5px #FF1744;"></span>
+              <span style="font-size:7px;font-family:Inter,monospace;color:rgba(0,200,200,0.6);letter-spacing:0.15em;text-transform:uppercase;font-weight:700;">Neutralized</span>
             </div>
-            <div style="font-size:22px;font-family:Inter,monospace;font-weight:900;color:#21c6db;letter-spacing:-0.02em;line-height:1;"><span id="heroThreats">1,247</span></div>
-            <div style="font-size:7px;color:rgba(130,200,215,0.35);margin-top:2px;">and counting...</div>
+            <div style="font-size:22px;font-family:Inter,monospace;font-weight:900;color:#4ADE80;letter-spacing:-0.02em;line-height:1;text-shadow:0 0 12px rgba(74,222,128,0.45);"><span id="heroThreats">1,247</span></div>
+            <div style="font-size:7px;color:rgba(0,200,200,0.35);margin-top:2px;font-family:Inter,monospace;letter-spacing:0.08em;">TODAY · COUNTING</div>
           </div>
 
-          <!-- Attack log bar — bottom strip -->
-          <div style="position:absolute;bottom:8px;left:12px;right:12px;z-index:5;overflow:hidden;height:16px;">
-            <div id="attackLogInner" style="display:flex;gap:20px;white-space:nowrap;font-size:7px;font-family:Inter,monospace;color:rgba(130,200,215,0.35);"></div>
+          <!-- Attack log strip — bottom -->
+          <div style="position:absolute;bottom:6px;left:12px;right:12px;z-index:5;overflow:hidden;height:20px;">
+            <div id="attackLogInner" style="display:flex;gap:20px;white-space:nowrap;font-size:10px;font-family:Inter,monospace;color:rgba(0,200,200,0.35);line-height:20px;"></div>
           </div>
-        </div>
+        </div><?php endif; ?>
       </div>
     </div>
   </section>
@@ -479,6 +481,61 @@ include 'includes/header.php';
     </div>
   </section>
 
+
+  <!-- FROM THE BLOG -->
+<?php
+  $blog_json_path = __DIR__ . '/data/blog.json';
+  $blog_posts     = [];
+  if (file_exists($blog_json_path)) {
+      $raw = json_decode(file_get_contents($blog_json_path), true);
+      if (is_array($raw)) {
+          usort($raw, fn($a, $b) => strcmp($b['date'] ?? '', $a['date'] ?? ''));
+          $blog_posts = array_slice($raw, 0, 3);
+      }
+  }
+  $month_names = ['01'=>'January','02'=>'February','03'=>'March','04'=>'April',
+                  '05'=>'May','06'=>'June','07'=>'July','08'=>'August',
+                  '09'=>'September','10'=>'October','11'=>'November','12'=>'December'];
+  function fmt_blog_date($date_str, $months) {
+      $parts = explode('-', $date_str);
+      if (count($parts) >= 2) {
+          return ($months[$parts[1]] ?? '') . ' ' . $parts[0];
+      }
+      return $date_str;
+  }
+?>
+<?php if (!empty($blog_posts)): ?>
+  <section class="section-padding" style="border-top:1px solid rgba(255,255,255,0.06);">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <div class="section-label">Latest Thinking</div>
+        <h2 class="section-h2 heading-underline">From the Blog</h2>
+      </div>
+      <div class="grid gap-8 md:grid-cols-3">
+        <?php foreach ($blog_posts as $post):
+          $slug     = htmlspecialchars($post['slug'] ?? '');
+          $title    = htmlspecialchars($post['title'] ?? 'Untitled');
+          $category = htmlspecialchars($post['category'] ?? '');
+          $date_fmt = fmt_blog_date($post['date'] ?? '', $month_names);
+          $post_url = $b . '/blog/post.php?slug=' . urlencode($post['slug'] ?? '');
+        ?>
+        <a href="<?= $post_url ?>" class="card" style="display:block; padding:2rem; text-decoration:none; transition:transform 0.2s ease, border-color 0.2s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(212,168,67,0.4)'" onmouseout="this.style.transform='';this.style.borderColor=''">
+          <?php if ($category): ?>
+          <div style="display:inline-block; font-size:0.7rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#D4A843; background:rgba(212,168,67,0.1); border:1px solid rgba(212,168,67,0.25); border-radius:20px; padding:3px 10px; margin-bottom:1rem;"><?= $category ?></div>
+          <?php endif; ?>
+          <h3 style="font-size:1.1rem; font-weight:600; color:#FFFFFF; line-height:1.4; margin-bottom:0.75rem;"><?= $title ?></h3>
+          <div style="font-size:0.8rem; color:#6B7280; margin-bottom:1.25rem;"><?= $date_fmt ?></div>
+          <div style="font-size:0.875rem; color:#D4A843; font-weight:500;">Read more →</div>
+        </a>
+        <?php endforeach; ?>
+      </div>
+      <div class="text-center mt-12">
+        <a href="<?= $b ?>/blog/" class="btn-ghost">View all posts →</a>
+      </div>
+    </div>
+  </section>
+<?php endif; ?>
+
 </main>
 
 <?php include 'includes/footer.php'; ?>
@@ -518,14 +575,81 @@ document.querySelectorAll('.service-card').forEach(card => {
   });
 });
 
-// ── Threat Map Canvas + Live Dashboard ───────────────────────────────────────
+</script>
+<?php if (!$is_mobile): ?>
+<script>
+// ── Live Threat Intelligence Map ─────────────────────────────────────────────
 (function () {
   function rnd(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
 
   const canvas = document.getElementById('threatMap');
   if (!canvas) return;
+  if (window.innerWidth < 1280) return;
   const ctx = canvas.getContext('2d');
   const CW = canvas.width, CH = canvas.height;
+
+  // Classification ticker scroll
+  (function() {
+    const el = document.getElementById('classTickerText');
+    if (!el) return;
+    const msg = 'Avg. cost of a data breach: $4.45M (IBM 2024)   ◆   60% of SMBs close within 6 months of a cyberattack   ◆   Ransomware attacks up 73% YoY   ◆   Mean time to detect a breach: 204 days   ◆   Phishing drives 36% of all breaches   ◆   Free cybersecurity assessment — call 850-614-9343   ◆   CMMC compliance consulting available   ◆   Only 22% of SMBs have a formal incident response plan   ◆   Unpatched vulnerabilities account for 60% of breach entry points   ◆   Leonidas serves the Florida Panhandle — Panama City Beach, Pensacola, Fort Walton, Destin   ◆   ';
+    el.textContent = msg + msg; // duplicate = seamless loop
+    let pos = null, w = 0;
+    function tick() {
+      if (pos === null) pos = el.parentElement ? el.parentElement.offsetWidth : 560;
+      if (!w && el.offsetWidth > 0) w = el.offsetWidth / 2;
+      pos -= 0.6;
+      if (w && pos <= -w) pos += w; // reset by exactly one copy — no gap
+      el.style.left = pos + 'px';
+      requestAnimationFrame(tick);
+    }
+    tick();
+  })();
+
+  // Attack Vector bars
+  const VECTORS = [
+    { label:'DDoS',  pct:34, color:'#FF1744' },
+    { label:'PHISH', pct:21, color:'#FFD600' },
+    { label:'WEB',   pct:18, color:'#E040FB' },
+    { label:'RANSOM',pct:15, color:'#FF1744' },
+    { label:'SQLi',  pct:12, color:'#00E5FF' },
+  ];
+  (function() {
+    const c = document.getElementById('vectorBars');
+    if (!c) return;
+    VECTORS.forEach(v => {
+      const row = document.createElement('div');
+      row.style.cssText = 'display:flex;align-items:center;gap:4px;';
+      const lbl = document.createElement('span');
+      lbl.style.cssText = "font-size:6.5px;font-family:Inter,monospace;color:rgba(0,200,200,0.5);text-transform:uppercase;width:36px;flex-shrink:0;";
+      lbl.textContent = v.label;
+      const wrap = document.createElement('div');
+      wrap.style.cssText = 'flex:1;height:3px;background:rgba(0,200,200,0.08);border-radius:2px;overflow:hidden;';
+      const bar = document.createElement('div');
+      bar.id = 'vec_' + v.label;
+      bar.style.cssText = `height:100%;background:${v.color};border-radius:2px;width:${v.pct}%;opacity:0.7;transition:width 0.9s ease;`;
+      wrap.appendChild(bar);
+      const pctEl = document.createElement('span');
+      pctEl.id = 'vp_' + v.label;
+      pctEl.style.cssText = "font-size:6.5px;font-family:Inter,monospace;color:rgba(0,200,200,0.45);width:18px;text-align:right;flex-shrink:0;";
+      pctEl.textContent = v.pct + '%';
+      row.appendChild(lbl); row.appendChild(wrap); row.appendChild(pctEl);
+      c.appendChild(row);
+    });
+  })();
+
+  function tickVectors() {
+    let total = 0;
+    VECTORS.forEach(v => { v.pct = Math.max(5, Math.min(72, v.pct + rnd(-2, 3))); total += v.pct; });
+    VECTORS.forEach(v => {
+      const n = Math.round(v.pct / total * 100);
+      const b = document.getElementById('vec_' + v.label), p = document.getElementById('vp_' + v.label);
+      if (b) b.style.width = n + '%';
+      if (p) p.textContent = n + '%';
+    });
+    setTimeout(tickVectors, rnd(4000, 9000));
+  }
+  tickVectors();
 
   function proj(lat, lon) {
     return { x: (lon + 180) / 360 * CW, y: (80 - lat) / 155 * CH };
@@ -623,8 +747,8 @@ document.querySelectorAll('.service-card').forEach(card => {
     const { x: x1, y: y1 } = CITY_XY[si], { x: x2, y: y2 } = CITY_XY[di];
     const { cpx, cpy } = getCP(x1, y1, x2, y2);
     const r = Math.random();
-    const color = r < 0.68 ? '#EF4444' : r < 0.88 ? '#F59E0B' : '#4ADE80';
-    const speed = color === '#EF4444' ? 0.00042 + Math.random() * 0.00028 : 0.00028 + Math.random() * 0.00020;
+    const color = r < 0.52 ? '#FF1744' : r < 0.72 ? '#FFD600' : r < 0.88 ? '#E040FB' : '#00E5FF';
+    const speed = color === '#FF1744' ? 0.00042 + Math.random() * 0.00028 : 0.00028 + Math.random() * 0.00020;
     const width = 0.8 + Math.random() * 0.8;
     arcs.push({ x1, y1, x2, y2, cpx, cpy, t: 0, color, speed, width, src: CITIES[si][2], dst: CITIES[di][2] });
     arcTimestamps.push(Date.now());
@@ -671,13 +795,17 @@ document.querySelectorAll('.service-card').forEach(card => {
   function frame(ts) {
     const dt = Math.min(ts - lastTs, 50); lastTs = ts;
     ctx.clearRect(0, 0, CW, CH);
+
+    // Background — deep navy
     const bgGrad = ctx.createRadialGradient(CW*0.5, CH*0.48, 30, CW*0.5, CH*0.48, CW*0.78);
-    bgGrad.addColorStop(0, 'rgba(10,10,26,0.97)');
-    bgGrad.addColorStop(0.55, 'rgba(10,10,26,0.90)');
-    bgGrad.addColorStop(0.82, 'rgba(10,10,26,0.60)');
-    bgGrad.addColorStop(1, 'rgba(10,10,26,0.0)');
+    bgGrad.addColorStop(0, 'rgba(6,9,26,0.98)');
+    bgGrad.addColorStop(0.55, 'rgba(4,7,20,0.92)');
+    bgGrad.addColorStop(0.82, 'rgba(4,7,20,0.65)');
+    bgGrad.addColorStop(1, 'rgba(4,7,20,0.0)');
     ctx.fillStyle = bgGrad; ctx.fillRect(0, 0, CW, CH);
-    ctx.strokeStyle = 'rgba(25,152,168,0.055)'; ctx.lineWidth = 0.5;
+
+    // Grid — teal
+    ctx.strokeStyle = 'rgba(0,200,200,0.04)'; ctx.lineWidth = 0.5;
     for (let lon = -150; lon <= 180; lon += 30) {
       const x = (lon + 180) / 360 * CW;
       ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, CH); ctx.stroke();
@@ -686,48 +814,57 @@ document.querySelectorAll('.service-card').forEach(card => {
       const y = (80 - lat) / 155 * CH;
       ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(CW, y); ctx.stroke();
     }
+
+    // Land dots — teal
     LAND_DOTS.forEach(({ x, y }) => {
-      ctx.beginPath(); ctx.arc(x, y, 2.2, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(25,152,168,0.08)'; ctx.fill();
-      ctx.beginPath(); ctx.arc(x, y, 1.2, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(25,152,168,0.28)'; ctx.fill();
+      ctx.beginPath(); ctx.arc(x, y, 2.0, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(0,200,200,0.06)'; ctx.fill();
+      ctx.beginPath(); ctx.arc(x, y, 1.1, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(0,200,200,0.28)'; ctx.fill();
     });
+
+    // City nodes — white with teal glow
     CITY_XY.forEach(({ x, y }) => {
-      ctx.beginPath(); ctx.arc(x, y, 5.5, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(33,198,219,0.06)'; ctx.fill();
-      ctx.beginPath(); ctx.arc(x, y, 2.5, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(33,198,219,0.92)'; ctx.shadowColor = '#21c6db'; ctx.shadowBlur = 7;
+      ctx.beginPath(); ctx.arc(x, y, 5.0, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(0,229,255,0.06)'; ctx.fill();
+      ctx.beginPath(); ctx.arc(x, y, 2.0, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(255,255,255,0.88)'; ctx.shadowColor = '#00e5ff'; ctx.shadowBlur = 6;
       ctx.fill(); ctx.shadowBlur = 0;
     });
+
     arcSpawnTimer += dt;
     if (arcSpawnTimer > 180 && arcs.length < 30) { spawnArc(); arcSpawnTimer = 0; }
     if (Math.random() < 0.15 && arcs.length < 28) spawnArc();
     statsTimer += dt;
     if (statsTimer > 2000) { updateStats(); statsTimer = 0; }
+
     for (let i = arcs.length - 1; i >= 0; i--) {
       arcs[i].t = Math.min(1, arcs[i].t + arcs[i].speed * dt);
       drawArc(arcs[i]);
       if (arcs[i].t >= 1) {
         const a = arcs[i];
-        const pr = a.color === '#EF4444' ? 5 : 4;
+        const pr = a.color === '#FF1744' ? 5 : 4;
         pulses.push({ x: a.x2, y: a.y2, r: pr, alpha: 1, color: a.color });
-        if (a.color === '#EF4444') pulses.push({ x: a.x2, y: a.y2, r: pr * 2, alpha: 0.6, color: a.color });
+        if (a.color === '#FF1744') pulses.push({ x: a.x2, y: a.y2, r: pr * 2.2, alpha: 0.55, color: a.color });
         addEvent(a.src, a.dst, a.color);
         arcs.splice(i, 1);
       }
     }
+
     for (let i = pulses.length - 1; i >= 0; i--) {
-      const p = pulses[i]; p.r += 0.6; p.alpha -= 0.024;
+      const p = pulses[i]; p.r += 0.55; p.alpha -= 0.022;
       if (p.alpha <= 0) { pulses.splice(i, 1); continue; }
       ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.strokeStyle = p.color; ctx.lineWidth = 1.1;
-      ctx.globalAlpha = p.alpha * 0.5; ctx.shadowColor = p.color; ctx.shadowBlur = 7;
+      ctx.strokeStyle = p.color; ctx.lineWidth = 1.0;
+      ctx.globalAlpha = p.alpha * 0.55; ctx.shadowColor = p.color; ctx.shadowBlur = 8;
       ctx.stroke(); ctx.shadowBlur = 0; ctx.globalAlpha = 1;
     }
+
+    // Vignette
     const vig = ctx.createRadialGradient(CW*0.5, CH*0.5, CW*0.28, CW*0.5, CH*0.5, CW*0.76);
-    vig.addColorStop(0, 'rgba(10,10,26,0)');
-    vig.addColorStop(0.72, 'rgba(10,10,26,0)');
-    vig.addColorStop(1, 'rgba(10,10,26,0.88)');
+    vig.addColorStop(0, 'rgba(4,7,20,0)');
+    vig.addColorStop(0.72, 'rgba(4,7,20,0)');
+    vig.addColorStop(1, 'rgba(4,7,20,0.9)');
     ctx.fillStyle = vig; ctx.fillRect(0, 0, CW, CH);
     requestAnimationFrame(frame);
   }
@@ -765,62 +902,87 @@ document.querySelectorAll('.service-card').forEach(card => {
     setTimeout(tickCountries, rnd(18000, 55000));
   }
 
+  // ── Live Intercepts feed ─────────────────────────────────────────────────────
+  const APT_NAMES = ['APT-41','LAZARUS','SANDWORM','APT-29','FIN7','APT-10','COZY BEAR'];
   const STATIC_EVENTS = [
-    { msg: 'Phishing attempt blocked',         color: '#EF4444' },
-    { msg: 'Malware quarantined — EP-047',     color: '#EF4444' },
-    { msg: 'Brute-force stopped (IP banned)',  color: '#EF4444' },
-    { msg: 'DNS hijack intercepted',           color: '#EF4444' },
-    { msg: 'Ransomware payload dropped',       color: '#EF4444' },
-    { msg: 'C2 beacon blocked',               color: '#EF4444' },
-    { msg: 'Zero-day exploit attempt',         color: '#EF4444' },
-    { msg: 'Suspicious login flagged',         color: '#F59E0B' },
-    { msg: 'Lateral movement detected',        color: '#F59E0B' },
-    { msg: 'Anomalous traffic pattern',        color: '#F59E0B' },
-    { msg: 'Firewall rule triggered',          color: '#F59E0B' },
-    { msg: 'Patch deployed — 14 devices',      color: '#4ADE80' },
-    { msg: 'MFA challenge: verified',          color: '#4ADE80' },
-    { msg: 'EDR cleared: clean sweep',         color: '#4ADE80' },
-    { msg: 'Cert renewed — leonidastek.com',   color: '#4ADE80' },
-    { msg: 'Backup verified successfully',     color: '#4ADE80' },
+    { msg: '[SIGINT] PHISHING ATTEMPT',    color: '#FF1744' },
+    { msg: '[EDR]    MALWARE QUARANTINED', color: '#FF1744' },
+    { msg: '[FW]     BRUTE FORCE BLOCKED', color: '#FF1744' },
+    { msg: '[DNS]    HIJACK INTERCEPTED',  color: '#FF1744' },
+    { msg: '[EDR]    RANSOMWARE PAYLOAD',  color: '#FF1744' },
+    { msg: '[NET]    C2 BEACON BLOCKED',   color: '#FF1744' },
+    { msg: '[0-DAY]  EXPLOIT ATTEMPT',     color: '#E040FB' },
+    { msg: '[IAM]    SUSPICIOUS LOGIN',    color: '#FFD600' },
+    { msg: '[SIEM]   LATERAL MOVEMENT',    color: '#FFD600' },
+    { msg: '[NDR]    ANOMALOUS TRAFFIC',   color: '#FFD600' },
+    { msg: '[FW]     POLICY RULE TRIP',    color: '#FFD600' },
+    { msg: '[PATCH]  14 DEVICES UPDATED',  color: '#00E5FF' },
+    { msg: '[MFA]    CHALLENGE VERIFIED',  color: '#00E5FF' },
+    { msg: '[EDR]    CLEAN SWEEP OK',      color: '#00E5FF' },
+    { msg: '[PKI]    CERT RENEWED OK',     color: '#00E5FF' },
+    { msg: '[BKP]    BACKUP VERIFIED',     color: '#00E5FF' },
   ];
   let evtI = rnd(0, STATIC_EVENTS.length - 1);
   const logItems = [];
 
+  function hexId() {
+    return '[0x' + Math.floor(Math.random()*0xFFFF).toString(16).toUpperCase().padStart(4,'0') + ']';
+  }
+
   function addEvent(src, dst, color) {
     const feed = document.getElementById('heroFeed');
     if (!feed) return;
-    const type = color === '#4ADE80' ? 'Clean' : color === '#F59E0B' ? 'Flagged' : 'Attack';
     const fallback = STATIC_EVENTS[evtI++ % STATIC_EVENTS.length];
-    const msg = (src && dst) ? type + ': ' + src.split(' ')[0] + ' → ' + dst.split(' ')[0] : fallback.msg;
-    const c = (src && dst) ? color : fallback.color;
+    let msg, c;
+    if (src && dst) {
+      const apt = color === '#FF1744' && Math.random() < 0.38 ? APT_NAMES[rnd(0,APT_NAMES.length-1)] + ' · ' : '';
+      msg = hexId() + ' ' + apt + src.split(' ')[0].toUpperCase() + '\u2192' + dst.split(' ')[0].toUpperCase();
+      c = color;
+    } else {
+      msg = fallback.msg; c = fallback.color;
+    }
     const row = document.createElement('div');
     row.style.cssText = 'display:flex;align-items:center;gap:5px;opacity:0;transition:opacity 0.3s;';
     const dot = document.createElement('span');
-    dot.style.cssText = 'width:4px;height:4px;border-radius:50%;flex-shrink:0;box-shadow:0 0 5px ' + c + ';background:' + c + ';';
+    dot.style.cssText = 'width:4px;height:4px;border-radius:50%;flex-shrink:0;box-shadow:0 0 4px ' + c + ';background:' + c + ';';
     const txt = document.createElement('span');
-    txt.style.cssText = 'font-size:8px;font-family:Inter,monospace;color:rgba(180,230,235,0.72);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';
+    txt.style.cssText = "font-size:7.5px;font-family:Inter,monospace;color:rgba(255,255,255,0.78);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;";
     txt.textContent = msg;
     row.appendChild(dot); row.appendChild(txt);
     feed.insertBefore(row, feed.firstChild);
     requestAnimationFrame(() => requestAnimationFrame(() => { row.style.opacity = '1'; }));
     while (feed.children.length > 5) feed.removeChild(feed.lastChild);
-    logItems.push({ msg: type + ': ' + (src || '—') + ' → ' + (dst || '—'), color: c });
+    const type = c === '#00E5FF' ? 'CLR' : c === '#FFD600' ? 'WRN' : 'ATK';
+    logItems.push({ msg: type + ' ' + (src ? src.split(' ')[0] : '\u2014') + '\u2192' + (dst ? dst.split(' ')[0] : '\u2014'), color: c });
     if (logItems.length > 16) logItems.shift();
     const inner = document.getElementById('attackLogInner');
     if (inner) {
-      inner.innerHTML = logItems.map(it => '<span style="color:' + it.color + ';opacity:0.6;">' + it.msg + '</span>').join('<span style="opacity:0.25"> · </span>');
+      while (inner.firstChild) inner.removeChild(inner.firstChild);
+      logItems.forEach((it, idx) => {
+        if (idx > 0) {
+          const sep = document.createElement('span');
+          sep.style.opacity = '0.18';
+          sep.textContent = ' \u00b7 ';
+          inner.appendChild(sep);
+        }
+        const sp = document.createElement('span');
+        sp.style.color = it.color;
+        sp.style.opacity = '0.55';
+        sp.textContent = it.msg;
+        inner.appendChild(sp);
+      });
       const parent = inner.parentElement;
       if (parent) parent.scrollLeft = parent.scrollWidth;
     }
   }
 
   tickThreats(); tickUptime(); tickCountries();
-  setTimeout(() => addEvent(null, null, '#EF4444'), 400);
-  setTimeout(() => addEvent(null, null, '#EF4444'), 1000);
-  setTimeout(() => addEvent(null, null, '#F59E0B'), 1800);
-  setTimeout(() => addEvent(null, null, '#4ADE80'), 2600);
+  setTimeout(() => addEvent(null, null, '#FF1744'), 400);
+  setTimeout(() => addEvent(null, null, '#FF1744'), 1000);
+  setTimeout(() => addEvent(null, null, '#FFD600'), 1800);
+  setTimeout(() => addEvent(null, null, '#00E5FF'), 2600);
 })();
 </script>
-<script src="<?= $b ?>/assets/chat-widget.js" defer></script>
+<?php endif; ?>
 </body>
 </html>
