@@ -204,5 +204,90 @@ IMAGES = [
 ]
 
 
+# ── Batch 2: 2026-06-11 ───────────────────────────────────────────────────────
+IMAGES += [
+    {
+        'filename': 'business-internet-failover-guide.jpg',
+        'prompt': (
+            'Network operations center with dual ISP router and failover indicator lights active, '
+            'split-screen showing primary and backup connection status, dark server room environment, '
+            'green and amber status LEDs'
+        ),
+    },
+    {
+        'filename': 'dedicated-internet-access-vs-broadband.jpg',
+        'prompt': (
+            'Side-by-side comparison of a busy shared broadband cable and a clean dedicated fiber '
+            'line running into a business router, data center hallway, symmetrical composition, '
+            'navy and charcoal background'
+        ),
+    },
+    {
+        'filename': 'it-support-hospitality-florida-panhandle.jpg',
+        'prompt': (
+            'Modern hotel lobby with a sleek front desk and smart property management terminal, '
+            'beachfront Florida view through floor-to-ceiling windows, warm interior lighting '
+            'contrasting with bright Gulf Coast daylight'
+        ),
+    },
+    {
+        'filename': 'edge-computing-business-explained.jpg',
+        'prompt': (
+            'Small ruggedized edge computing device mounted on a factory wall next to industrial '
+            'sensors and machinery, real-time data flowing on a nearby display, industrial dark '
+            'environment with amber indicator lights'
+        ),
+    },
+    {
+        'filename': 'consumerization-of-it-business.jpg',
+        'prompt': (
+            'Employee at a corporate desk with personal smartphone and company laptop side by side, '
+            'IT policy overlay graphic on the laptop screen, modern open-plan office, '
+            'cool blue and warm gold ambient lighting'
+        ),
+    },
+    {
+        'filename': 'microsoft-teams-rooms-conference-setup.jpg',
+        'prompt': (
+            'Premium conference room with a large display showing a Teams video call in progress, '
+            'ceiling-mounted camera and table microphone array, empty executive chairs around '
+            'a dark wooden table, soft architectural lighting'
+        ),
+    },
+    {
+        'filename': 'shadow-it-business-risk.jpg',
+        'prompt': (
+            'Employee using an unsanctioned app on a personal device while corporate firewall '
+            'rules appear behind them on a security dashboard, dark office setting, '
+            'warning-orange and charcoal tones, subtle data flow visualization'
+        ),
+    },
+    {
+        'filename': 'it-vendor-sprawl-consolidation.jpg',
+        'prompt': (
+            'Executive desk covered with overlapping vendor software boxes and contract folders, '
+            'chaotic stack being organized into a single clean binder, dark background, '
+            'overhead spotlight on the organized stack'
+        ),
+    },
+    {
+        'filename': 'structured-cabling-business-guide.jpg',
+        'prompt': (
+            'Pristine structured cabling installation inside a clean network rack, perfectly dressed '
+            'Cat6 cables in organized bundles color-coded by VLAN, patch panel with labeled ports, '
+            'data center backdrop with cool blue LED strip lighting'
+        ),
+    },
+    {
+        'filename': 'what-is-siem-business.jpg',
+        'prompt': (
+            'Security analyst monitoring a SIEM dashboard with multiple alert feeds and log streams '
+            'on a curved triple-monitor setup, dark SOC environment, red and gold alert indicators, '
+            'world map threat visualization on the center screen'
+        ),
+    },
+]
+
+
 if __name__ == '__main__':
     main()
