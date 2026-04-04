@@ -16,6 +16,8 @@ $page_json_ld = '<script type="application/ld+json">' . json_encode([
     ],
 ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';
 
+$og_image = 'https://leonidastek.com/assets/og-telecom.png';
+
 require_once dirname(__DIR__) . '/includes/header.php';
 ?>
 
