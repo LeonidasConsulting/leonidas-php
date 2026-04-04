@@ -125,7 +125,7 @@ require_once __DIR__ . '/includes/header.php';
         <p>If any provision of these Terms is found to be unenforceable or invalid, that provision will be limited or eliminated to the minimum extent necessary so that the remaining Terms will otherwise remain in full force and effect.</p>
 
         <h2>17. Entire Agreement</h2>
-        <p>These Terms, together with our <a href="privacy-policy.php">Privacy Policy</a> and any applicable Service Agreement, constitute the entire agreement between you and Leonidas with respect to your use of this website and supersede all prior agreements and understandings.</p>
+        <p>These Terms, together with our <a href="privacy-policy">Privacy Policy</a> and any applicable Service Agreement, constitute the entire agreement between you and Leonidas with respect to your use of this website and supersede all prior agreements and understandings.</p>
 
         <h2>18. Contact Us</h2>
         <p>If you have questions about these Terms and Conditions, please contact us:</p>

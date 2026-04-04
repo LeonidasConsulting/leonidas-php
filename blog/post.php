@@ -136,7 +136,7 @@ require_once dirname(__DIR__) . '/includes/header.php';
 
   <div class="fade-in" style="margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.07);text-align:center;">
     <p style="color:#9CA3AF;margin-bottom:1.5rem;">Ready to put these insights to work for your business?</p>
-    <a href="<?= $b ?>/contact.php" class="btn-primary">Get a Free Assessment</a>
+    <a href="<?= $b ?>/contact" class="btn-primary">Get a Free Assessment</a>
   </div>
 </article>
 

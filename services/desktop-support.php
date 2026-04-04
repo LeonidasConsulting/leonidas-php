@@ -5,6 +5,17 @@ $page_title       = 'Desktop Support — Florida Panhandle | Leonidas';
 $page_description = 'Fast desktop support for Florida Panhandle businesses. Workstation, laptop, printer, and end-user support — remote and on-site from Leonidas.';
 $page_url         = SITE_URL . '/services/desktop-support';
 
+$page_json_ld = '<script type="application/ld+json">' . json_encode([
+    '@context' => 'https://schema.org',
+    '@type'    => 'FAQPage',
+    'mainEntity' => [
+        ['@type'=>'Question','name'=>'What does desktop support include?','acceptedAnswer'=>['@type'=>'Answer','text'=>'Desktop support covers workstation and laptop troubleshooting, OS and software support, printer and peripheral setup, new device deployment, user onboarding, and Microsoft 365 end-user assistance — both remote and on-site.']],
+        ['@type'=>'Question','name'=>'How quickly can desktop support issues be resolved?','acceptedAnswer'=>['@type'=>'Answer','text'=>'Most issues are resolved remotely within hours. On-site visits across the Florida Panhandle are scheduled based on urgency. We prioritize first-call resolution so your team gets back to work fast.']],
+        ['@type'=>'Question','name'=>'Is desktop support included in managed IT?','acceptedAnswer'=>['@type'=>'Answer','text'=>'Yes — desktop and end-user support is included in our managed IT plans. It can also be contracted as a standalone service for businesses with an existing IT team that needs overflow or specialized support.']],
+        ['@type'=>'Question','name'=>'Do you support both Windows and Mac computers?','acceptedAnswer'=>['@type'=>'Answer','text'=>'Yes. We support Windows, macOS, and mixed environments — including mobile devices and the full Microsoft 365 suite across all platforms.']],
+    ],
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';
+
 require_once dirname(__DIR__) . '/includes/header.php';
 ?>
 
@@ -21,7 +32,7 @@ require_once dirname(__DIR__) . '/includes/header.php';
         <h1 class="fade-in fade-in-delay-1" style="font-size:clamp(2.8rem,6vw,5rem); font-weight:900; letter-spacing:-0.03em; line-height:1.05; color:#FFFFFF;">Fast Support.<br><span style="color:#D4A843;">First-Time Resolution.</span></h1>
         <p class="fade-in fade-in-delay-2 mt-6 text-lg leading-relaxed max-w-2xl" style="color:#9CA3AF;">When your team can not work, every minute costs you money. Our desktop support team responds fast, resolves issues the first time, and keeps your workforce productive. Remote when it makes sense. On-site when it needs hands.</p>
         <div class="flex flex-wrap gap-4 mt-10 fade-in fade-in-delay-3">
-          <a href="<?= $b ?>/contact.php" class="btn-primary">Get Support <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="<?= $b ?>/contact" class="btn-primary">Get Support <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <a href="tel:8506149343" class="btn-ghost">850-614-9343</a>
         </div>
       </div>
@@ -124,29 +135,51 @@ require_once dirname(__DIR__) . '/includes/header.php';
         <h2 style="font-size:clamp(1.8rem,3.5vw,2.8rem); font-weight:900; letter-spacing:-0.03em; color:#F9FAFB;">Support for every type of workplace.</h2>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <a href="<?= $b ?>/industries/legal.php" class="p-6 rounded-xl fade-in" style="background:rgba(255,255,255,0.02); border:1px solid rgba(212,168,67,0.1); text-decoration:none; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(212,168,67,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.1)';this.style.transform='translateY(0)'">
+        <a href="<?= $b ?>/industries/legal" class="p-6 rounded-xl fade-in" style="background:rgba(255,255,255,0.02); border:1px solid rgba(212,168,67,0.1); text-decoration:none; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(212,168,67,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.1)';this.style.transform='translateY(0)'">
           <div style="font-size:1.5rem; margin-bottom:1rem;">⚖️</div>
           <h3 style="font-weight:700; color:#FFFFFF; margin-bottom:0.5rem;">Legal</h3>
           <p class="text-sm leading-relaxed" style="color:#9CA3AF;">Attorney workstations, document management software support, and reliable IT for legal professionals.</p>
           <div class="mt-4 text-sm font-semibold" style="color:#D4A843;">See how we help &rarr;</div>
         </a>
-        <a href="<?= $b ?>/industries/professional-services.php" class="p-6 rounded-xl fade-in fade-in-delay-1" style="background:rgba(255,255,255,0.02); border:1px solid rgba(212,168,67,0.1); text-decoration:none; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(212,168,67,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.1)';this.style.transform='translateY(0)'">
+        <a href="<?= $b ?>/industries/professional-services" class="p-6 rounded-xl fade-in fade-in-delay-1" style="background:rgba(255,255,255,0.02); border:1px solid rgba(212,168,67,0.1); text-decoration:none; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(212,168,67,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.1)';this.style.transform='translateY(0)'">
           <div style="font-size:1.5rem; margin-bottom:1rem;">💼</div>
           <h3 style="font-weight:700; color:#FFFFFF; margin-bottom:0.5rem;">Professional Services</h3>
           <p class="text-sm leading-relaxed" style="color:#9CA3AF;">Knowledge worker support, M365 administration, and productivity-focused IT for service firms.</p>
           <div class="mt-4 text-sm font-semibold" style="color:#D4A843;">See how we help &rarr;</div>
         </a>
-        <a href="<?= $b ?>/industries/healthcare.php" class="p-6 rounded-xl fade-in fade-in-delay-2" style="background:rgba(255,255,255,0.02); border:1px solid rgba(212,168,67,0.1); text-decoration:none; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(212,168,67,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.1)';this.style.transform='translateY(0)'">
+        <a href="<?= $b ?>/industries/healthcare" class="p-6 rounded-xl fade-in fade-in-delay-2" style="background:rgba(255,255,255,0.02); border:1px solid rgba(212,168,67,0.1); text-decoration:none; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(212,168,67,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.1)';this.style.transform='translateY(0)'">
           <div style="font-size:1.5rem; margin-bottom:1rem;">🏥</div>
           <h3 style="font-weight:700; color:#FFFFFF; margin-bottom:0.5rem;">Healthcare</h3>
           <p class="text-sm leading-relaxed" style="color:#9CA3AF;">Clinical workstation support, EHR helpdesk, and HIPAA-aware desktop management for medical offices.</p>
           <div class="mt-4 text-sm font-semibold" style="color:#D4A843;">See how we help &rarr;</div>
         </a>
-        <a href="<?= $b ?>/industries/hospitality.php" class="p-6 rounded-xl fade-in fade-in-delay-3" style="background:rgba(255,255,255,0.02); border:1px solid rgba(212,168,67,0.1); text-decoration:none; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(212,168,67,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.1)';this.style.transform='translateY(0)'">
+        <a href="<?= $b ?>/industries/hospitality" class="p-6 rounded-xl fade-in fade-in-delay-3" style="background:rgba(255,255,255,0.02); border:1px solid rgba(212,168,67,0.1); text-decoration:none; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(212,168,67,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.1)';this.style.transform='translateY(0)'">
           <div style="font-size:1.5rem; margin-bottom:1rem;">🏨</div>
           <h3 style="font-weight:700; color:#FFFFFF; margin-bottom:0.5rem;">Hospitality</h3>
           <p class="text-sm leading-relaxed" style="color:#9CA3AF;">POS system support, front desk IT, and property management software assistance for hospitality teams.</p>
           <div class="mt-4 text-sm font-semibold" style="color:#D4A843;">See how we help &rarr;</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- RELATED SERVICES -->
+  <section class="py-20 px-6" style="background:rgba(5,5,16,0.4);">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-12 fade-in">
+        <div class="section-label">Related Services</div>
+        <h2 style="font-size:clamp(1.8rem,3.5vw,2.8rem); font-weight:900; letter-spacing:-0.03em; color:#F9FAFB;">Often paired with Desktop Support.</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <a href="<?= $b ?>/services/managed-it" class="service-card fade-in">
+          <h3 style="font-weight:700; color:#D4A843; margin-bottom:0.5rem;">Managed IT Services</h3>
+          <p style="color:#9CA3AF; font-size:0.88rem; line-height:1.6;">Desktop support bundled with proactive monitoring, patch management, and strategic IT planning — one team covering everything.</p>
+          <div class="mt-4 text-sm font-semibold" style="color:#D4A843;">Learn more →</div>
+        </a>
+        <a href="<?= $b ?>/services/cybersecurity" class="service-card fade-in fade-in-delay-1">
+          <h3 style="font-weight:700; color:#D4A843; margin-bottom:0.5rem;">Cybersecurity</h3>
+          <p style="color:#9CA3AF; font-size:0.88rem; line-height:1.6;">Every endpoint we support can also be protected with EDR, MFA enforcement, and security awareness training.</p>
+          <div class="mt-4 text-sm font-semibold" style="color:#D4A843;">Learn more →</div>
         </a>
       </div>
     </div>
@@ -158,7 +191,7 @@ require_once dirname(__DIR__) . '/includes/header.php';
       <h2 style="font-size:clamp(2rem,4vw,3.2rem); font-weight:900; letter-spacing:-0.03em; color:#F9FAFB;">Your team deserves<br><span style="color:#D4A843;">support that works.</span></h2>
       <p class="mt-6 text-lg leading-relaxed" style="color:#9CA3AF;">Stop accepting slow response times and unresolved tickets as normal. Let us show you what responsive, accountable desktop support looks like.</p>
       <div class="flex flex-wrap gap-4 justify-center mt-10">
-        <a href="<?= $b ?>/contact.php" class="btn-primary">Get Your Free Assessment <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="<?= $b ?>/contact" class="btn-primary">Get Your Free Assessment <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <a href="tel:8506149343" class="btn-ghost">850-614-9343</a>
       </div>
     </div>

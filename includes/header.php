@@ -238,7 +238,7 @@ if (count($_bc_segs) > 0):
       <span style="font-weight:800; font-size:1.1rem; letter-spacing:0.18em; color:#FFFFFF;">LEONIDAS</span>
     </a>
     <div class="hidden md:flex items-center gap-1">
-      <a href="<?= $b ?>/about.php" class="px-4 py-2 rounded-md text-sm" style="color:<?= $is_about ? '#D4A843' : '#9CA3AF' ?>;"
+      <a href="<?= $b ?>/about" class="px-4 py-2 rounded-md text-sm" style="color:<?= $is_about ? '#D4A843' : '#9CA3AF' ?>;"
          onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.05)'"
          onmouseout="this.style.color='<?= $is_about ? '#D4A843' : '#9CA3AF' ?>';this.style.background='transparent'">About</a>
       <div class="relative svc-parent">
@@ -248,25 +248,25 @@ if (count($_bc_segs) > 0):
         </button>
         <div class="absolute top-full left-0 mt-1 w-60 rounded-xl overflow-hidden svc-menu" style="background:#0D0D20; border:1px solid rgba(212,168,67,0.15); box-shadow:0 20px 60px rgba(0,0,0,0.6);">
           <div class="p-1.5">
-            <a href="<?= $b ?>/services/managed-it.php" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm" style="color:#9CA3AF;" onmouseover="this.style.background='rgba(212,168,67,0.07)';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#9CA3AF'"><svg width="16" height="16" fill="none" viewBox="0 0 16 16"><rect x="1" y="5" width="14" height="9" rx="1.5" stroke="#D4A843" stroke-width="1.2"/><path d="M5 8.5h6M5 11h4" stroke="#D4A843" stroke-width="1.2" stroke-linecap="round"/></svg>Managed IT</a>
-            <a href="<?= $b ?>/services/cybersecurity.php" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm" style="color:#9CA3AF;" onmouseover="this.style.background='rgba(212,168,67,0.07)';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#9CA3AF'"><svg width="16" height="16" fill="none" viewBox="0 0 16 16"><path d="M8 2L2 4.5v5.5C2 13.5 5 15.5 8 16c3-0.5 6-2.5 6-6V4.5L8 2z" stroke="#D4A843" stroke-width="1.2"/><path d="M5.5 8.5l2 2L11 6.5" stroke="#D4A843" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Cybersecurity</a>
-            <a href="<?= $b ?>/services/network-engineering.php" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm" style="color:#9CA3AF;" onmouseover="this.style.background='rgba(212,168,67,0.07)';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#9CA3AF'"><svg width="16" height="16" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="2.5" stroke="#D4A843" stroke-width="1.2"/><circle cx="2.5" cy="4" r="1.5" stroke="#D4A843" stroke-width="1.2"/><circle cx="13.5" cy="4" r="1.5" stroke="#D4A843" stroke-width="1.2"/><path d="M4 4.5L6 7M10 7l2-2.5" stroke="#D4A843" stroke-width="1.2"/></svg>Network Engineering</a>
-            <a href="<?= $b ?>/services/unified-communications.php" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm" style="color:#9CA3AF;" onmouseover="this.style.background='rgba(212,168,67,0.07)';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#9CA3AF'"><svg width="16" height="16" fill="none" viewBox="0 0 16 16"><path d="M3 3h10c.6 0 1 .4 1 1v6c0 .6-.4 1-1 1H9l-3 2V11H3c-.6 0-1-.4-1-1V4c0-.6.4-1 1-1z" stroke="#D4A843" stroke-width="1.2"/></svg>Unified Communications</a>
-            <a href="<?= $b ?>/services/telecom-wan.php" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm" style="color:#9CA3AF;" onmouseover="this.style.background='rgba(212,168,67,0.07)';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#9CA3AF'"><svg width="16" height="16" fill="none" viewBox="0 0 16 16"><path d="M8 1.5C5 1.5 2.5 4 2.5 7c0 1.5.6 2.8 1.5 3.8" stroke="#D4A843" stroke-width="1.2"/><path d="M8 1.5C11 1.5 13.5 4 13.5 7c0 1.5-.6 2.8-1.5 3.8" stroke="#D4A843" stroke-width="1.2"/><path d="M8 4C6.5 4 5.5 5.3 5.5 7s1 3 2.5 3 2.5-1.3 2.5-3S9.5 4 8 4z" stroke="#D4A843" stroke-width="1.2"/><line x1="8" y1="10" x2="8" y2="14" stroke="#D4A843" stroke-width="1.2"/><line x1="5" y1="14" x2="11" y2="14" stroke="#D4A843" stroke-width="1.2"/></svg>Telecom &amp; WAN</a>
-            <a href="<?= $b ?>/services/desktop-support.php" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm" style="color:#9CA3AF;" onmouseover="this.style.background='rgba(212,168,67,0.07)';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#9CA3AF'"><svg width="16" height="16" fill="none" viewBox="0 0 16 16"><rect x="1" y="2" width="14" height="10" rx="1.5" stroke="#D4A843" stroke-width="1.2"/><line x1="8" y1="12" x2="8" y2="15" stroke="#D4A843" stroke-width="1.2"/><line x1="5" y1="15" x2="11" y2="15" stroke="#D4A843" stroke-width="1.2"/></svg>Desktop Support</a>
+            <a href="<?= $b ?>/services/managed-it" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm" style="color:#9CA3AF;" onmouseover="this.style.background='rgba(212,168,67,0.07)';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#9CA3AF'"><svg width="16" height="16" fill="none" viewBox="0 0 16 16"><rect x="1" y="5" width="14" height="9" rx="1.5" stroke="#D4A843" stroke-width="1.2"/><path d="M5 8.5h6M5 11h4" stroke="#D4A843" stroke-width="1.2" stroke-linecap="round"/></svg>Managed IT</a>
+            <a href="<?= $b ?>/services/cybersecurity" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm" style="color:#9CA3AF;" onmouseover="this.style.background='rgba(212,168,67,0.07)';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#9CA3AF'"><svg width="16" height="16" fill="none" viewBox="0 0 16 16"><path d="M8 2L2 4.5v5.5C2 13.5 5 15.5 8 16c3-0.5 6-2.5 6-6V4.5L8 2z" stroke="#D4A843" stroke-width="1.2"/><path d="M5.5 8.5l2 2L11 6.5" stroke="#D4A843" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Cybersecurity</a>
+            <a href="<?= $b ?>/services/network-engineering" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm" style="color:#9CA3AF;" onmouseover="this.style.background='rgba(212,168,67,0.07)';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#9CA3AF'"><svg width="16" height="16" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="2.5" stroke="#D4A843" stroke-width="1.2"/><circle cx="2.5" cy="4" r="1.5" stroke="#D4A843" stroke-width="1.2"/><circle cx="13.5" cy="4" r="1.5" stroke="#D4A843" stroke-width="1.2"/><path d="M4 4.5L6 7M10 7l2-2.5" stroke="#D4A843" stroke-width="1.2"/></svg>Network Engineering</a>
+            <a href="<?= $b ?>/services/unified-communications" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm" style="color:#9CA3AF;" onmouseover="this.style.background='rgba(212,168,67,0.07)';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#9CA3AF'"><svg width="16" height="16" fill="none" viewBox="0 0 16 16"><path d="M3 3h10c.6 0 1 .4 1 1v6c0 .6-.4 1-1 1H9l-3 2V11H3c-.6 0-1-.4-1-1V4c0-.6.4-1 1-1z" stroke="#D4A843" stroke-width="1.2"/></svg>Unified Communications</a>
+            <a href="<?= $b ?>/services/telecom-wan" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm" style="color:#9CA3AF;" onmouseover="this.style.background='rgba(212,168,67,0.07)';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#9CA3AF'"><svg width="16" height="16" fill="none" viewBox="0 0 16 16"><path d="M8 1.5C5 1.5 2.5 4 2.5 7c0 1.5.6 2.8 1.5 3.8" stroke="#D4A843" stroke-width="1.2"/><path d="M8 1.5C11 1.5 13.5 4 13.5 7c0 1.5-.6 2.8-1.5 3.8" stroke="#D4A843" stroke-width="1.2"/><path d="M8 4C6.5 4 5.5 5.3 5.5 7s1 3 2.5 3 2.5-1.3 2.5-3S9.5 4 8 4z" stroke="#D4A843" stroke-width="1.2"/><line x1="8" y1="10" x2="8" y2="14" stroke="#D4A843" stroke-width="1.2"/><line x1="5" y1="14" x2="11" y2="14" stroke="#D4A843" stroke-width="1.2"/></svg>Telecom &amp; WAN</a>
+            <a href="<?= $b ?>/services/desktop-support" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm" style="color:#9CA3AF;" onmouseover="this.style.background='rgba(212,168,67,0.07)';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#9CA3AF'"><svg width="16" height="16" fill="none" viewBox="0 0 16 16"><rect x="1" y="2" width="14" height="10" rx="1.5" stroke="#D4A843" stroke-width="1.2"/><line x1="8" y1="12" x2="8" y2="15" stroke="#D4A843" stroke-width="1.2"/><line x1="5" y1="15" x2="11" y2="15" stroke="#D4A843" stroke-width="1.2"/></svg>Desktop Support</a>
           </div>
         </div>
       </div>
       <a href="<?= $b ?>/blog/" class="px-4 py-2 rounded-md text-sm" style="color:<?= $is_blog ? '#D4A843' : '#9CA3AF' ?>;"
          onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.05)'"
          onmouseout="this.style.color='<?= $is_blog ? '#D4A843' : '#9CA3AF' ?>';this.style.background='transparent'">Blog</a>
-      <a href="<?= $b ?>/contact.php" class="px-4 py-2 rounded-md text-sm" style="color:<?= $is_contact ? '#D4A843' : '#9CA3AF' ?>;"
+      <a href="<?= $b ?>/contact" class="px-4 py-2 rounded-md text-sm" style="color:<?= $is_contact ? '#D4A843' : '#9CA3AF' ?>;"
          onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.05)'"
          onmouseout="this.style.color='<?= $is_contact ? '#D4A843' : '#9CA3AF' ?>';this.style.background='transparent'">Contact</a>
     </div>
     <div class="hidden md:flex items-center gap-3">
       <a href="tel:8506149343" class="text-sm font-medium" style="color:#D4A843; letter-spacing:0.02em;">850-614-9343</a>
-      <a href="<?= $b ?>/contact.php" class="btn-primary" style="padding:0.5rem 1.25rem; font-size:0.85rem;">Free Assessment</a>
+      <a href="<?= $b ?>/contact" class="btn-primary" style="padding:0.5rem 1.25rem; font-size:0.85rem;">Free Assessment</a>
     </div>
     <button id="mobile-menu-btn" class="md:hidden p-2" aria-label="Toggle menu" aria-expanded="false" style="color:#D4A843; background:none; border:none; cursor:pointer;">
       <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="2" y1="6" x2="20" y2="6"/><line x1="2" y1="11" x2="20" y2="11"/><line x1="2" y1="16" x2="20" y2="16"/></svg>
@@ -274,16 +274,16 @@ if (count($_bc_segs) > 0):
   </div>
   <div id="mobile-menu" class="hidden md:hidden" style="border-top:1px solid rgba(212,168,67,0.08); background:rgba(10,10,26,0.98);">
     <div class="px-6 py-5 flex flex-col gap-1">
-      <a href="<?= $b ?>/about.php"                           class="px-3 py-2.5 rounded-lg text-sm" style="color:#9CA3AF;">About</a>
-      <a href="<?= $b ?>/services/managed-it.php"             class="px-3 py-2.5 rounded-lg text-sm" style="color:#9CA3AF;">Managed IT</a>
-      <a href="<?= $b ?>/services/cybersecurity.php"          class="px-3 py-2.5 rounded-lg text-sm" style="color:#9CA3AF;">Cybersecurity</a>
-      <a href="<?= $b ?>/services/network-engineering.php"    class="px-3 py-2.5 rounded-lg text-sm" style="color:#9CA3AF;">Network Engineering</a>
-      <a href="<?= $b ?>/services/unified-communications.php" class="px-3 py-2.5 rounded-lg text-sm" style="color:#9CA3AF;">Unified Communications</a>
-      <a href="<?= $b ?>/services/telecom-wan.php"            class="px-3 py-2.5 rounded-lg text-sm" style="color:#9CA3AF;">Telecom &amp; WAN</a>
-      <a href="<?= $b ?>/services/desktop-support.php"        class="px-3 py-2.5 rounded-lg text-sm" style="color:#9CA3AF;">Desktop Support</a>
+      <a href="<?= $b ?>/about"                               class="px-3 py-2.5 rounded-lg text-sm" style="color:#9CA3AF;">About</a>
+      <a href="<?= $b ?>/services/managed-it"             class="px-3 py-2.5 rounded-lg text-sm" style="color:#9CA3AF;">Managed IT</a>
+      <a href="<?= $b ?>/services/cybersecurity"          class="px-3 py-2.5 rounded-lg text-sm" style="color:#9CA3AF;">Cybersecurity</a>
+      <a href="<?= $b ?>/services/network-engineering"    class="px-3 py-2.5 rounded-lg text-sm" style="color:#9CA3AF;">Network Engineering</a>
+      <a href="<?= $b ?>/services/unified-communications" class="px-3 py-2.5 rounded-lg text-sm" style="color:#9CA3AF;">Unified Communications</a>
+      <a href="<?= $b ?>/services/telecom-wan"            class="px-3 py-2.5 rounded-lg text-sm" style="color:#9CA3AF;">Telecom &amp; WAN</a>
+      <a href="<?= $b ?>/services/desktop-support"        class="px-3 py-2.5 rounded-lg text-sm" style="color:#9CA3AF;">Desktop Support</a>
       <a href="<?= $b ?>/blog/"                               class="px-3 py-2.5 rounded-lg text-sm" style="color:#9CA3AF;">Blog</a>
-      <a href="<?= $b ?>/contact.php"                         class="px-3 py-2.5 rounded-lg text-sm" style="color:#9CA3AF;">Contact</a>
-      <a href="<?= $b ?>/contact.php" class="btn-primary mt-3 justify-center">Free Assessment</a>
+      <a href="<?= $b ?>/contact"                         class="px-3 py-2.5 rounded-lg text-sm" style="color:#9CA3AF;">Contact</a>
+      <a href="<?= $b ?>/contact" class="btn-primary mt-3 justify-center">Free Assessment</a>
     </div>
   </div>
 </nav>

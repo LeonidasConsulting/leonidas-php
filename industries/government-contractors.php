@@ -23,7 +23,7 @@ require_once dirname(__DIR__) . '/includes/header.php';
         <h1 class="fade-in fade-in-delay-1" style="font-size:clamp(2.8rem,6vw,5rem); font-weight:900; letter-spacing:-0.03em; line-height:1.05; color:#FFFFFF;">CMMC isn't optional.<br><span style="color:#D4A843;">Neither is your contract.</span></h1>
         <p class="fade-in fade-in-delay-2 mt-6 text-lg leading-relaxed max-w-2xl" style="color:#9CA3AF;">Defense contractors and federal subcontractors face cybersecurity requirements unlike any other industry. CMMC 2.0, NIST SP 800-171, and CUI handling obligations are contractual — failure to comply doesn't just create legal risk, it costs you the contract. The Florida Panhandle's defense corridor demands IT infrastructure built to federal standards.</p>
         <div class="flex flex-wrap gap-4 mt-10 fade-in fade-in-delay-3">
-          <a href="<?= $b ?>/contact.php" class="btn-primary">Get a Free CMMC Readiness Assessment <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="<?= $b ?>/contact" class="btn-primary">Get a Free CMMC Readiness Assessment <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <a href="tel:8506149343" class="btn-ghost">850-614-9343</a>
         </div>
       </div>
@@ -129,19 +129,19 @@ require_once dirname(__DIR__) . '/includes/header.php';
         <h2 style="font-size:clamp(1.8rem,3.5vw,2.8rem); font-weight:900; letter-spacing:-0.03em; color:#F9FAFB;">Built for federal compliance requirements.</h2>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <a href="<?= $b ?>/services/cybersecurity.php" class="p-6 rounded-xl fade-in" style="background:rgba(255,255,255,0.02); border:1px solid rgba(212,168,67,0.1); text-decoration:none; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(212,168,67,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.1)';this.style.transform='translateY(0)'">
+        <a href="<?= $b ?>/services/cybersecurity" class="p-6 rounded-xl fade-in" style="background:rgba(255,255,255,0.02); border:1px solid rgba(212,168,67,0.1); text-decoration:none; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(212,168,67,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.1)';this.style.transform='translateY(0)'">
           <div style="font-size:1.5rem; margin-bottom:1rem;">🔒</div>
           <h3 style="font-weight:700; color:#FFFFFF; margin-bottom:0.5rem;">Cybersecurity</h3>
           <p class="text-sm leading-relaxed" style="color:#9CA3AF;">NIST-aligned security controls, EDR, MFA, access logging, and vCISO-level guidance to satisfy CMMC requirements and protect CUI.</p>
           <div class="mt-4 text-sm font-semibold" style="color:#D4A843;">Learn more →</div>
         </a>
-        <a href="<?= $b ?>/services/managed-it.php" class="p-6 rounded-xl fade-in fade-in-delay-1" style="background:rgba(255,255,255,0.02); border:1px solid rgba(212,168,67,0.1); text-decoration:none; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(212,168,67,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.1)';this.style.transform='translateY(0)'">
+        <a href="<?= $b ?>/services/managed-it" class="p-6 rounded-xl fade-in fade-in-delay-1" style="background:rgba(255,255,255,0.02); border:1px solid rgba(212,168,67,0.1); text-decoration:none; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(212,168,67,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.1)';this.style.transform='translateY(0)'">
           <div style="font-size:1.5rem; margin-bottom:1rem;">⚙️</div>
           <h3 style="font-weight:700; color:#FFFFFF; margin-bottom:0.5rem;">Managed IT</h3>
           <p class="text-sm leading-relaxed" style="color:#9CA3AF;">Continuous monitoring, patch management, and endpoint management to maintain the compliance posture required between CMMC assessments.</p>
           <div class="mt-4 text-sm font-semibold" style="color:#D4A843;">Learn more →</div>
         </a>
-        <a href="<?= $b ?>/services/network-engineering.php" class="p-6 rounded-xl fade-in fade-in-delay-2" style="background:rgba(255,255,255,0.02); border:1px solid rgba(212,168,67,0.1); text-decoration:none; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(212,168,67,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.1)';this.style.transform='translateY(0)'">
+        <a href="<?= $b ?>/services/network-engineering" class="p-6 rounded-xl fade-in fade-in-delay-2" style="background:rgba(255,255,255,0.02); border:1px solid rgba(212,168,67,0.1); text-decoration:none; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(212,168,67,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.1)';this.style.transform='translateY(0)'">
           <div style="font-size:1.5rem; margin-bottom:1rem;">🌐</div>
           <h3 style="font-weight:700; color:#FFFFFF; margin-bottom:0.5rem;">Network Engineering</h3>
           <p class="text-sm leading-relaxed" style="color:#9CA3AF;">CUI enclave design, network segmentation, zero trust architecture, and secure remote access for geographically distributed contractor teams.</p>
@@ -188,7 +188,7 @@ require_once dirname(__DIR__) . '/includes/header.php';
       <h2 style="font-size:clamp(2rem,4vw,3.2rem); font-weight:900; letter-spacing:-0.03em; color:#F9FAFB;">Know where you stand<br><span style="color:#D4A843;">before the assessor does.</span></h2>
       <p class="mt-6 text-lg leading-relaxed" style="color:#9CA3AF;">A free CMMC readiness assessment maps your current controls against NIST SP 800-171, identifies gaps, and gives you a clear path to compliance — before your next contract opportunity requires it. No commitment required.</p>
       <div class="flex flex-wrap gap-4 justify-center mt-10">
-        <a href="<?= $b ?>/contact.php" class="btn-primary">Get Your Free Assessment <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="<?= $b ?>/contact" class="btn-primary">Get Your Free Assessment <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <a href="tel:8506149343" class="btn-ghost">850-614-9343</a>
       </div>
     </div>

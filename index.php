@@ -83,11 +83,11 @@ include 'includes/header.php';
             Leonidas delivers enterprise-grade managed IT, layered cybersecurity, and unified communications to businesses across the Florida Panhandle. We operate as your IT department — not a vendor.
           </p>
           <div class="fade-in fade-in-delay-3 flex flex-wrap gap-4 mt-9">
-            <a href="<?= $b ?>/contact.php" class="btn-primary">
+            <a href="<?= $b ?>/contact" class="btn-primary">
               Get a Free Assessment
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
-            <a href="<?= $b ?>/about.php" class="btn-ghost">How We Work</a>
+            <a href="<?= $b ?>/about" class="btn-ghost">How We Work</a>
           </div>
         </div>
         <?php if (!$is_mobile): ?><!-- Hero tech viz — Live Threat Intelligence Map -->
@@ -215,7 +215,7 @@ include 'includes/header.php';
         <p class="mt-6 text-base max-w-xl" style="color:#9CA3AF;">Every service line is deep, not shallow. We staff specialists — not generalists who dabble.</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        <a href="<?= $b ?>/services/managed-it.php" class="service-card fade-in">
+        <a href="<?= $b ?>/services/managed-it" class="service-card fade-in">
           <div class="flex items-center gap-4 mb-4">
             <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(212,168,67,0.1); border:1px solid rgba(212,168,67,0.2);">
               <svg width="22" height="22" fill="none" viewBox="0 0 22 22"><rect x="1" y="7" width="20" height="13" rx="2" stroke="#D4A843" stroke-width="1.5"/><path d="M7 12h8M7 16h5" stroke="#D4A843" stroke-width="1.5" stroke-linecap="round"/><path d="M7 4h8v3H7z" stroke="#D4A843" stroke-width="1.5"/></svg>
@@ -225,7 +225,7 @@ include 'includes/header.php';
           <p style="color:#9CA3AF; font-size:0.9rem; line-height:1.6;">Your outsourced IT department. Proactive monitoring, patch management, helpdesk support, and strategic IT planning.</p>
           <div class="mt-5 flex items-center gap-2 text-sm font-semibold" style="color:#D4A843;">Learn more <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </a>
-        <a href="<?= $b ?>/services/cybersecurity.php" class="service-card fade-in fade-in-delay-1">
+        <a href="<?= $b ?>/services/cybersecurity" class="service-card fade-in fade-in-delay-1">
           <div class="flex items-center gap-4 mb-4">
             <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(212,168,67,0.1); border:1px solid rgba(212,168,67,0.2);">
               <svg width="22" height="22" fill="none" viewBox="0 0 22 22"><path d="M11 2L3 5.5v7C3 17.5 7 20.5 11 21c4-.5 8-3.5 8-8.5v-7L11 2z" stroke="#D4A843" stroke-width="1.5"/><path d="M7.5 11.5l2.5 2.5L15 9" stroke="#D4A843" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -235,7 +235,7 @@ include 'includes/header.php';
           <p style="color:#9CA3AF; font-size:0.9rem; line-height:1.6;">Layered security that goes beyond checkbox compliance. EDR, MDR, dark web monitoring, and vCISO services.</p>
           <div class="mt-5 flex items-center gap-2 text-sm font-semibold" style="color:#D4A843;">Learn more <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </a>
-        <a href="<?= $b ?>/services/network-engineering.php" class="service-card fade-in fade-in-delay-2">
+        <a href="<?= $b ?>/services/network-engineering" class="service-card fade-in fade-in-delay-2">
           <div class="flex items-center gap-4 mb-4">
             <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(212,168,67,0.1); border:1px solid rgba(212,168,67,0.2);">
               <svg width="22" height="22" fill="none" viewBox="0 0 22 22"><circle cx="11" cy="11" r="3.5" stroke="#D4A843" stroke-width="1.5"/><circle cx="3.5" cy="5.5" r="2" stroke="#D4A843" stroke-width="1.5"/><circle cx="18.5" cy="5.5" r="2" stroke="#D4A843" stroke-width="1.5"/><circle cx="3.5" cy="16.5" r="2" stroke="#D4A843" stroke-width="1.5"/><circle cx="18.5" cy="16.5" r="2" stroke="#D4A843" stroke-width="1.5"/><path d="M5.5 6.5L8 9M14 9l2.5-2.5M5.5 15.5L8 13M14 13l2.5 2.5" stroke="#D4A843" stroke-width="1.2"/></svg>
@@ -245,7 +245,7 @@ include 'includes/header.php';
           <p style="color:#9CA3AF; font-size:0.9rem; line-height:1.6;">SD-WAN, SASE, network segmentation, Wi-Fi 7, and firewall management. Built for performance and security.</p>
           <div class="mt-5 flex items-center gap-2 text-sm font-semibold" style="color:#D4A843;">Learn more <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </a>
-        <a href="<?= $b ?>/services/unified-communications.php" class="service-card fade-in fade-in-delay-1">
+        <a href="<?= $b ?>/services/unified-communications" class="service-card fade-in fade-in-delay-1">
           <div class="flex items-center gap-4 mb-4">
             <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(212,168,67,0.1); border:1px solid rgba(212,168,67,0.2);">
               <svg width="22" height="22" fill="none" viewBox="0 0 22 22"><path d="M4 4h14a1 1 0 011 1v8a1 1 0 01-1 1h-6l-4 3V14H4a1 1 0 01-1-1V5a1 1 0 011-1z" stroke="#D4A843" stroke-width="1.5"/></svg>
@@ -255,7 +255,7 @@ include 'includes/header.php';
           <p style="color:#9CA3AF; font-size:0.9rem; line-height:1.6;">Cloud phone systems, contact center, SIP trunking. RingCentral, Teams Phone, Five9, Zoom Phone, and more.</p>
           <div class="mt-5 flex items-center gap-2 text-sm font-semibold" style="color:#D4A843;">Learn more <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </a>
-        <a href="<?= $b ?>/services/telecom-wan.php" class="service-card fade-in fade-in-delay-2">
+        <a href="<?= $b ?>/services/telecom-wan" class="service-card fade-in fade-in-delay-2">
           <div class="flex items-center gap-4 mb-4">
             <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(212,168,67,0.1); border:1px solid rgba(212,168,67,0.2);">
               <svg width="22" height="22" fill="none" viewBox="0 0 22 22"><path d="M11 2C7 2 4 5.3 4 9.5c0 2.5 1.2 4.7 3 6" stroke="#D4A843" stroke-width="1.5"/><path d="M11 2c4 0 7 3.3 7 7.5c0 2.5-1.2 4.7-3 6" stroke="#D4A843" stroke-width="1.5"/><path d="M11 5.5C9 5.5 7.5 7.2 7.5 9.5s1.5 4 3.5 4 3.5-1.7 3.5-4-1.5-4-3.5-4z" stroke="#D4A843" stroke-width="1.5"/><line x1="11" y1="13.5" x2="11" y2="19" stroke="#D4A843" stroke-width="1.5"/><line x1="7" y1="19" x2="15" y2="19" stroke="#D4A843" stroke-width="1.5"/></svg>
@@ -265,7 +265,7 @@ include 'includes/header.php';
           <p style="color:#9CA3AF; font-size:0.9rem; line-height:1.6;">Fiber procurement, POTS replacement, SD-WAN migration, telecom expense management, and 5G/FWA evaluation.</p>
           <div class="mt-5 flex items-center gap-2 text-sm font-semibold" style="color:#D4A843;">Learn more <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </a>
-        <a href="<?= $b ?>/services/desktop-support.php" class="service-card fade-in fade-in-delay-3">
+        <a href="<?= $b ?>/services/desktop-support" class="service-card fade-in fade-in-delay-3">
           <div class="flex items-center gap-4 mb-4">
             <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(212,168,67,0.1); border:1px solid rgba(212,168,67,0.2);">
               <svg width="22" height="22" fill="none" viewBox="0 0 22 22"><rect x="2" y="3" width="18" height="13" rx="2" stroke="#D4A843" stroke-width="1.5"/><line x1="11" y1="16" x2="11" y2="20" stroke="#D4A843" stroke-width="1.5"/><line x1="7" y1="20" x2="15" y2="20" stroke="#D4A843" stroke-width="1.5"/></svg>
@@ -324,7 +324,7 @@ include 'includes/header.php';
           <div class="section-label">Why Leonidas</div>
           <h2 style="font-size:clamp(2rem,4vw,3.2rem); font-weight:900; letter-spacing:-0.03em; color:#F9FAFB; line-height:1.1;">Twenty years of experience.<br><span style="color:#D4A843;">Zero shortcuts.</span></h2>
           <p class="mt-6 text-base leading-relaxed max-w-md" style="color:#9CA3AF;">We have seen every failure mode, every vendor promise, and every shortcut that does not work. That experience is what you are actually buying when you work with Leonidas.</p>
-          <a href="<?= $b ?>/about.php" class="btn-ghost mt-8 inline-flex">Learn our story</a>
+          <a href="<?= $b ?>/about" class="btn-ghost mt-8 inline-flex">Learn our story</a>
         </div>
         <div class="fade-in fade-in-delay-1 flex flex-col gap-4">
           <div class="flex items-start gap-4 p-5 rounded-xl" style="background:rgba(255,255,255,0.02); border:1px solid rgba(212,168,67,0.08);">
@@ -361,37 +361,37 @@ include 'includes/header.php';
         <p class="mt-6 text-base max-w-lg" style="color:#9CA3AF;">Deep familiarity with the compliance requirements, workflows, and risk profiles that matter in your sector.</p>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <a href="<?= $b ?>/industries/healthcare.php" class="industry-tile fade-in" style="text-decoration:none; display:block; cursor:pointer;">
+        <a href="<?= $b ?>/industries/healthcare" class="industry-tile fade-in" style="text-decoration:none; display:block; cursor:pointer;">
           <div class="mb-3"><svg width="28" height="28" fill="none" viewBox="0 0 28 28"><path d="M14 4C9 4 5 8 5 13s4 9 9 9 9-4 9-9-4-9-9-9z" stroke="#D4A843" stroke-width="1.4"/><path d="M10 13h8M14 9v8" stroke="#D4A843" stroke-width="1.4" stroke-linecap="round"/></svg></div>
           <h3 style="font-weight:700; color:#FFFFFF; margin-bottom:0.4rem;">Healthcare</h3>
           <p style="color:#9CA3AF; font-size:0.85rem; line-height:1.6;">HIPAA-aligned infrastructure, secure communications, and EHR network support. We protect patient data and keep clinical operations running.</p>
           <div class="mt-3 text-sm font-semibold" style="color:#D4A843;">Learn more →</div>
         </a>
-        <a href="<?= $b ?>/industries/legal.php" class="industry-tile fade-in fade-in-delay-1" style="text-decoration:none; display:block; cursor:pointer;">
+        <a href="<?= $b ?>/industries/legal" class="industry-tile fade-in fade-in-delay-1" style="text-decoration:none; display:block; cursor:pointer;">
           <div class="mb-3"><svg width="28" height="28" fill="none" viewBox="0 0 28 28"><path d="M14 3L4 8v6c0 5.5 4 10 10 11 6-1 10-5.5 10-11V8L14 3z" stroke="#D4A843" stroke-width="1.4"/><path d="M10 14l2.5 3L18 11" stroke="#D4A843" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <h3 style="font-weight:700; color:#FFFFFF; margin-bottom:0.4rem;">Legal</h3>
           <p style="color:#9CA3AF; font-size:0.85rem; line-height:1.6;">Client confidentiality demands enterprise-grade security. Data loss prevention, encrypted storage, and secure remote access for law firms.</p>
           <div class="mt-3 text-sm font-semibold" style="color:#D4A843;">Learn more →</div>
         </a>
-        <a href="<?= $b ?>/industries/construction.php" class="industry-tile fade-in fade-in-delay-2" style="text-decoration:none; display:block; cursor:pointer;">
+        <a href="<?= $b ?>/industries/construction" class="industry-tile fade-in fade-in-delay-2" style="text-decoration:none; display:block; cursor:pointer;">
           <div class="mb-3"><svg width="28" height="28" fill="none" viewBox="0 0 28 28"><rect x="4" y="12" width="20" height="13" rx="1.5" stroke="#D4A843" stroke-width="1.4"/><path d="M10 12V9a4 4 0 018 0v3" stroke="#D4A843" stroke-width="1.4" stroke-linecap="round"/></svg></div>
           <h3 style="font-weight:700; color:#FFFFFF; margin-bottom:0.4rem;">Construction</h3>
           <p style="color:#9CA3AF; font-size:0.85rem; line-height:1.6;">Field connectivity, mobile device management, and project-site communications. Keep your crews connected and data protected across job sites.</p>
           <div class="mt-3 text-sm font-semibold" style="color:#D4A843;">Learn more →</div>
         </a>
-        <a href="<?= $b ?>/industries/hospitality.php" class="industry-tile fade-in" style="text-decoration:none; display:block; cursor:pointer;">
+        <a href="<?= $b ?>/industries/hospitality" class="industry-tile fade-in" style="text-decoration:none; display:block; cursor:pointer;">
           <div class="mb-3"><svg width="28" height="28" fill="none" viewBox="0 0 28 28"><path d="M4 24V12l10-8 10 8v12H4z" stroke="#D4A843" stroke-width="1.4"/><rect x="10" y="16" width="8" height="8" rx="1" stroke="#D4A843" stroke-width="1.4"/></svg></div>
           <h3 style="font-weight:700; color:#FFFFFF; margin-bottom:0.4rem;">Hospitality</h3>
           <p style="color:#9CA3AF; font-size:0.85rem; line-height:1.6;">Guest Wi-Fi, POS network security, and property management system support. Reliable connectivity is the foundation of a great guest experience.</p>
           <div class="mt-3 text-sm font-semibold" style="color:#D4A843;">Learn more →</div>
         </a>
-        <a href="<?= $b ?>/industries/government-contractors.php" class="industry-tile fade-in fade-in-delay-1" style="text-decoration:none; display:block; cursor:pointer;">
+        <a href="<?= $b ?>/industries/government-contractors" class="industry-tile fade-in fade-in-delay-1" style="text-decoration:none; display:block; cursor:pointer;">
           <div class="mb-3"><svg width="28" height="28" fill="none" viewBox="0 0 28 28"><path d="M5 6h18v16a2 2 0 01-2 2H7a2 2 0 01-2-2V6z" stroke="#D4A843" stroke-width="1.4"/><path d="M3 6h22" stroke="#D4A843" stroke-width="1.4" stroke-linecap="round"/><path d="M11 6V4h6v2" stroke="#D4A843" stroke-width="1.4" stroke-linecap="round"/></svg></div>
           <h3 style="font-weight:700; color:#FFFFFF; margin-bottom:0.4rem;">Government Contractors</h3>
           <p style="color:#9CA3AF; font-size:0.85rem; line-height:1.6;">CMMC compliance, CUI handling, and NIST framework alignment. We help defense contractors meet federal cybersecurity requirements.</p>
           <div class="mt-3 text-sm font-semibold" style="color:#D4A843;">Learn more →</div>
         </a>
-        <a href="<?= $b ?>/industries/professional-services.php" class="industry-tile fade-in fade-in-delay-2" style="text-decoration:none; display:block; cursor:pointer;">
+        <a href="<?= $b ?>/industries/professional-services" class="industry-tile fade-in fade-in-delay-2" style="text-decoration:none; display:block; cursor:pointer;">
           <div class="mb-3"><svg width="28" height="28" fill="none" viewBox="0 0 28 28"><circle cx="14" cy="14" r="9" stroke="#D4A843" stroke-width="1.4"/><path d="M9.5 14h9M14 9.5v9" stroke="#D4A843" stroke-width="1.4" stroke-linecap="round"/></svg></div>
           <h3 style="font-weight:700; color:#FFFFFF; margin-bottom:0.4rem;">Professional Services</h3>
           <p style="color:#9CA3AF; font-size:0.85rem; line-height:1.6;">Accounting, consulting, and financial services firms need airtight data governance. Security and productivity without bureaucratic overhead.</p>
@@ -488,7 +488,7 @@ include 'includes/header.php';
       </h2>
       <p class="mt-6 text-lg leading-relaxed" style="color:#9CA3AF;">The assessment is free. The conversation is honest. If we are not the right fit, we will tell you. Start with a call.</p>
       <div class="flex flex-wrap gap-4 justify-center mt-10">
-        <a href="<?= $b ?>/contact.php" class="btn-primary">
+        <a href="<?= $b ?>/contact" class="btn-primary">
           Get Your Free Assessment
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>

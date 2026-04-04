@@ -24,7 +24,7 @@ require_once dirname(__DIR__) . '/includes/header.php';
         <h1 class="fade-in fade-in-delay-1" style="font-size:clamp(2.8rem,6vw,5rem); font-weight:900; letter-spacing:-0.03em; line-height:1.05; color:#FFFFFF;">Client privilege is<br><span style="color:#D4A843;">non-negotiable.</span></h1>
         <p class="fade-in fade-in-delay-2 mt-6 text-lg leading-relaxed max-w-2xl" style="color:#9CA3AF;">Law firms hold some of the most sensitive data in existence — attorney-client privileged communications, litigation strategy, financial records, and personally identifiable information. A breach doesn't just cost money. It can expose clients, destroy trust, trigger bar complaints, and end careers. Your IT infrastructure has to match what's at stake.</p>
         <div class="flex flex-wrap gap-4 mt-10 fade-in fade-in-delay-3">
-          <a href="<?= $b ?>/contact.php" class="btn-primary">Get a Free Law Firm IT Assessment <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="<?= $b ?>/contact" class="btn-primary">Get a Free Law Firm IT Assessment <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <a href="tel:8506149343" class="btn-ghost">850-614-9343</a>
         </div>
       </div>
@@ -133,19 +133,19 @@ require_once dirname(__DIR__) . '/includes/header.php';
         <h2 style="font-size:clamp(1.8rem,3.5vw,2.8rem); font-weight:900; letter-spacing:-0.03em; color:#F9FAFB;">Built for legal environments.</h2>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <a href="<?= $b ?>/services/cybersecurity.php" class="p-6 rounded-xl fade-in" style="background:rgba(255,255,255,0.02); border:1px solid rgba(212,168,67,0.1); text-decoration:none; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(212,168,67,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.1)';this.style.transform='translateY(0)'">
+        <a href="<?= $b ?>/services/cybersecurity" class="p-6 rounded-xl fade-in" style="background:rgba(255,255,255,0.02); border:1px solid rgba(212,168,67,0.1); text-decoration:none; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(212,168,67,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.1)';this.style.transform='translateY(0)'">
           <div style="font-size:1.5rem; margin-bottom:1rem;">🔒</div>
           <h3 style="font-weight:700; color:#FFFFFF; margin-bottom:0.5rem;">Cybersecurity</h3>
           <p class="text-sm leading-relaxed" style="color:#9CA3AF;">DLP, encrypted endpoints, email security, and BEC prevention to keep client data confidential and your firm off the front page.</p>
           <div class="mt-4 text-sm font-semibold" style="color:#D4A843;">Learn more →</div>
         </a>
-        <a href="<?= $b ?>/services/managed-it.php" class="p-6 rounded-xl fade-in fade-in-delay-1" style="background:rgba(255,255,255,0.02); border:1px solid rgba(212,168,67,0.1); text-decoration:none; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(212,168,67,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.1)';this.style.transform='translateY(0)'">
+        <a href="<?= $b ?>/services/managed-it" class="p-6 rounded-xl fade-in fade-in-delay-1" style="background:rgba(255,255,255,0.02); border:1px solid rgba(212,168,67,0.1); text-decoration:none; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(212,168,67,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.1)';this.style.transform='translateY(0)'">
           <div style="font-size:1.5rem; margin-bottom:1rem;">⚙️</div>
           <h3 style="font-weight:700; color:#FFFFFF; margin-bottom:0.5rem;">Managed IT</h3>
           <p class="text-sm leading-relaxed" style="color:#9CA3AF;">Proactive monitoring and management for every device in your practice — workstations, laptops, servers — so attorneys can focus on clients, not IT problems.</p>
           <div class="mt-4 text-sm font-semibold" style="color:#D4A843;">Learn more →</div>
         </a>
-        <a href="<?= $b ?>/services/unified-communications.php" class="p-6 rounded-xl fade-in fade-in-delay-2" style="background:rgba(255,255,255,0.02); border:1px solid rgba(212,168,67,0.1); text-decoration:none; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(212,168,67,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.1)';this.style.transform='translateY(0)'">
+        <a href="<?= $b ?>/services/unified-communications" class="p-6 rounded-xl fade-in fade-in-delay-2" style="background:rgba(255,255,255,0.02); border:1px solid rgba(212,168,67,0.1); text-decoration:none; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(212,168,67,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.1)';this.style.transform='translateY(0)'">
           <div style="font-size:1.5rem; margin-bottom:1rem;">📞</div>
           <h3 style="font-weight:700; color:#FFFFFF; margin-bottom:0.5rem;">Unified Communications</h3>
           <p class="text-sm leading-relaxed" style="color:#9CA3AF;">Cloud phone systems with call recording, voicemail-to-email, and mobile softphones so your team stays reachable from courthouse to home office.</p>
@@ -194,7 +194,7 @@ require_once dirname(__DIR__) . '/includes/header.php';
       <h2 style="font-size:clamp(2rem,4vw,3.2rem); font-weight:900; letter-spacing:-0.03em; color:#F9FAFB;">Your clients trust you<br><span style="color:#D4A843;">with everything.</span></h2>
       <p class="mt-6 text-lg leading-relaxed" style="color:#9CA3AF;">A free law firm IT assessment identifies your data exposure, email security gaps, and remote access risks — before they become a client notification or a bar complaint. No commitment required.</p>
       <div class="flex flex-wrap gap-4 justify-center mt-10">
-        <a href="<?= $b ?>/contact.php" class="btn-primary">Get Your Free Assessment <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="<?= $b ?>/contact" class="btn-primary">Get Your Free Assessment <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <a href="tel:8506149343" class="btn-ghost">850-614-9343</a>
       </div>
     </div>

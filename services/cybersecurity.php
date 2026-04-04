@@ -5,6 +5,17 @@ $page_title       = 'Cybersecurity &amp; MSSP — Florida Panhandle | Leonidas';
 $page_description = 'Layered cybersecurity for businesses in the Florida Panhandle. EDR, MDR, dark web monitoring, compliance, vCISO, and security awareness training.';
 $page_url         = SITE_URL . '/services/cybersecurity';
 
+$page_json_ld = '<script type="application/ld+json">' . json_encode([
+    '@context' => 'https://schema.org',
+    '@type'    => 'FAQPage',
+    'mainEntity' => [
+        ['@type'=>'Question','name'=>'What is a managed security service provider (MSSP)?','acceptedAnswer'=>['@type'=>'Answer','text'=>'An MSSP delivers outsourced security monitoring, threat detection, incident response, and compliance support — providing the security operations capabilities of a large enterprise without the cost of an internal team.']],
+        ['@type'=>'Question','name'=>'Does my small business really need cybersecurity?','acceptedAnswer'=>['@type'=>'Answer','text'=>'Yes. Small and mid-size businesses are frequently targeted precisely because they often lack strong defenses. 43% of cyberattacks target small businesses, and ransomware does not discriminate by company size.']],
+        ['@type'=>'Question','name'=>'What is EDR and why does my business need it?','acceptedAnswer'=>['@type'=>'Answer','text'=>'Endpoint Detection and Response (EDR) monitors devices in real time for malicious behavior and can automatically isolate compromised systems — going far beyond traditional antivirus in detecting and stopping threats.']],
+        ['@type'=>'Question','name'=>'What is a vCISO and how does it work?','acceptedAnswer'=>['@type'=>'Answer','text'=>'A virtual Chief Information Security Officer (vCISO) provides executive-level security leadership — strategy, policy development, compliance guidance, and board-level communication — at a fraction of the cost of a full-time hire.']],
+    ],
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';
+
 require_once dirname(__DIR__) . '/includes/header.php';
 ?>
 
@@ -21,7 +32,7 @@ require_once dirname(__DIR__) . '/includes/header.php';
         <h1 class="fade-in fade-in-delay-1" style="font-size:clamp(2.8rem,6vw,5rem); font-weight:900; letter-spacing:-0.03em; line-height:1.05; color:#FFFFFF;">Layered Security.<br><span style="color:#D4A843;">No Shortcuts.</span></h1>
         <p class="fade-in fade-in-delay-2 mt-6 text-lg leading-relaxed max-w-2xl" style="color:#9CA3AF;">We build security programs that go beyond checkbox compliance. Every layer is intentional — from DNS filtering to privileged access management to virtual CISO leadership. Security is not an add-on. It is foundational.</p>
         <div class="flex flex-wrap gap-4 mt-10 fade-in fade-in-delay-3">
-          <a href="<?= $b ?>/contact.php" class="btn-primary">Get a Free Security Assessment <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="<?= $b ?>/contact" class="btn-primary">Get a Free Security Assessment <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <a href="tel:8506149343" class="btn-ghost">850-614-9343</a>
         </div>
       </div>
@@ -158,29 +169,51 @@ require_once dirname(__DIR__) . '/includes/header.php';
         <h2 style="font-size:clamp(1.8rem,3.5vw,2.8rem); font-weight:900; letter-spacing:-0.03em; color:#F9FAFB;">Compliance-driven security for regulated industries.</h2>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <a href="<?= $b ?>/industries/healthcare.php" class="p-6 rounded-xl fade-in" style="background:rgba(255,255,255,0.02); border:1px solid rgba(212,168,67,0.1); text-decoration:none; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(212,168,67,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.1)';this.style.transform='translateY(0)'">
+        <a href="<?= $b ?>/industries/healthcare" class="p-6 rounded-xl fade-in" style="background:rgba(255,255,255,0.02); border:1px solid rgba(212,168,67,0.1); text-decoration:none; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(212,168,67,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.1)';this.style.transform='translateY(0)'">
           <div style="font-size:1.5rem; margin-bottom:1rem;">🏥</div>
           <h3 style="font-weight:700; color:#FFFFFF; margin-bottom:0.5rem;">Healthcare</h3>
           <p class="text-sm leading-relaxed" style="color:#9CA3AF;">HIPAA Security Rule compliance, PHI protection, and ransomware resilience for medical organizations.</p>
           <div class="mt-4 text-sm font-semibold" style="color:#D4A843;">See how we help &rarr;</div>
         </a>
-        <a href="<?= $b ?>/industries/legal.php" class="p-6 rounded-xl fade-in fade-in-delay-1" style="background:rgba(255,255,255,0.02); border:1px solid rgba(212,168,67,0.1); text-decoration:none; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(212,168,67,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.1)';this.style.transform='translateY(0)'">
+        <a href="<?= $b ?>/industries/legal" class="p-6 rounded-xl fade-in fade-in-delay-1" style="background:rgba(255,255,255,0.02); border:1px solid rgba(212,168,67,0.1); text-decoration:none; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(212,168,67,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.1)';this.style.transform='translateY(0)'">
           <div style="font-size:1.5rem; margin-bottom:1rem;">⚖️</div>
           <h3 style="font-weight:700; color:#FFFFFF; margin-bottom:0.5rem;">Legal</h3>
           <p class="text-sm leading-relaxed" style="color:#9CA3AF;">Cybersecurity for law firms with strict duties to protect client data and privileged communications.</p>
           <div class="mt-4 text-sm font-semibold" style="color:#D4A843;">See how we help &rarr;</div>
         </a>
-        <a href="<?= $b ?>/industries/government-contractors.php" class="p-6 rounded-xl fade-in fade-in-delay-2" style="background:rgba(255,255,255,0.02); border:1px solid rgba(212,168,67,0.1); text-decoration:none; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(212,168,67,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.1)';this.style.transform='translateY(0)'">
+        <a href="<?= $b ?>/industries/government-contractors" class="p-6 rounded-xl fade-in fade-in-delay-2" style="background:rgba(255,255,255,0.02); border:1px solid rgba(212,168,67,0.1); text-decoration:none; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(212,168,67,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.1)';this.style.transform='translateY(0)'">
           <div style="font-size:1.5rem; margin-bottom:1rem;">🏛️</div>
           <h3 style="font-weight:700; color:#FFFFFF; margin-bottom:0.5rem;">Government Contractors</h3>
           <p class="text-sm leading-relaxed" style="color:#9CA3AF;">CMMC compliance, CUI protection, and DoD-aligned security controls for defense contractors.</p>
           <div class="mt-4 text-sm font-semibold" style="color:#D4A843;">See how we help &rarr;</div>
         </a>
-        <a href="<?= $b ?>/industries/professional-services.php" class="p-6 rounded-xl fade-in fade-in-delay-3" style="background:rgba(255,255,255,0.02); border:1px solid rgba(212,168,67,0.1); text-decoration:none; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(212,168,67,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.1)';this.style.transform='translateY(0)'">
+        <a href="<?= $b ?>/industries/professional-services" class="p-6 rounded-xl fade-in fade-in-delay-3" style="background:rgba(255,255,255,0.02); border:1px solid rgba(212,168,67,0.1); text-decoration:none; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(212,168,67,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.1)';this.style.transform='translateY(0)'">
           <div style="font-size:1.5rem; margin-bottom:1rem;">💼</div>
           <h3 style="font-weight:700; color:#FFFFFF; margin-bottom:0.5rem;">Professional Services</h3>
           <p class="text-sm leading-relaxed" style="color:#9CA3AF;">Data security and compliance for finance, consulting, and accounting firms handling sensitive client information.</p>
           <div class="mt-4 text-sm font-semibold" style="color:#D4A843;">See how we help &rarr;</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- RELATED SERVICES -->
+  <section class="py-20 px-6" style="background:rgba(5,5,16,0.4);">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-12 fade-in">
+        <div class="section-label">Related Services</div>
+        <h2 style="font-size:clamp(1.8rem,3.5vw,2.8rem); font-weight:900; letter-spacing:-0.03em; color:#F9FAFB;">Often paired with Cybersecurity.</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <a href="<?= $b ?>/services/managed-it" class="service-card fade-in">
+          <h3 style="font-weight:700; color:#D4A843; margin-bottom:0.5rem;">Managed IT Services</h3>
+          <p style="color:#9CA3AF; font-size:0.88rem; line-height:1.6;">Security without a well-managed foundation is incomplete. Managed IT ensures your endpoints, patches, and configurations are always in order.</p>
+          <div class="mt-4 text-sm font-semibold" style="color:#D4A843;">Learn more →</div>
+        </a>
+        <a href="<?= $b ?>/services/network-engineering" class="service-card fade-in fade-in-delay-1">
+          <h3 style="font-weight:700; color:#D4A843; margin-bottom:0.5rem;">Network Engineering</h3>
+          <p style="color:#9CA3AF; font-size:0.88rem; line-height:1.6;">Proper network segmentation, firewall management, and Zero Trust architecture reduce your attack surface at the infrastructure level.</p>
+          <div class="mt-4 text-sm font-semibold" style="color:#D4A843;">Learn more →</div>
         </a>
       </div>
     </div>
@@ -192,7 +225,7 @@ require_once dirname(__DIR__) . '/includes/header.php';
       <h2 style="font-size:clamp(2rem,4vw,3.2rem); font-weight:900; letter-spacing:-0.03em; color:#F9FAFB;">Know your security posture.<br><span style="color:#D4A843;">Before attackers do.</span></h2>
       <p class="mt-6 text-lg leading-relaxed" style="color:#9CA3AF;">A free security assessment identifies your exposure across endpoints, identity, email, and network. No commitment required — just clarity.</p>
       <div class="flex flex-wrap gap-4 justify-center mt-10">
-        <a href="<?= $b ?>/contact.php" class="btn-primary">Get Your Free Assessment <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="<?= $b ?>/contact" class="btn-primary">Get Your Free Assessment <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <a href="tel:8506149343" class="btn-ghost">850-614-9343</a>
       </div>
     </div>

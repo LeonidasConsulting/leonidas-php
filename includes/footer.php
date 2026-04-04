@@ -31,12 +31,12 @@ $b = SITE_BASE;
       <div class="md:col-span-3 md:col-start-7">
         <p class="text-xs font-bold tracking-widest mb-5" style="color:#D4A843; letter-spacing:0.15em;">SERVICES</p>
         <nav class="flex flex-col gap-3" aria-label="Footer services">
-          <a href="<?= $b ?>/services/managed-it.php"             class="text-sm" style="color:#6B7280;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#6B7280'">Managed IT</a>
-          <a href="<?= $b ?>/services/cybersecurity.php"          class="text-sm" style="color:#6B7280;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#6B7280'">Cybersecurity</a>
-          <a href="<?= $b ?>/services/network-engineering.php"    class="text-sm" style="color:#6B7280;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#6B7280'">Network Engineering</a>
-          <a href="<?= $b ?>/services/unified-communications.php" class="text-sm" style="color:#6B7280;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#6B7280'">Unified Communications</a>
-          <a href="<?= $b ?>/services/telecom-wan.php"            class="text-sm" style="color:#6B7280;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#6B7280'">Telecom &amp; WAN</a>
-          <a href="<?= $b ?>/services/desktop-support.php"        class="text-sm" style="color:#6B7280;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#6B7280'">Desktop Support</a>
+          <a href="<?= $b ?>/services/managed-it"             class="text-sm" style="color:#6B7280;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#6B7280'">Managed IT</a>
+          <a href="<?= $b ?>/services/cybersecurity"          class="text-sm" style="color:#6B7280;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#6B7280'">Cybersecurity</a>
+          <a href="<?= $b ?>/services/network-engineering"    class="text-sm" style="color:#6B7280;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#6B7280'">Network Engineering</a>
+          <a href="<?= $b ?>/services/unified-communications" class="text-sm" style="color:#6B7280;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#6B7280'">Unified Communications</a>
+          <a href="<?= $b ?>/services/telecom-wan"            class="text-sm" style="color:#6B7280;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#6B7280'">Telecom &amp; WAN</a>
+          <a href="<?= $b ?>/services/desktop-support"        class="text-sm" style="color:#6B7280;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#6B7280'">Desktop Support</a>
         </nav>
       </div>
       <div class="md:col-span-3 md:col-start-10">
@@ -45,13 +45,13 @@ $b = SITE_BASE;
           <a href="tel:8506149343"                 class="text-sm" style="color:#6B7280;" onmouseover="this.style.color='#FFFFFF'" onmouseout="this.style.color='#6B7280'">850-614-9343</a>
           <a href="mailto:sales@leonidastek.com"   class="text-sm" style="color:#6B7280;" onmouseover="this.style.color='#FFFFFF'" onmouseout="this.style.color='#6B7280'">sales@leonidastek.com</a>
           <p class="text-sm leading-relaxed" style="color:#6B7280;">8219 Front Beach Rd<br>Ste B #2080<br>Panama City Beach, FL 32407</p>
-          <a href="<?= $b ?>/about.php"  class="text-sm" style="color:#6B7280;" onmouseover="this.style.color='#FFFFFF'" onmouseout="this.style.color='#6B7280'">About</a>
+          <a href="<?= $b ?>/about"  class="text-sm" style="color:#6B7280;" onmouseover="this.style.color='#FFFFFF'" onmouseout="this.style.color='#6B7280'">About</a>
           <a href="<?= $b ?>/blog/"      class="text-sm" style="color:#6B7280;" onmouseover="this.style.color='#FFFFFF'" onmouseout="this.style.color='#6B7280'">Blog</a>
         </div>
       </div>
     </div>
     <div style="border-top:1px solid rgba(255,255,255,0.05); padding-top:1.5rem;" class="flex flex-col md:flex-row justify-between items-center gap-3">
-      <p class="text-xs" style="color:#374151;">© <?= date('Y') ?> Leonidas. All rights reserved. Panama City Beach, FL. · <a href="<?= $b ?>/privacy-policy.php" style="color:#6B7280; text-decoration:none;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#6B7280'">Privacy Policy</a> · <a href="<?= $b ?>/terms-and-conditions.php" style="color:#6B7280; text-decoration:none;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#6B7280'">Terms &amp; Conditions</a></p>
+      <p class="text-xs" style="color:#374151;">© <?= date('Y') ?> Leonidas. All rights reserved. Panama City Beach, FL. · <a href="<?= $b ?>/privacy-policy" style="color:#6B7280; text-decoration:none;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#6B7280'">Privacy Policy</a> · <a href="<?= $b ?>/terms-and-conditions" style="color:#6B7280; text-decoration:none;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#6B7280'">Terms &amp; Conditions</a></p>
       <p class="text-xs" style="color:#374151;">Managed IT · Cybersecurity · Unified Communications</p>
     </div>
   </div>

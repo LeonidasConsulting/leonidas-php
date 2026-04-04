@@ -23,7 +23,7 @@ require_once dirname(__DIR__) . '/includes/header.php';
         <h1 class="fade-in fade-in-delay-1" style="font-size:clamp(2.8rem,6vw,5rem); font-weight:900; letter-spacing:-0.03em; line-height:1.05; color:#FFFFFF;">Your clients trust you<br><span style="color:#D4A843;">with their finances.</span></h1>
         <p class="fade-in fade-in-delay-2 mt-6 text-lg leading-relaxed max-w-2xl" style="color:#9CA3AF;">Accounting firms, financial advisors, consultants, and wealth managers handle sensitive financial data, tax records, and personally identifiable information that attracts the same threat actors as banks — with far fewer resources to defend against them. The right IT partner keeps your data secure, your team productive, and your compliance posture strong.</p>
         <div class="flex flex-wrap gap-4 mt-10 fade-in fade-in-delay-3">
-          <a href="<?= $b ?>/contact.php" class="btn-primary">Get a Free IT Assessment <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="<?= $b ?>/contact" class="btn-primary">Get a Free IT Assessment <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <a href="tel:8506149343" class="btn-ghost">850-614-9343</a>
         </div>
       </div>
@@ -129,19 +129,19 @@ require_once dirname(__DIR__) . '/includes/header.php';
         <h2 style="font-size:clamp(1.8rem,3.5vw,2.8rem); font-weight:900; letter-spacing:-0.03em; color:#F9FAFB;">Built for professional firms.</h2>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <a href="<?= $b ?>/services/cybersecurity.php" class="p-6 rounded-xl fade-in" style="background:rgba(255,255,255,0.02); border:1px solid rgba(212,168,67,0.1); text-decoration:none; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(212,168,67,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.1)';this.style.transform='translateY(0)'">
+        <a href="<?= $b ?>/services/cybersecurity" class="p-6 rounded-xl fade-in" style="background:rgba(255,255,255,0.02); border:1px solid rgba(212,168,67,0.1); text-decoration:none; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(212,168,67,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.1)';this.style.transform='translateY(0)'">
           <div style="font-size:1.5rem; margin-bottom:1rem;">🔒</div>
           <h3 style="font-weight:700; color:#FFFFFF; margin-bottom:0.5rem;">Cybersecurity</h3>
           <p class="text-sm leading-relaxed" style="color:#9CA3AF;">DLP, email security, BEC prevention, and FTC/IRS-aligned security programs to protect client financial data and your firm's reputation.</p>
           <div class="mt-4 text-sm font-semibold" style="color:#D4A843;">Learn more →</div>
         </a>
-        <a href="<?= $b ?>/services/managed-it.php" class="p-6 rounded-xl fade-in fade-in-delay-1" style="background:rgba(255,255,255,0.02); border:1px solid rgba(212,168,67,0.1); text-decoration:none; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(212,168,67,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.1)';this.style.transform='translateY(0)'">
+        <a href="<?= $b ?>/services/managed-it" class="p-6 rounded-xl fade-in fade-in-delay-1" style="background:rgba(255,255,255,0.02); border:1px solid rgba(212,168,67,0.1); text-decoration:none; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(212,168,67,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.1)';this.style.transform='translateY(0)'">
           <div style="font-size:1.5rem; margin-bottom:1rem;">⚙️</div>
           <h3 style="font-weight:700; color:#FFFFFF; margin-bottom:0.5rem;">Managed IT</h3>
           <p class="text-sm leading-relaxed" style="color:#9CA3AF;">Proactive management, helpdesk support, and reliable backups so your team stays productive through tax season and beyond.</p>
           <div class="mt-4 text-sm font-semibold" style="color:#D4A843;">Learn more →</div>
         </a>
-        <a href="<?= $b ?>/services/desktop-support.php" class="p-6 rounded-xl fade-in fade-in-delay-2" style="background:rgba(255,255,255,0.02); border:1px solid rgba(212,168,67,0.1); text-decoration:none; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(212,168,67,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.1)';this.style.transform='translateY(0)'">
+        <a href="<?= $b ?>/services/desktop-support" class="p-6 rounded-xl fade-in fade-in-delay-2" style="background:rgba(255,255,255,0.02); border:1px solid rgba(212,168,67,0.1); text-decoration:none; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(212,168,67,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.1)';this.style.transform='translateY(0)'">
           <div style="font-size:1.5rem; margin-bottom:1rem;">🖥️</div>
           <h3 style="font-weight:700; color:#FFFFFF; margin-bottom:0.5rem;">Desktop Support</h3>
           <p class="text-sm leading-relaxed" style="color:#9CA3AF;">Fast, knowledgeable support for workstations and software so billing hours aren't lost to IT frustrations — remote or on-site.</p>
@@ -188,7 +188,7 @@ require_once dirname(__DIR__) . '/includes/header.php';
       <h2 style="font-size:clamp(2rem,4vw,3.2rem); font-weight:900; letter-spacing:-0.03em; color:#F9FAFB;">Your expertise is the product.<br><span style="color:#D4A843;">Your IT should protect it.</span></h2>
       <p class="mt-6 text-lg leading-relaxed" style="color:#9CA3AF;">A free IT assessment identifies your data governance gaps, compliance exposure, and security vulnerabilities — so your team can focus on clients, not IT fires. No commitment required.</p>
       <div class="flex flex-wrap gap-4 justify-center mt-10">
-        <a href="<?= $b ?>/contact.php" class="btn-primary">Get Your Free Assessment <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="<?= $b ?>/contact" class="btn-primary">Get Your Free Assessment <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <a href="tel:8506149343" class="btn-ghost">850-614-9343</a>
       </div>
     </div>

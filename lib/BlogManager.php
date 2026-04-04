@@ -139,7 +139,7 @@ class BlogManager {
 
         $html .= '<div style="background:rgba(212,168,67,0.06);border:1px solid rgba(212,168,67,0.2);border-radius:0.75rem;padding:1.25rem 1.5rem;margin-top:2rem;">'
                . '<div style="font-size:0.75rem;font-weight:700;letter-spacing:0.15em;color:#D4A843;text-transform:uppercase;margin-bottom:0.5rem;">About Leonidas</div>'
-               . '<p style="margin:0;font-size:0.9rem;color:#9CA3AF;">Leonidas is a managed IT services provider, MSSP, and unified communications consultancy based in Panama City Beach, FL, serving the Florida Panhandle. We offer free 30-minute assessments for businesses evaluating their IT and security posture. <a href="' . SITE_BASE . '/contact.php" style="color:#D4A843;font-weight:600;text-decoration:none;">Contact us</a> or call <a href="tel:8506149343" style="color:#D4A843;font-weight:600;text-decoration:none;">850-614-9343</a>.</p>'
+               . '<p style="margin:0;font-size:0.9rem;color:#9CA3AF;">Leonidas is a managed IT services provider, MSSP, and unified communications consultancy based in Panama City Beach, FL, serving the Florida Panhandle. We offer free 30-minute assessments for businesses evaluating their IT and security posture. <a href="' . SITE_BASE . '/contact" style="color:#D4A843;font-weight:600;text-decoration:none;">Contact us</a> or call <a href="tel:8506149343" style="color:#D4A843;font-weight:600;text-decoration:none;">850-614-9343</a>.</p>'
                . '</div>';
 
         return $html;
