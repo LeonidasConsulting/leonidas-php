@@ -18,6 +18,9 @@ tailwind.config.js
 assets/input.css
 .claude/
 
+# Rate limit files (generated at runtime, never commit)
+data/rl_*.json
+
 # OS / editor
 .DS_Store
 Thumbs.db
