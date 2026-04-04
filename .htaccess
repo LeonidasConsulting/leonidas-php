@@ -59,6 +59,10 @@ RedirectMatch 404 ^/tools/
 RedirectMatch 404 \.py$
 RedirectMatch 404 ^/\.user\.ini$
 
+# ── Block direct GET access to contact-proxy (POST from form still allowed) ──
+RewriteCond %{REQUEST_METHOD} !^POST$
+RewriteRule ^contact-proxy\.php$ - [F,L]
+
 # ── Security headers for static files ────────────────────────────────────────
 <IfModule mod_headers.c>
   Header always set X-Content-Type-Options "nosniff"

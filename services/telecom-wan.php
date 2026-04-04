@@ -100,6 +100,43 @@ require_once dirname(__DIR__) . '/includes/header.php';
     </div>
   </section>
 
+
+  <!-- INDUSTRIES WE SERVE -->
+  <section class="py-20 px-6" style="background:rgba(5,5,16,0.6);">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-12 fade-in">
+        <div class="section-label">Industries We Serve</div>
+        <h2 style="font-size:clamp(1.8rem,3.5vw,2.8rem); font-weight:900; letter-spacing:-0.03em; color:#F9FAFB;">Connectivity solutions for every sector.</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <a href="<?= $b ?>/industries/construction.php" class="p-6 rounded-xl fade-in" style="background:rgba(255,255,255,0.02); border:1px solid rgba(212,168,67,0.1); text-decoration:none; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(212,168,67,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.1)';this.style.transform='translateY(0)'">
+          <div style="font-size:1.5rem; margin-bottom:1rem;">🏗️</div>
+          <h3 style="font-weight:700; color:#FFFFFF; margin-bottom:0.5rem;">Construction</h3>
+          <p class="text-sm leading-relaxed" style="color:#9CA3AF;">Multi-site WAN, temporary field connectivity, and cost-managed telecom for contractors and builders.</p>
+          <div class="mt-4 text-sm font-semibold" style="color:#D4A843;">See how we help &rarr;</div>
+        </a>
+        <a href="<?= $b ?>/industries/government-contractors.php" class="p-6 rounded-xl fade-in fade-in-delay-1" style="background:rgba(255,255,255,0.02); border:1px solid rgba(212,168,67,0.1); text-decoration:none; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(212,168,67,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.1)';this.style.transform='translateY(0)'">
+          <div style="font-size:1.5rem; margin-bottom:1rem;">🏛️</div>
+          <h3 style="font-weight:700; color:#FFFFFF; margin-bottom:0.5rem;">Government Contractors</h3>
+          <p class="text-sm leading-relaxed" style="color:#9CA3AF;">Secure WAN architecture and compliant connectivity for DoD-aligned facilities and remote sites.</p>
+          <div class="mt-4 text-sm font-semibold" style="color:#D4A843;">See how we help &rarr;</div>
+        </a>
+        <a href="<?= $b ?>/industries/hospitality.php" class="p-6 rounded-xl fade-in fade-in-delay-2" style="background:rgba(255,255,255,0.02); border:1px solid rgba(212,168,67,0.1); text-decoration:none; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(212,168,67,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.1)';this.style.transform='translateY(0)'">
+          <div style="font-size:1.5rem; margin-bottom:1rem;">🏨</div>
+          <h3 style="font-weight:700; color:#FFFFFF; margin-bottom:0.5rem;">Hospitality</h3>
+          <p class="text-sm leading-relaxed" style="color:#9CA3AF;">Redundant internet for guest operations, high-density bandwidth, and reliable WAN for hotel properties.</p>
+          <div class="mt-4 text-sm font-semibold" style="color:#D4A843;">See how we help &rarr;</div>
+        </a>
+        <a href="<?= $b ?>/industries/healthcare.php" class="p-6 rounded-xl fade-in fade-in-delay-3" style="background:rgba(255,255,255,0.02); border:1px solid rgba(212,168,67,0.1); text-decoration:none; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(212,168,67,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(212,168,67,0.1)';this.style.transform='translateY(0)'">
+          <div style="font-size:1.5rem; margin-bottom:1rem;">🏥</div>
+          <h3 style="font-weight:700; color:#FFFFFF; margin-bottom:0.5rem;">Healthcare</h3>
+          <p class="text-sm leading-relaxed" style="color:#9CA3AF;">Reliable, redundant WAN and failover connectivity for clinical operations where downtime is not an option.</p>
+          <div class="mt-4 text-sm font-semibold" style="color:#D4A843;">See how we help &rarr;</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <section class="py-24 px-6">
     <div class="max-w-3xl mx-auto text-center fade-in">
       <div class="section-label justify-center">Get Started</div>

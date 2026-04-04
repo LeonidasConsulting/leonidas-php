@@ -32,6 +32,9 @@ $page_css = '
   .filter-btn.active { background: #D4A843; color: #0A0A1A; border-color: #D4A843; }
   .post-card { transition: border-color 0.2s, opacity 0.2s; }
   .post-card.card-hidden { display: none !important; }
+  #loadMoreBtn { display:block; margin:2rem auto 0; padding:0.65rem 2rem; background:transparent; border:1px solid rgba(212,168,67,0.4); border-radius:2rem; color:#D4A843; font-size:0.85rem; font-weight:600; cursor:pointer; transition:all 0.2s; }
+  #loadMoreBtn:hover { background:rgba(212,168,67,0.1); }
+  #loadMoreBtn:disabled { opacity:0.4; cursor:default; }
 ';
 
 require_once dirname(__DIR__) . '/includes/header.php';
@@ -149,7 +152,9 @@ window.BLOG_MANIFEST = <?= json_encode($manifest) ?>;
 <!-- Post Grid -->
 <section style="max-width:1280px;margin:0 auto;padding:0 1.5rem 4rem;">
   <div id="postGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem;">
-    <?php foreach ($posts as $post):
+    <?php foreach ($posts as $i => $post):
+      $initialHidden = $i >= 24 ? ' style="display:none"' : '';
+    ?>
       $cat    = $post['category'] ?? 'General';
       $color  = $catColors[$cat] ?? '#D4A843';
       $excerpt = $post['excerpt'] ?? '';
@@ -171,7 +176,8 @@ window.BLOG_MANIFEST = <?= json_encode($manifest) ?>;
     ?>
     <article class="post-card fade-in"
              data-category="<?= htmlspecialchars($cat) ?>"
-             style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:1rem;padding:1.5rem;"
+             data-index="<?= $i ?>"
+             style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:1rem;padding:1.5rem;"<?= $initialHidden ?>
              onmouseover="this.style.borderColor='rgba(212,168,67,0.2)'"
              onmouseout="this.style.borderColor='rgba(255,255,255,0.06)'">
       <span style="font-size:0.68rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:<?= $color ?>;"><?= htmlspecialchars($cat) ?></span>
@@ -186,24 +192,53 @@ window.BLOG_MANIFEST = <?= json_encode($manifest) ?>;
     </article>
     <?php endforeach; ?>
   </div>
+  <button id="loadMoreBtn">Load more articles</button>
 </section>
 
 <script>
+var PER_PAGE = 24;
+var currentShown = PER_PAGE;
+var activeCat = 'all';
+
+function getMatchingCards() {
+  return Array.from(document.querySelectorAll('.post-card')).filter(function(c) {
+    return activeCat === 'all' || c.dataset.category === activeCat;
+  });
+}
+
+function applyVisibility() {
+  var matching = getMatchingCards();
+  var shownCount = 0;
+  // Hide all first
+  document.querySelectorAll('.post-card').forEach(function(c){ c.classList.add('card-hidden'); c.style.display = ''; });
+  matching.forEach(function(card, idx) {
+    if (idx < currentShown) {
+      card.classList.remove('card-hidden');
+      shownCount++;
+    }
+  });
+  document.getElementById('postCount').textContent = matching.length + ' article' + (matching.length !== 1 ? 's' : '');
+  var btn = document.getElementById('loadMoreBtn');
+  btn.style.display = matching.length > currentShown ? 'block' : 'none';
+}
+
 document.getElementById('filterBar').addEventListener('click', function(e) {
   var btn = e.target.closest('.filter-btn');
   if (!btn) return;
-  var cat = btn.dataset.cat;
+  activeCat = btn.dataset.cat;
+  currentShown = PER_PAGE;
   document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
   btn.classList.add('active');
-  var cards = document.querySelectorAll('.post-card');
-  var visible = 0;
-  cards.forEach(function(card){
-    var match = (cat === 'all' || card.dataset.category === cat);
-    card.classList.toggle('card-hidden', !match);
-    if (match) visible++;
-  });
-  document.getElementById('postCount').textContent = visible + ' article' + (visible !== 1 ? 's' : '');
+  applyVisibility();
 });
+
+document.getElementById('loadMoreBtn').addEventListener('click', function() {
+  currentShown += PER_PAGE;
+  applyVisibility();
+});
+
+// Init: show first 24 matching (all posts, since activeCat=all)
+applyVisibility();
 </script>
 
 <?php require_once dirname(__DIR__) . '/includes/footer.php'; ?>
