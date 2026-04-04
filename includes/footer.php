@@ -71,4 +71,4 @@ $b = SITE_BASE;
   els.forEach(function(el){ obs.observe(el); });
 })();
 </script>
-<script src="<?= $b ?>/assets/chat-widget.js" defer></script>
+<script src="<?= $b ?>/assets/chat-widget.js?v=2" defer></script>
