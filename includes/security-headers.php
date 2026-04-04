@@ -15,7 +15,7 @@ header('Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
 header(implode('', [
     "Content-Security-Policy: ",
     "default-src 'self'; ",
-    "script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net https://challenges.cloudflare.com; ",
+    "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net https://challenges.cloudflare.com; ",
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; ",
     "font-src 'self' https://fonts.gstatic.com; ",
     "img-src 'self' data: https: https://www.facebook.com; ",

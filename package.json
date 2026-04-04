@@ -1,0 +1,17 @@
+{
+  "name": "leonidas-php",
+  "version": "1.0.0",
+  "description": "Leonidas PHP site — Tailwind CSS build tooling",
+  "scripts": {
+    "build": "npx @tailwindcss/cli -i ./assets/input.css -o ./assets/css/tailwind.min.css --minify",
+    "watch": "npx @tailwindcss/cli -i ./assets/input.css -o ./assets/css/tailwind.min.css --watch"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.2.2",
+    "tailwindcss": "^4.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeonidasConsulting/leonidas-php.git"
+  }
+}

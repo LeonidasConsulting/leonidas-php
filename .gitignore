@@ -5,17 +5,14 @@ chat/blog-api.php
 .google_ai_key
 .claude/commands/php-rewrite.md
 
-# Build artifacts
+# Build artifacts — node_modules never committed
 node_modules/
-assets/css/tailwind.min.css
+package-lock.json
 
 # Dev tools — not for web root
 tools/
 generate_batch2.py
-package.json
-package-lock.json
 tailwind.config.js
-assets/input.css
 .claude/
 
 # Rate limit files (generated at runtime, never commit)
