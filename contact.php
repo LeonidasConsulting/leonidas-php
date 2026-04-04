@@ -107,7 +107,7 @@ require_once __DIR__ . '/includes/header.php';
               </div>
 
               <button type="submit" class="btn-primary w-full justify-center" id="submit-btn">
-                Send Message
+                <span id="submit-text">Send Message</span>
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </button>
               <p class="mt-4 text-xs text-center" style="color:#6B7280;">By submitting this form, you agree to be contacted by Leonidas regarding your inquiry. We do not sell your information.</p>
@@ -194,6 +194,7 @@ require_once __DIR__ . '/includes/header.php';
 (function() {
   var form = document.getElementById('contact-form');
   var submitBtn = document.getElementById('submit-btn');
+  var submitText = document.getElementById('submit-text');
   var successMsg = document.getElementById('form-success');
   var errorMsg = document.getElementById('form-error');
   var formStart = Date.now();
@@ -207,7 +208,7 @@ require_once __DIR__ . '/includes/header.php';
     }
 
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending...';
+    submitText.textContent = 'Sending...';
     successMsg.style.display = 'none';
     errorMsg.style.display = 'none';
 
@@ -242,7 +243,7 @@ require_once __DIR__ . '/includes/header.php';
       errorMsg.textContent = 'Could not reach the server. Please call <?= COMPANY_PHONE ?> or email <?= COMPANY_EMAIL ?>.';
     } finally {
       submitBtn.disabled = false;
-      submitBtn.innerHTML = 'Send Message <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+      submitText.textContent = 'Send Message';
     }
   });
 })();
