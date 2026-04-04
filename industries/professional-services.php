@@ -158,22 +158,22 @@ require_once dirname(__DIR__) . '/includes/header.php';
         <h2 style="font-size:clamp(1.5rem,3vw,2.2rem); font-weight:900; letter-spacing:-0.02em; color:#F9FAFB;">Professional services IT insights.</h2>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <a href="<?= $b ?>/blog/post.php?slug=business-email-compromise-bec" class="blog-card fade-in">
+        <a href="<?= $b ?>/blog/business-email-compromise-bec" class="blog-card fade-in">
           <div class="text-xs font-bold tracking-wider mb-3" style="color:#D4A843;">CYBERSECURITY</div>
           <h3 style="font-weight:700; color:#FFFFFF; font-size:0.95rem; line-height:1.4; margin-bottom:0.75rem;">Business Email Compromise: The $50 Billion Scam Targeting Your Finance Team</h3>
           <div class="text-sm font-semibold" style="color:#D4A843;">Read article →</div>
         </a>
-        <a href="<?= $b ?>/blog/post.php?slug=microsoft-365-administration" class="blog-card fade-in fade-in-delay-1">
+        <a href="<?= $b ?>/blog/microsoft-365-administration" class="blog-card fade-in fade-in-delay-1">
           <div class="text-xs font-bold tracking-wider mb-3" style="color:#D4A843;">MANAGED IT</div>
           <h3 style="font-weight:700; color:#FFFFFF; font-size:0.95rem; line-height:1.4; margin-bottom:0.75rem;">Microsoft 365 Administration: Why Businesses Shouldn't Manage It Alone</h3>
           <div class="text-sm font-semibold" style="color:#D4A843;">Read article →</div>
         </a>
-        <a href="<?= $b ?>/blog/post.php?slug=remote-work-security" class="blog-card fade-in fade-in-delay-2">
+        <a href="<?= $b ?>/blog/remote-work-security" class="blog-card fade-in fade-in-delay-2">
           <div class="text-xs font-bold tracking-wider mb-3" style="color:#D4A843;">CYBERSECURITY</div>
           <h3 style="font-weight:700; color:#FFFFFF; font-size:0.95rem; line-height:1.4; margin-bottom:0.75rem;">Remote Work Security: A Practical Guide for Distributed Teams</h3>
           <div class="text-sm font-semibold" style="color:#D4A843;">Read article →</div>
         </a>
-        <a href="<?= $b ?>/blog/post.php?slug=disaster-recovery-testing" class="blog-card fade-in fade-in-delay-3">
+        <a href="<?= $b ?>/blog/disaster-recovery-testing" class="blog-card fade-in fade-in-delay-3">
           <div class="text-xs font-bold tracking-wider mb-3" style="color:#D4A843;">MANAGED IT</div>
           <h3 style="font-weight:700; color:#FFFFFF; font-size:0.95rem; line-height:1.4; margin-bottom:0.75rem;">Disaster Recovery Testing: When Was the Last Time You Actually Tested Your Backups?</h3>
           <div class="text-sm font-semibold" style="color:#D4A843;">Read article →</div>

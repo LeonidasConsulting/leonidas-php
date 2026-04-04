@@ -163,22 +163,22 @@ require_once dirname(__DIR__) . '/includes/header.php';
         <h2 style="font-size:clamp(1.5rem,3vw,2.2rem); font-weight:900; letter-spacing:-0.02em; color:#F9FAFB;">Healthcare IT insights.</h2>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <a href="<?= $b ?>/blog/post.php?slug=hipaa-compliance-it-guide" class="blog-card fade-in">
+        <a href="<?= $b ?>/blog/hipaa-compliance-it-guide" class="blog-card fade-in">
           <div class="text-xs font-bold tracking-wider mb-3" style="color:#D4A843;">INDUSTRY TRENDS</div>
           <h3 style="font-weight:700; color:#FFFFFF; font-size:0.95rem; line-height:1.4; margin-bottom:0.75rem;">HIPAA Compliance for IT: What Healthcare Businesses Need to Know</h3>
           <div class="text-sm font-semibold" style="color:#D4A843;">Read article →</div>
         </a>
-        <a href="<?= $b ?>/blog/post.php?slug=ransomware-recovery-guide" class="blog-card fade-in fade-in-delay-1">
+        <a href="<?= $b ?>/blog/ransomware-recovery-guide" class="blog-card fade-in fade-in-delay-1">
           <div class="text-xs font-bold tracking-wider mb-3" style="color:#D4A843;">CYBERSECURITY</div>
           <h3 style="font-weight:700; color:#FFFFFF; font-size:0.95rem; line-height:1.4; margin-bottom:0.75rem;">Ransomware Recovery: What to Do When Your Business Gets Hit</h3>
           <div class="text-sm font-semibold" style="color:#D4A843;">Read article →</div>
         </a>
-        <a href="<?= $b ?>/blog/post.php?slug=network-segmentation" class="blog-card fade-in fade-in-delay-2">
+        <a href="<?= $b ?>/blog/network-segmentation" class="blog-card fade-in fade-in-delay-2">
           <div class="text-xs font-bold tracking-wider mb-3" style="color:#D4A843;">NETWORKING</div>
           <h3 style="font-weight:700; color:#FFFFFF; font-size:0.95rem; line-height:1.4; margin-bottom:0.75rem;">What Is Network Segmentation and Why Does Every Business Need It?</h3>
           <div class="text-sm font-semibold" style="color:#D4A843;">Read article →</div>
         </a>
-        <a href="<?= $b ?>/blog/post.php?slug=dark-web-monitoring" class="blog-card fade-in fade-in-delay-3">
+        <a href="<?= $b ?>/blog/dark-web-monitoring" class="blog-card fade-in fade-in-delay-3">
           <div class="text-xs font-bold tracking-wider mb-3" style="color:#D4A843;">CYBERSECURITY</div>
           <h3 style="font-weight:700; color:#FFFFFF; font-size:0.95rem; line-height:1.4; margin-bottom:0.75rem;">Dark Web Monitoring: Why Your Business Can't Afford to Ignore It</h3>
           <div class="text-sm font-semibold" style="color:#D4A843;">Read article →</div>

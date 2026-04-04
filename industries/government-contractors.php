@@ -158,22 +158,22 @@ require_once dirname(__DIR__) . '/includes/header.php';
         <h2 style="font-size:clamp(1.5rem,3vw,2.2rem); font-weight:900; letter-spacing:-0.02em; color:#F9FAFB;">Government contractor IT insights.</h2>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <a href="<?= $b ?>/blog/post.php?slug=compliance-frameworks-nist-cis-cmmc" class="blog-card fade-in">
+        <a href="<?= $b ?>/blog/compliance-frameworks-nist-cis-cmmc" class="blog-card fade-in">
           <div class="text-xs font-bold tracking-wider mb-3" style="color:#D4A843;">CYBERSECURITY</div>
           <h3 style="font-weight:700; color:#FFFFFF; font-size:0.95rem; line-height:1.4; margin-bottom:0.75rem;">Compliance Frameworks Explained: NIST, CIS, CMMC, and What They Mean for Your Business</h3>
           <div class="text-sm font-semibold" style="color:#D4A843;">Read article →</div>
         </a>
-        <a href="<?= $b ?>/blog/post.php?slug=2026-compliance-landscape" class="blog-card fade-in fade-in-delay-1">
+        <a href="<?= $b ?>/blog/2026-compliance-landscape" class="blog-card fade-in fade-in-delay-1">
           <div class="text-xs font-bold tracking-wider mb-3" style="color:#D4A843;">INDUSTRY TRENDS</div>
           <h3 style="font-weight:700; color:#FFFFFF; font-size:0.95rem; line-height:1.4; margin-bottom:0.75rem;">2026 Compliance Landscape: What's Changed and What You Need to Know</h3>
           <div class="text-sm font-semibold" style="color:#D4A843;">Read article →</div>
         </a>
-        <a href="<?= $b ?>/blog/post.php?slug=supply-chain-cyberattacks" class="blog-card fade-in fade-in-delay-2">
+        <a href="<?= $b ?>/blog/supply-chain-cyberattacks" class="blog-card fade-in fade-in-delay-2">
           <div class="text-xs font-bold tracking-wider mb-3" style="color:#D4A843;">CYBERSECURITY</div>
           <h3 style="font-weight:700; color:#FFFFFF; font-size:0.95rem; line-height:1.4; margin-bottom:0.75rem;">Supply Chain Cyberattacks: How Hackers Use Your Vendors to Get to You</h3>
           <div class="text-sm font-semibold" style="color:#D4A843;">Read article →</div>
         </a>
-        <a href="<?= $b ?>/blog/post.php?slug=privileged-access-management" class="blog-card fade-in fade-in-delay-3">
+        <a href="<?= $b ?>/blog/privileged-access-management" class="blog-card fade-in fade-in-delay-3">
           <div class="text-xs font-bold tracking-wider mb-3" style="color:#D4A843;">CYBERSECURITY</div>
           <h3 style="font-weight:700; color:#FFFFFF; font-size:0.95rem; line-height:1.4; margin-bottom:0.75rem;">Privileged Access Management: Why Admin Credentials Are Your Biggest Risk</h3>
           <div class="text-sm font-semibold" style="color:#D4A843;">Read article →</div>

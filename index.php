@@ -541,7 +541,7 @@ include 'includes/header.php';
           $title    = htmlspecialchars($post['title'] ?? 'Untitled');
           $category = htmlspecialchars($post['category'] ?? '');
           $date_fmt = fmt_blog_date($post['date'] ?? '', $month_names);
-          $post_url = $b . '/blog/post.php?slug=' . urlencode($post['slug'] ?? '');
+          $post_url = $b . '/blog/' . urlencode($post['slug'] ?? '');
         ?>
         <a href="<?= $post_url ?>" class="card" style="display:block; padding:2rem; text-decoration:none; transition:transform 0.2s ease, border-color 0.2s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(212,168,67,0.4)'" onmouseout="this.style.transform='';this.style.borderColor=''">
           <?php if ($category): ?>

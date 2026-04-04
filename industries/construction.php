@@ -169,22 +169,22 @@ require_once dirname(__DIR__) . '/includes/header.php';
         <h2 style="font-size:clamp(1.5rem,3vw,2.2rem); font-weight:900; letter-spacing:-0.02em; color:#F9FAFB;">Construction IT insights.</h2>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <a href="<?= $b ?>/blog/post.php?slug=5g-fixed-wireless-business" class="blog-card fade-in">
+        <a href="<?= $b ?>/blog/5g-fixed-wireless-business" class="blog-card fade-in">
           <div class="text-xs font-bold tracking-wider mb-3" style="color:#D4A843;">NETWORKING</div>
           <h3 style="font-weight:700; color:#FFFFFF; font-size:0.95rem; line-height:1.4; margin-bottom:0.75rem;">5G and Fixed Wireless Access: A Real Alternative for Business Internet?</h3>
           <div class="text-sm font-semibold" style="color:#D4A843;">Read article →</div>
         </a>
-        <a href="<?= $b ?>/blog/post.php?slug=unified-endpoint-management" class="blog-card fade-in fade-in-delay-1">
+        <a href="<?= $b ?>/blog/unified-endpoint-management" class="blog-card fade-in fade-in-delay-1">
           <div class="text-xs font-bold tracking-wider mb-3" style="color:#D4A843;">MANAGED IT</div>
           <h3 style="font-weight:700; color:#FFFFFF; font-size:0.95rem; line-height:1.4; margin-bottom:0.75rem;">Unified Endpoint Management (UEM): One Platform to Rule Them All</h3>
           <div class="text-sm font-semibold" style="color:#D4A843;">Read article →</div>
         </a>
-        <a href="<?= $b ?>/blog/post.php?slug=business-email-compromise-bec" class="blog-card fade-in fade-in-delay-2">
+        <a href="<?= $b ?>/blog/business-email-compromise-bec" class="blog-card fade-in fade-in-delay-2">
           <div class="text-xs font-bold tracking-wider mb-3" style="color:#D4A843;">CYBERSECURITY</div>
           <h3 style="font-weight:700; color:#FFFFFF; font-size:0.95rem; line-height:1.4; margin-bottom:0.75rem;">Business Email Compromise: The $50 Billion Scam Targeting Your Finance Team</h3>
           <div class="text-sm font-semibold" style="color:#D4A843;">Read article →</div>
         </a>
-        <a href="<?= $b ?>/blog/post.php?slug=multi-carrier-wan-strategy" class="blog-card fade-in fade-in-delay-3">
+        <a href="<?= $b ?>/blog/multi-carrier-wan-strategy" class="blog-card fade-in fade-in-delay-3">
           <div class="text-xs font-bold tracking-wider mb-3" style="color:#D4A843;">TELECOM</div>
           <h3 style="font-weight:700; color:#FFFFFF; font-size:0.95rem; line-height:1.4; margin-bottom:0.75rem;">Multi-Carrier WAN Strategy: Why One ISP Is Never Enough</h3>
           <div class="text-sm font-semibold" style="color:#D4A843;">Read article →</div>

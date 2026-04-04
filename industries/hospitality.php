@@ -158,22 +158,22 @@ require_once dirname(__DIR__) . '/includes/header.php';
         <h2 style="font-size:clamp(1.5rem,3vw,2.2rem); font-weight:900; letter-spacing:-0.02em; color:#F9FAFB;">Hospitality IT insights.</h2>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <a href="<?= $b ?>/blog/post.php?slug=wireless-network-design" class="blog-card fade-in">
+        <a href="<?= $b ?>/blog/wireless-network-design" class="blog-card fade-in">
           <div class="text-xs font-bold tracking-wider mb-3" style="color:#D4A843;">NETWORKING</div>
           <h3 style="font-weight:700; color:#FFFFFF; font-size:0.95rem; line-height:1.4; margin-bottom:0.75rem;">Wireless Network Design: Why Your Office Wi-Fi Might Be Failing You</h3>
           <div class="text-sm font-semibold" style="color:#D4A843;">Read article →</div>
         </a>
-        <a href="<?= $b ?>/blog/post.php?slug=network-segmentation" class="blog-card fade-in fade-in-delay-1">
+        <a href="<?= $b ?>/blog/network-segmentation" class="blog-card fade-in fade-in-delay-1">
           <div class="text-xs font-bold tracking-wider mb-3" style="color:#D4A843;">NETWORKING</div>
           <h3 style="font-weight:700; color:#FFFFFF; font-size:0.95rem; line-height:1.4; margin-bottom:0.75rem;">What Is Network Segmentation and Why Does Every Business Need It?</h3>
           <div class="text-sm font-semibold" style="color:#D4A843;">Read article →</div>
         </a>
-        <a href="<?= $b ?>/blog/post.php?slug=multi-carrier-wan-strategy" class="blog-card fade-in fade-in-delay-2">
+        <a href="<?= $b ?>/blog/multi-carrier-wan-strategy" class="blog-card fade-in fade-in-delay-2">
           <div class="text-xs font-bold tracking-wider mb-3" style="color:#D4A843;">TELECOM</div>
           <h3 style="font-weight:700; color:#FFFFFF; font-size:0.95rem; line-height:1.4; margin-bottom:0.75rem;">Multi-Carrier WAN Strategy: Why One ISP Is Never Enough</h3>
           <div class="text-sm font-semibold" style="color:#D4A843;">Read article →</div>
         </a>
-        <a href="<?= $b ?>/blog/post.php?slug=it-onboarding-offboarding-security" class="blog-card fade-in fade-in-delay-3">
+        <a href="<?= $b ?>/blog/it-onboarding-offboarding-security" class="blog-card fade-in fade-in-delay-3">
           <div class="text-xs font-bold tracking-wider mb-3" style="color:#D4A843;">MANAGED IT</div>
           <h3 style="font-weight:700; color:#FFFFFF; font-size:0.95rem; line-height:1.4; margin-bottom:0.75rem;">IT Onboarding and Offboarding: Why It's a Security Risk You Can't Ignore</h3>
           <div class="text-sm font-semibold" style="color:#D4A843;">Read article →</div>
