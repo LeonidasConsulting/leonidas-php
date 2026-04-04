@@ -2,7 +2,7 @@
 require_once __DIR__ . '/includes/config.php';
 $b = SITE_BASE;
 
-$page_title       = 'About Leonidas | Managed IT &amp; Cybersecurity Experts — Florida Panhandle';
+$page_title       = 'About Leonidas | IT &amp; Cybersecurity | Florida Panhandle';
 $page_description = 'Learn how Leonidas has delivered managed IT, cybersecurity, and unified communications for businesses across the Florida Panhandle for over 20 years.';
 $page_url         = SITE_URL . '/about';
 

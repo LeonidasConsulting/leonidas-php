@@ -1,7 +1,7 @@
 <?php
 require_once dirname(__DIR__) . '/includes/config.php';
 
-$page_title       = 'Government Contractor IT | CMMC & CUI Compliance | Leonidas';
+$page_title       = 'Government Contractor IT | CMMC | Florida Panhandle';
 $meta_description = 'CMMC compliance, NIST alignment, and CUI handling for defense contractors in the Florida Panhandle. IT built to meet federal cybersecurity requirements.';
 $canonical_url    = 'https://leonidastek.com/industries/government-contractors';
 

@@ -4,6 +4,23 @@ require_once __DIR__ . '/includes/config.php';
 
 header('Content-Type: application/json');
 
+// Rate limiting — 10 submissions per IP per hour
+$_rl_ip  = $_SERVER['HTTP_CF_CONNECTING_IP'] ?? $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+$_rl_ip  = preg_replace('/[^0-9a-fA-F.:]/', '', $_rl_ip);
+$_rl_dir = sys_get_temp_dir() . '/leonidas_contact';
+if (!is_dir($_rl_dir)) @mkdir($_rl_dir, 0700, true);
+$_rl_file = $_rl_dir . '/rate_' . md5($_rl_ip) . '.json';
+$_rl_now  = time();
+$_rl_data = file_exists($_rl_file) ? json_decode(file_get_contents($_rl_file), true) : ['count'=>0,'window_start'=>$_rl_now];
+if (($_rl_now - $_rl_data['window_start']) > 3600) { $_rl_data = ['count'=>0,'window_start'=>$_rl_now]; }
+if ($_rl_data['count'] >= 10) {
+    http_response_code(429);
+    echo json_encode(['ok'=>false,'error'=>'Too many submissions. Please try again later.']);
+    exit;
+}
+$_rl_data['count']++;
+file_put_contents($_rl_file, json_encode($_rl_data), LOCK_EX);
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
     echo json_encode(['ok'=>false,'error'=>'Method not allowed']);

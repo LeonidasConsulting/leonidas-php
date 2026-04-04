@@ -16,7 +16,7 @@ require_once dirname(__DIR__) . '/includes/header.php';
       <nav class="flex items-center gap-2 text-sm mb-8" style="color:#6B7280;" aria-label="Breadcrumb">
         <a href="<?= $b ?>/" style="color:#6B7280; text-decoration:none;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#6B7280'">Home</a>
         <span>/</span>
-        <a href="<?= $b ?>/about.php" style="color:#6B7280; text-decoration:none;" onmouseover="this.style.color='#D4A843'" onmouseout="this.style.color='#6B7280'">Services</a>
+        <span>Services</span>
         <span>/</span>
         <span style="color:#D4A843;">Managed IT</span>
       </nav>

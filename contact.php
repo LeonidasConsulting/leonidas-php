@@ -2,7 +2,7 @@
 require_once __DIR__ . '/includes/config.php';
 $b = SITE_BASE;
 
-$page_title       = 'Contact Leonidas | Managed IT &amp; Cybersecurity — Florida Panhandle';
+$page_title       = 'Contact Leonidas | Florida Panhandle IT Services';
 $page_description = 'Contact Leonidas for managed IT, cybersecurity, and unified communications in the Florida Panhandle. Call 850-614-9343 or request a free assessment.';
 $page_url         = SITE_URL . '/contact';
 

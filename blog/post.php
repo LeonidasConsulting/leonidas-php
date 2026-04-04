@@ -12,7 +12,7 @@ if (!$post) {
     $page_description = 'Page not found.';
     $page_url = SITE_URL . '/blog/';
     require_once dirname(__DIR__) . '/includes/header.php';
-    echo '<section style="max-width:800px;margin:6rem auto;padding:0 1.5rem;text-align:center;"><h1 style="color:#FFFFFF;">Post Not Found</h1><a href="<?= $b ?>/blog/" style="color:#D4A843;">← Back to Blog</a></section>';
+    echo '<section style="max-width:800px;margin:6rem auto;padding:0 1.5rem;text-align:center;"><h1 style="color:#FFFFFF;">Post Not Found</h1><a href="' . htmlspecialchars($b) . '/blog/" style="color:#D4A843;">← Back to Blog</a></section>';
     require_once dirname(__DIR__) . '/includes/footer.php';
     exit;
 }
@@ -26,11 +26,17 @@ $canonical_url    = SITE_URL . '/blog/' . $slug;
 $is_article       = true;
 
 $json_ld_image = !empty($post['image']) ? SITE_URL . '/' . ltrim($post['image'], '/') : null;
+if ($json_ld_image) {
+    $og_image = $json_ld_image;
+}
+$og_title       = htmlspecialchars($post['title']) . ' | Leonidas Blog';
+$og_description = $meta_description;
 $json_ld = [
     '@context'      => 'https://schema.org',
     '@type'         => 'BlogPosting',
     'headline'      => $post['title'],
     'datePublished' => $post['date'] ?? '',
+    'dateModified'  => $post['date'] ?? '',
     'author'        => ['@type' => 'Organization', 'name' => 'Leonidas', 'url' => SITE_URL],
     'publisher'     => ['@type' => 'Organization', 'name' => 'Leonidas', 'url' => SITE_URL],
     'url'           => $canonical_url,

@@ -9,6 +9,15 @@ chat/blog-api.php
 node_modules/
 assets/css/tailwind.min.css
 
+# Dev tools — not for web root
+tools/
+generate_batch2.py
+package.json
+package-lock.json
+tailwind.config.js
+assets/input.css
+.claude/
+
 # OS / editor
 .DS_Store
 Thumbs.db

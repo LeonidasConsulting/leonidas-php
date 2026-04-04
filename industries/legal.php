@@ -1,7 +1,7 @@
 <?php
 require_once dirname(__DIR__) . '/includes/config.php';
 
-$page_title       = 'Legal IT Solutions | Law Firm Cybersecurity & IT | Leonidas';
+$page_title       = 'Legal IT Services — Florida Panhandle | Leonidas';
 $meta_description = 'IT and cybersecurity for law firms in the Florida Panhandle. Client confidentiality, data loss prevention, encrypted storage, and secure remote access.';
 $canonical_url    = 'https://leonidastek.com/industries/legal';
 

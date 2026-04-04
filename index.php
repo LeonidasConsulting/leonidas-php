@@ -11,29 +11,53 @@ $og_description   = $meta_description;
 $og_image         = 'https://leonidastek.com/assets/og-home.png';
 
 // ── JSON-LD structured data ─────────────────────────────────────────────────
-ob_start(); ?>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Leonidas",
-    "description": "Managed IT services, cybersecurity, network engineering, and unified communications for businesses across the Florida Panhandle.",
-    "url": "https://leonidastek.com",
-    "telephone": "850-614-9343",
-    "email": "sales@leonidastek.com",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "8219 Front Beach Rd, Ste B #2080",
-      "addressLocality": "Panama City Beach",
-      "addressRegion": "FL",
-      "postalCode": "32407",
-      "addressCountry": "US"
-    },
-    "areaServed": "United States",
-    "sameAs": ["https://x.com/LeonidasTEK","https://facebook.com/leonidastek"]
+$page_json_ld = '<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://leonidastek.com/#business",
+  "name": "Leonidas",
+  "description": "Managed IT services, cybersecurity, network engineering, and unified communications for businesses across the Florida Panhandle.",
+  "url": "https://leonidastek.com",
+  "telephone": "850-614-9343",
+  "email": "sales@leonidastek.com",
+  "image": "https://leonidastek.com/assets/og-home.png",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "8219 Front Beach Rd, Ste B #2080",
+    "addressLocality": "Panama City Beach",
+    "addressRegion": "FL",
+    "postalCode": "32407",
+    "addressCountry": "US"
+  },
+  "geo": {"@type": "GeoCoordinates", "latitude": 30.1766, "longitude": -85.8055},
+  "areaServed": [
+    {"@type": "City", "name": "Panama City Beach"},
+    {"@type": "City", "name": "Panama City"},
+    {"@type": "City", "name": "Destin"},
+    {"@type": "City", "name": "Fort Walton Beach"},
+    {"@type": "City", "name": "Pensacola"},
+    {"@type": "City", "name": "Niceville"},
+    {"@type": "City", "name": "Crestview"},
+    {"@type": "City", "name": "Tallahassee"}
+  ],
+  "sameAs": ["https://x.com/LeonidasTEK","https://facebook.com/leonidastek"],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "IT Services",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Managed IT Services"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Cybersecurity"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Network Engineering"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Unified Communications"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Telecom & WAN"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Desktop Support"}}
+    ]
   }
-  </script>
-<?php $page_css = ob_get_clean();
+}
+</script>';
+$is_article = false;
 
 // Include shared header (outputs <!DOCTYPE html> through </nav>)
 include 'includes/header.php';

@@ -55,6 +55,9 @@ RedirectMatch 404 ^/lib/
 RedirectMatch 404 ^/chat/?$
 RedirectMatch 404 ^/config/
 RedirectMatch 404 ^/data/
+RedirectMatch 404 ^/tools/
+RedirectMatch 404 \.py$
+RedirectMatch 404 ^/\.user\.ini$
 
 # ── Security headers for static files ────────────────────────────────────────
 <IfModule mod_headers.c>

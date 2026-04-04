@@ -1,7 +1,7 @@
 <?php
 require_once dirname(__DIR__) . '/includes/config.php';
 
-$page_title       = 'Construction IT Solutions | Field Connectivity & MDM | Leonidas';
+$page_title       = 'Construction IT — Field Connectivity & MDM | Florida Panhandle';
 $meta_description = 'IT built for construction — field connectivity, mobile device management, and cybersecurity for contractors and builders in the Florida Panhandle.';
 $canonical_url    = 'https://leonidastek.com/industries/construction';
 

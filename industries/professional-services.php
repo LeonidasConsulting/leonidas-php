@@ -1,7 +1,7 @@
 <?php
 require_once dirname(__DIR__) . '/includes/config.php';
 
-$page_title       = 'Professional Services IT | Accounting, Finance & Consulting IT | Leonidas';
+$page_title       = 'Professional Services IT | Finance & Consulting | Florida Panhandle';
 $meta_description = 'IT and cybersecurity for accounting, finance, and consulting firms in the Florida Panhandle. Data governance, secure collaboration, and productivity.';
 $canonical_url    = 'https://leonidastek.com/industries/professional-services';
 
