@@ -3,6 +3,7 @@ includes/config.php
 chat/api.php
 chat/blog-api.php
 .google_ai_key
+.claude/commands/php-rewrite.md
 
 # Build artifacts
 node_modules/
