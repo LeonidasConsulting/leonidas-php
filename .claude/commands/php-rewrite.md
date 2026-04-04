@@ -528,7 +528,7 @@ define('POWER_AUTOMATE_URL', '[CLAUDE CODE: INSERT VALUE FROM contact.html]');
 
 // ── Cloudflare Turnstile CAPTCHA ──────────────────────────────────────────────
 define('TURNSTILE_SITE_KEY',   '0x4AAAAAACyNx1-BXm2NLmSf');           // Public — safe in HTML
-define('TURNSTILE_SECRET_KEY', '0x4AAAAAACyNx4nEPO-vRGDrSSADyg5HgbY'); // Private — server-side only
+define('TURNSTILE_SECRET_KEY', '[ROTATE — get new key from Cloudflare dashboard]'); // Private — server-side only
 
 // ── Analytics ─────────────────────────────────────────────────────────────────
 define('GA4_MEASUREMENT_ID', 'G-0QWBBHBJLR');   // Live — do not change
