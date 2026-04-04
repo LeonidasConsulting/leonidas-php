@@ -87,11 +87,13 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit;
 }
 
-// Forward to Power Automate
+// Forward to Power Automate (include reply_to so the flow can send a confirmation email)
+$payload = compact('name','email','phone','company','service','message');
+$payload['reply_to'] = $email;
 $ch = curl_init(POWER_AUTOMATE_URL);
 curl_setopt_array($ch, [
     CURLOPT_POST           => true,
-    CURLOPT_POSTFIELDS     => json_encode(compact('name','email','phone','company','service','message')),
+    CURLOPT_POSTFIELDS     => json_encode($payload),
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_TIMEOUT        => 15,
     CURLOPT_HTTPHEADER     => ['Content-Type: application/json'],
@@ -108,41 +110,6 @@ if ($curlErr) {
 }
 
 if ($httpCode === 200 || $httpCode === 202) {
-    // Auto-responder confirmation email to submitter
-    $from_name    = 'Leonidas Consulting';
-    $from_addr    = 'noreply@leonidastek.com';
-    $reply_to     = defined('COMPANY_EMAIL') ? COMPANY_EMAIL : 'sales@leonidastek.com';
-    $subject      = 'We received your message — Leonidas';
-    $service_line = $service ? "\n  Service of interest: {$service}" : '';
-    $plain_body   = "Hi {$name},\n\nThank you for reaching out to Leonidas. We received your message and a member of our team will be in touch shortly.\n{$service_line}\n\nIn the meantime, you're welcome to call us directly:\n  Phone: " . COMPANY_PHONE . "\n  Email: {$reply_to}\n\n— The Leonidas Team\nleonidastek.com";
-    $html_body    = '<!DOCTYPE html><html><body style="margin:0;padding:0;background:#f9fafb;font-family:Arial,sans-serif;">'
-        . '<table width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding:40px 20px;">'
-        . '<table width="560" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:8px;overflow:hidden;border:1px solid #e5e7eb;">'
-        . '<tr><td style="background:#050510;padding:28px 32px;">'
-        . '<span style="font-size:1.1rem;font-weight:800;letter-spacing:0.18em;color:#D4A843;">LEONIDAS</span>'
-        . '</td></tr>'
-        . '<tr><td style="padding:32px;">'
-        . '<p style="margin:0 0 16px;font-size:1rem;color:#111827;">Hi ' . htmlspecialchars($name, ENT_QUOTES) . ',</p>'
-        . '<p style="margin:0 0 16px;font-size:0.95rem;color:#374151;line-height:1.6;">Thank you for reaching out. We received your message and a member of our team will be in touch shortly.</p>'
-        . ($service ? '<p style="margin:0 0 16px;font-size:0.9rem;color:#374151;"><strong>Service of interest:</strong> ' . htmlspecialchars($service, ENT_QUOTES) . '</p>' : '')
-        . '<p style="margin:24px 0 8px;font-size:0.9rem;color:#374151;">In the meantime, you\'re welcome to reach us directly:</p>'
-        . '<p style="margin:0 0 4px;font-size:0.9rem;color:#374151;"><strong>Phone:</strong> ' . COMPANY_PHONE . '</p>'
-        . '<p style="margin:0 0 24px;font-size:0.9rem;color:#374151;"><strong>Email:</strong> ' . htmlspecialchars($reply_to, ENT_QUOTES) . '</p>'
-        . '<p style="margin:0;font-size:0.875rem;color:#6b7280;">— The Leonidas Team</p>'
-        . '</td></tr>'
-        . '<tr><td style="background:#f9fafb;padding:16px 32px;border-top:1px solid #e5e7eb;">'
-        . '<p style="margin:0;font-size:0.75rem;color:#9ca3af;">Leonidas Consulting &middot; 8219 Front Beach Rd Ste B #2080 &middot; Panama City Beach, FL 32407</p>'
-        . '</td></tr></table></td></tr></table></body></html>';
-
-    $mail_headers = implode("\r\n", [
-        'MIME-Version: 1.0',
-        'Content-Type: text/html; charset=UTF-8',
-        'From: ' . $from_name . ' <' . $from_addr . '>',
-        'Reply-To: ' . $reply_to,
-        'X-Mailer: PHP/' . PHP_VERSION,
-    ]);
-    @mail($email, $subject, $html_body, $mail_headers);
-
     echo json_encode(['ok'=>true]);
 } else {
     http_response_code(502);
