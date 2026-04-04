@@ -154,7 +154,7 @@ window.BLOG_MANIFEST = <?= json_encode($manifest) ?>;
   <div id="postGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem;">
     <?php foreach ($posts as $i => $post):
       $initialHidden = $i >= 24 ? ' style="display:none"' : '';
-    ?>
+    <?php
       $cat    = $post['category'] ?? 'General';
       $color  = $catColors[$cat] ?? '#D4A843';
       $excerpt = $post['excerpt'] ?? '';

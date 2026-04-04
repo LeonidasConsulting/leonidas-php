@@ -214,7 +214,7 @@
         </div>
         <div class="leo-footer-note">
           Powered by Leonidas AI &nbsp;·&nbsp;
-          <a href="${ROOT_URL}/contact.php">Talk to a human</a>
+          <a href="${ROOT_URL}/contact">Talk to a human</a>
         </div>
       </div>
     </div>
