@@ -192,58 +192,109 @@ require_once __DIR__ . '/includes/header.php';
 
 <script>
 (function() {
-  var form = document.getElementById('contact-form');
+  var form      = document.getElementById('contact-form');
   var submitBtn = document.getElementById('submit-btn');
-  var submitText = document.getElementById('submit-text');
+  var submitTxt = document.getElementById('submit-text');
   var successMsg = document.getElementById('form-success');
-  var errorMsg = document.getElementById('form-error');
-  var formStart = Date.now();
+  var errorMsg   = document.getElementById('form-error');
+  var formStart  = Date.now();
+
+  // Required field definitions
+  var FIELDS = [
+    { id: 'name',    label: 'Full name is required.' },
+    { id: 'email',   label: 'A valid email address is required.', email: true },
+    { id: 'message', label: 'Message is required.' },
+  ];
+
+  function setFieldError(id, msg) {
+    var el = document.getElementById(id);
+    el.style.borderColor = 'rgba(248,113,113,0.6)';
+    var errEl = document.getElementById(id + '-err');
+    if (!errEl) {
+      errEl = document.createElement('p');
+      errEl.id = id + '-err';
+      errEl.style.cssText = 'color:#F87171;font-size:0.75rem;margin:0.25rem 0 0;';
+      el.parentNode.appendChild(errEl);
+    }
+    errEl.textContent = msg;
+  }
+
+  function clearFieldError(id) {
+    var el = document.getElementById(id);
+    el.style.borderColor = '';
+    var errEl = document.getElementById(id + '-err');
+    if (errEl) errEl.remove();
+  }
+
+  function validate() {
+    var ok = true;
+    FIELDS.forEach(function(f) {
+      var val = document.getElementById(f.id).value.trim();
+      var bad = val.length === 0 || (f.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val));
+      if (bad) { setFieldError(f.id, f.label); ok = false; }
+      else { clearFieldError(f.id); }
+    });
+    return ok;
+  }
+
+  // Clear errors as user types
+  FIELDS.forEach(function(f) {
+    document.getElementById(f.id).addEventListener('input', function() {
+      clearFieldError(f.id);
+    });
+  });
 
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
 
-    // Time gate — reject if submitted in under 3.5 seconds (bot behavior)
-    if (Date.now() - formStart < 3500) {
-      return; // silently ignore
-    }
+    // Time gate — silently ignore bot-speed submits
+    if (Date.now() - formStart < 3500) return;
+
+    // Validate required fields BEFORE consuming the Turnstile token
+    if (!validate()) return;
 
     submitBtn.disabled = true;
-    submitText.textContent = 'Sending...';
+    submitTxt.textContent = 'Sending…';
     successMsg.style.display = 'none';
-    errorMsg.style.display = 'none';
+    errorMsg.style.display   = 'none';
 
+    var tsEl = document.querySelector('[name="cf-turnstile-response"]');
     var payload = {
       name:    document.getElementById('name').value,
       email:   document.getElementById('email').value,
-      phone:   document.getElementById('phone').value || '',
+      phone:   document.getElementById('phone').value   || '',
       company: document.getElementById('company').value || '',
       service: document.getElementById('service').value || '',
       message: document.getElementById('message').value,
       website_url: document.getElementById('website_url').value || '',
-      'cf-turnstile-response': document.querySelector('[name="cf-turnstile-response"]')?.value || '',
+      'cf-turnstile-response': tsEl ? tsEl.value : '',
     };
 
     try {
-      var response = await fetch('<?= $b ?>/contact-proxy.php', {
+      var res  = await fetch('<?= $b ?>/contact-proxy.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       });
-      var data = await response.json();
+      var data = await res.json();
       if (data.ok) {
         successMsg.style.display = 'block';
         form.reset();
+        FIELDS.forEach(function(f) { clearFieldError(f.id); });
         if (window.gtag) { gtag('event', 'form_submit', { event_category: 'contact' }); }
       } else {
         errorMsg.style.display = 'block';
         errorMsg.textContent = data.error || 'Something went wrong. Please call us at <?= COMPANY_PHONE ?>.';
+        // Token was consumed — reset so the user can get a fresh one and retry
+        if (window.turnstile) { turnstile.reset(); }
       }
     } catch (err) {
       errorMsg.style.display = 'block';
       errorMsg.textContent = 'Could not reach the server. Please call <?= COMPANY_PHONE ?> or email <?= COMPANY_EMAIL ?>.';
+      if (window.turnstile) { turnstile.reset(); }
     } finally {
       submitBtn.disabled = false;
-      submitText.textContent = 'Send Message';
+      submitTxt.textContent = 'Send Message';
     }
   });
 })();
