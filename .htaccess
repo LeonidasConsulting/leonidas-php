@@ -39,6 +39,12 @@ RewriteRule ^industries/professional-services\.html$ /industries/professional-se
 RewriteRule ^blog/index\.html$ /blog/ [R=301,L]
 RewriteRule ^blog/post\.html$ /blog/ [R=301,L]
 
+# ── Clean URL rewrites (extensionless → .php) ────────────────────────────────
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.+)$ $1.php [L]
+
 # ── Blog pretty URLs ─────────────────────────────────────────────────────────
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
