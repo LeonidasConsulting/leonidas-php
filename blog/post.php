@@ -96,12 +96,21 @@ require_once dirname(__DIR__) . '/includes/header.php';
 
   <h1 class="fade-in" itemprop="headline" style="font-size:clamp(1.75rem,4vw,2.75rem);font-weight:800;color:#FFFFFF;line-height:1.2;margin-bottom:1.5rem;"><?= htmlspecialchars($post['title']) ?></h1>
 
-  <div class="fade-in" style="display:flex;gap:1.5rem;align-items:center;margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,0.07);">
+  <div class="fade-in" style="display:flex;gap:1.5rem;align-items:center;margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,0.07);">
     <?php if (!empty($post['date'])): ?>
     <span style="font-size:0.8rem;color:#6B7280;" itemprop="datePublished" content="<?= $post['date'] ?>"><?= htmlspecialchars($post['date']) ?></span>
     <?php endif; ?>
     <span style="font-size:0.8rem;color:#6B7280;" itemprop="author">Leonidas</span>
   </div>
+
+  <?php if (!empty($post['image'])): ?>
+  <img src="<?= htmlspecialchars($post['image'], ENT_QUOTES) ?>"
+       alt="<?= htmlspecialchars($post['title'], ENT_QUOTES) ?>"
+       loading="eager"
+       class="fade-in"
+       style="width:100%;border-radius:0.75rem;margin-bottom:2.5rem;display:block;max-height:460px;object-fit:cover;"
+       itemprop="image">
+  <?php endif; ?>
 
   <div class="fade-in article-body" itemprop="articleBody">
     <?php if (!empty($post['body'])): ?>
