@@ -93,7 +93,7 @@ require_once dirname(__DIR__) . '/includes/header.php';
     s=s.replace(/\n\n+/g,'</p><p>').replace(/\n/g,'<br>');
     return '<p>'+s+'</p>';
   }
-  function addMsg(role,html){
+  function addMsg(role,safeHtml){
     var el=document.createElement('div');
     el.style.cssText=role==='user'
       ?'align-self:flex-end;background:linear-gradient(135deg,#D4A843,#B8860B);color:#0A0A1A;padding:0.5rem 0.85rem;border-radius:12px 12px 2px 12px;font-size:0.82rem;max-width:80%;'
