@@ -79,6 +79,9 @@ $page_css = '
     font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
     color: #D4A843; margin-bottom: 0.75rem;
   }
+  .article-body img {
+    max-width: 100%; height: auto; border-radius: 8px; margin: 1.5rem 0; display: block;
+  }
 ';
 
 require_once dirname(__DIR__) . '/includes/header.php';
