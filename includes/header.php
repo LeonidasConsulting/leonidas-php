@@ -56,9 +56,10 @@ $is_services = strpos($current_path, $b . '/services') === 0;
   <meta name="twitter:image" content="<?= htmlspecialchars($og_image, ENT_QUOTES) ?>"/>
   <link rel="alternate" type="application/rss+xml" title="Leonidas Blog — IT &amp; Cybersecurity Insights" href="https://leonidastek.com/feed.xml"/>
   <meta name="google-site-verification" content="EsTne1HFWwiKcw0-2vjIH5XcuBIsACmFM4cE2rucdYc"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <!-- Inter — self-hosted (no Google CDN) -->
+  <link rel="preload" href="<?= $b ?>/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin/>
+  <link rel="preload" href="<?= $b ?>/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin/>
+  <link rel="stylesheet" href="<?= $b ?>/assets/fonts/inter.css"/>
 
   <!-- Tailwind CSS — compiled static build -->
   <link rel="stylesheet" href="<?= $b ?>/assets/css/tailwind.min.css"/>

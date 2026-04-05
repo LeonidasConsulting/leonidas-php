@@ -86,8 +86,7 @@ require_once __DIR__ . '/includes/header.php';
           <li><strong>Google Analytics</strong> — website traffic analytics</li>
           <li><strong>Microsoft Power Automate</strong> — contact form submission routing and email delivery</li>
           <li><strong>Anthropic</strong> — AI chat widget infrastructure</li>
-          <li><strong>Google Fonts</strong> — font delivery via Google's CDN</li>
-          <li><strong>jsDelivr / Tailwind CSS CDN</strong> — CSS framework delivery</li>
+          <li><strong>Cloudflare Turnstile</strong> — CAPTCHA verification on the contact form</li>
         </ul>
         <p>Each of these services has its own privacy policy and data handling practices. We encourage you to review them independently.</p>
 
