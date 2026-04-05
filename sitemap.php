@@ -8,9 +8,9 @@ $blog  = new BlogManager(BLOG_JSON);
 $posts = $blog->all();
 
 $static_pages = [
-    ['loc'=>'/', 'lastmod'=>'2026-04-03', 'changefreq'=>'weekly', 'priority'=>'1.0'],
+    ['loc'=>'/', 'lastmod'=>'2026-04-05', 'changefreq'=>'weekly', 'priority'=>'1.0'],
     ['loc'=>'/about', 'lastmod'=>'2026-04-03', 'changefreq'=>'monthly', 'priority'=>'0.8'],
-    ['loc'=>'/blog/', 'lastmod'=>'2026-04-03', 'changefreq'=>'daily', 'priority'=>'0.9'],
+    ['loc'=>'/blog/', 'lastmod'=>'2026-04-05', 'changefreq'=>'daily', 'priority'=>'0.9'],
     ['loc'=>'/contact', 'lastmod'=>'2026-04-03', 'changefreq'=>'monthly', 'priority'=>'0.7'],
     ['loc'=>'/services/managed-it', 'lastmod'=>'2026-04-03', 'changefreq'=>'monthly', 'priority'=>'0.8'],
     ['loc'=>'/services/cybersecurity', 'lastmod'=>'2026-04-03', 'changefreq'=>'monthly', 'priority'=>'0.8'],
