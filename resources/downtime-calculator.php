@@ -281,10 +281,6 @@ require_once dirname(__DIR__) . '/includes/header.php';
                   <stop offset="66%"  stop-color="#F97316"/>
                   <stop offset="100%" stop-color="#EF4444"/>
                 </linearGradient>
-                <filter id="needleGlow">
-                  <feGaussianBlur stdDeviation="2" result="blur"/>
-                  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-                </filter>
               </defs>
               <!-- Track -->
               <path d="M 20 110 A 90 90 0 0 1 200 110"
@@ -297,15 +293,12 @@ require_once dirname(__DIR__) . '/includes/header.php';
               <text x="68"  y="68"  font-size="7" fill="#FBBF24"  font-family="Inter,sans-serif" font-weight="600">MOD</text>
               <text x="130" y="68"  font-size="7" fill="#F97316"  font-family="Inter,sans-serif" font-weight="600">HIGH</text>
               <text x="183" y="128" font-size="7" fill="#EF4444"  font-family="Inter,sans-serif" font-weight="600">CRIT</text>
-              <!-- Needle — translate wrapper moves origin to gauge centre; rotate() in SVG attr rotates around that origin -->
-              <g transform="translate(110, 110)">
-                <g id="gauge-needle" transform="rotate(-88)">
-                  <line x1="0" y1="0" x2="0" y2="-78"
-                        stroke="rgba(255,255,255,0.9)" stroke-width="2.5" stroke-linecap="round"
-                        filter="url(#needleGlow)"/>
-                  <circle cx="0" cy="0" r="6" fill="#0A0A1A" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
-                  <circle cx="0" cy="0" r="3" fill="#D4A843"/>
-                </g>
+              <!-- Needle: single group, translate to gauge centre then rotate around that origin -->
+              <g id="gauge-needle" transform="translate(110,110) rotate(-88)">
+                <line x1="0" y1="4" x2="0" y2="-75"
+                      stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="0" cy="0" r="7" fill="#0A0A1A" stroke="#FFFFFF" stroke-width="2"/>
+                <circle cx="0" cy="0" r="3.5" fill="#D4A843"/>
               </g>
             </svg>
 
@@ -549,6 +542,10 @@ require_once dirname(__DIR__) . '/includes/header.php';
   let needleTarget  = -88;
   let needleRafId   = null;
 
+  function setNeedleTransform(angle) {
+    needle.setAttribute('transform', `translate(110,110) rotate(${angle})`);
+  }
+
   function animateNeedle(targetAngle) {
     needleTarget = targetAngle;
     if (needleRafId) return; // already running
@@ -556,12 +553,12 @@ require_once dirname(__DIR__) . '/includes/header.php';
       const diff = needleTarget - needleCurrent;
       if (Math.abs(diff) < 0.2) {
         needleCurrent = needleTarget;
-        needle.setAttribute('transform', `rotate(${needleCurrent})`);
+        setNeedleTransform(needleCurrent);
         needleRafId = null;
         return;
       }
       needleCurrent += diff * 0.12;
-      needle.setAttribute('transform', `rotate(${needleCurrent})`);
+      setNeedleTransform(needleCurrent);
       needleRafId = requestAnimationFrame(tick);
     }
     needleRafId = requestAnimationFrame(tick);
