@@ -172,9 +172,6 @@ $page_css = '
   }
   .compare-row:last-child { border-bottom: none; }
 
-  /* Needle animation */
-  #gauge-needle { transition: transform 0.7s cubic-bezier(0.34,1.56,0.64,1); }
-
   /* Number animation */
   .counting { color: inherit; }
 ';
@@ -300,9 +297,9 @@ require_once dirname(__DIR__) . '/includes/header.php';
               <text x="68"  y="68"  font-size="7" fill="#FBBF24"  font-family="Inter,sans-serif" font-weight="600">MOD</text>
               <text x="130" y="68"  font-size="7" fill="#F97316"  font-family="Inter,sans-serif" font-weight="600">HIGH</text>
               <text x="183" y="128" font-size="7" fill="#EF4444"  font-family="Inter,sans-serif" font-weight="600">CRIT</text>
-              <!-- Needle — translated to centre so rotation is always around (0,0) -->
+              <!-- Needle — translate wrapper moves origin to gauge centre; rotate() in SVG attr rotates around that origin -->
               <g transform="translate(110, 110)">
-                <g id="gauge-needle" style="transform-origin:0 0;transform:rotate(-88deg);">
+                <g id="gauge-needle" transform="rotate(-88)">
                   <line x1="0" y1="0" x2="0" y2="-78"
                         stroke="rgba(255,255,255,0.9)" stroke-width="2.5" stroke-linecap="round"
                         filter="url(#needleGlow)"/>
@@ -547,6 +544,29 @@ require_once dirname(__DIR__) . '/includes/header.php';
   const savingsVal    = document.getElementById('savings-val');
   const ctaAmount     = document.getElementById('cta-amount');
 
+  // ── Needle animation (SVG attribute approach — CSS transitions don't apply to SVG presentation attrs) ──
+  let needleCurrent = -88;
+  let needleTarget  = -88;
+  let needleRafId   = null;
+
+  function animateNeedle(targetAngle) {
+    needleTarget = targetAngle;
+    if (needleRafId) return; // already running
+    function tick() {
+      const diff = needleTarget - needleCurrent;
+      if (Math.abs(diff) < 0.2) {
+        needleCurrent = needleTarget;
+        needle.setAttribute('transform', `rotate(${needleCurrent})`);
+        needleRafId = null;
+        return;
+      }
+      needleCurrent += diff * 0.12;
+      needle.setAttribute('transform', `rotate(${needleCurrent})`);
+      needleRafId = requestAnimationFrame(tick);
+    }
+    needleRafId = requestAnimationFrame(tick);
+  }
+
   // ── Counters ──
   const animTargets = {};
   const animCurrent = {};
@@ -611,7 +631,7 @@ require_once dirname(__DIR__) . '/includes/header.php';
     const maxAnnual = 300000;
     const pct = Math.min(annualTotal / maxAnnual, 1);
     const angle = -88 + pct * 176;
-    needle.style.transform = `rotate(${angle}deg)`;
+    animateNeedle(angle);
 
     // ── Animate metric values ──
     animateNumber(valHour,  totalHourly);
