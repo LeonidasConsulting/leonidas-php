@@ -1,25 +1,75 @@
 <?php
 require_once dirname(__DIR__) . '/includes/config.php';
 
-$page_title       = 'IT Downtime Cost Calculator | Leonidas — Florida Panhandle';
-$page_description = 'Calculate the true cost of IT downtime for your business. Includes direct productivity loss, hidden costs, and annual risk exposure. Free tool from Leonidas.';
+$page_title       = 'IT Downtime Cost Calculator — What Is Your Business Losing? | Leonidas';
+$page_description = 'Free IT downtime cost calculator. Enter your team size, wage, and industry to see your hourly, daily, and annual risk exposure — including hidden costs most businesses miss.';
 $page_url         = SITE_URL . '/resources/downtime-calculator';
 
-$og_image        = 'https://leonidastek.com/assets/og-home.png';
-$canonical_url   = $page_url;
+$og_image         = SITE_URL . '/assets/og-managed-it.png';
+$og_image_width   = 1200;
+$og_image_height  = 630;
+$canonical_url    = $page_url;
 $meta_description = $page_description;
 
-$page_json_ld = '<script type="application/ld+json">' . json_encode([
-    '@context'    => 'https://schema.org',
-    '@type'       => 'WebApplication',
-    'name'        => 'IT Downtime Cost Calculator',
-    'description' => 'Calculate the true cost of IT downtime for your business including direct productivity loss and hidden costs.',
-    'url'         => SITE_URL . '/resources/downtime-calculator',
-    'applicationCategory' => 'BusinessApplication',
-    'operatingSystem' => 'Any',
-    'offers' => ['@type' => 'Offer', 'price' => '0', 'priceCurrency' => 'USD'],
-    'author' => ['@type' => 'Organization', 'name' => 'Leonidas', 'url' => SITE_URL],
-], JSON_UNESCAPED_SLASHES) . '</script>';
+$faq_items = [
+    [
+        'q' => 'How much does IT downtime cost per hour for a small business?',
+        'a' => 'For a 25-person business at the U.S. average wage of $28/hr, a single hour of downtime costs roughly $700–$1,750 once hidden costs are factored in. Direct productivity loss is only ~40% of the true total — recovery labor, vendor calls, and reputational damage account for the rest. Use the calculator above to see your specific number.',
+    ],
+    [
+        'q' => 'What is the average amount of IT downtime a small business experiences per year?',
+        'a' => 'Gartner research shows unmanaged SMBs average 14 hours of unplanned downtime per year. Businesses with proactive managed IT monitoring average closer to 2 hours per year — a 7× reduction that translates directly to bottom-line savings.',
+    ],
+    [
+        'q' => 'What hidden costs does IT downtime cause beyond lost productivity?',
+        'a' => 'IBM research identifies three main cost buckets: direct productivity loss (~40%), recovery and remediation costs (~25% — IT labor, vendor fees, hardware replacement), and reputation and revenue impact (~35% — customer churn, missed SLAs, brand damage). Most downtime calculators only show the productivity piece.',
+    ],
+    [
+        'q' => 'How does managed IT reduce downtime costs?',
+        'a' => 'Managed IT providers like Leonidas use 24/7 monitoring to detect and resolve issues before they become outages. Proactively patched systems, monitored network hardware, and faster incident response cut average downtime from 14 hours/year to roughly 2 hours/year for most SMBs — typically saving tens of thousands of dollars annually.',
+    ],
+    [
+        'q' => 'Why do healthcare and legal firms have higher IT downtime costs?',
+        'a' => 'Regulated industries carry additional downtime risk from compliance penalties, breach liability, and mandatory incident reporting. A HIPAA breach caused by an unpatched system, for example, adds per-record fines on top of the standard downtime cost. The calculator applies industry multipliers (up to 1.25× for healthcare) to reflect this.',
+    ],
+    [
+        'q' => 'How is the annual downtime cost calculated?',
+        'a' => 'The calculator multiplies your employees × average wage × 14 baseline downtime hours × your industry risk multiplier to get direct productivity loss. That figure is then divided by 0.4 (since IBM data shows direct productivity = 40% of total cost) to produce your true annual exposure including all hidden cost categories.',
+    ],
+];
+
+$faq_schema = array_map(fn($f) => [
+    '@type'          => 'Question',
+    'name'           => $f['q'],
+    'acceptedAnswer' => ['@type' => 'Answer', 'text' => $f['a']],
+], $faq_items);
+
+$page_json_ld =
+    '<script type="application/ld+json">' . json_encode([
+        '@context'            => 'https://schema.org',
+        '@type'               => 'WebApplication',
+        'name'                => 'IT Downtime Cost Calculator',
+        'description'         => 'Free calculator showing hourly, daily, and annual IT downtime costs for your business — including direct productivity loss and hidden costs.',
+        'url'                 => SITE_URL . '/resources/downtime-calculator',
+        'applicationCategory' => 'BusinessApplication',
+        'operatingSystem'     => 'Any',
+        'offers'              => ['@type' => 'Offer', 'price' => '0', 'priceCurrency' => 'USD'],
+        'author'              => ['@type' => 'Organization', 'name' => 'Leonidas', 'url' => SITE_URL],
+    ], JSON_UNESCAPED_SLASHES) . '</script>' .
+    '<script type="application/ld+json">' . json_encode([
+        '@context'   => 'https://schema.org',
+        '@type'      => 'FAQPage',
+        'mainEntity' => $faq_schema,
+    ], JSON_UNESCAPED_SLASHES) . '</script>' .
+    '<script type="application/ld+json">' . json_encode([
+        '@context'        => 'https://schema.org',
+        '@type'           => 'BreadcrumbList',
+        'itemListElement' => [
+            ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home',      'item' => SITE_URL],
+            ['@type' => 'ListItem', 'position' => 2, 'name' => 'Resources', 'item' => SITE_URL . '/resources'],
+            ['@type' => 'ListItem', 'position' => 3, 'name' => 'IT Downtime Cost Calculator', 'item' => SITE_URL . '/resources/downtime-calculator'],
+        ],
+    ], JSON_UNESCAPED_SLASHES) . '</script>';
 
 $page_css = '
   .calc-panel {
@@ -202,7 +252,7 @@ require_once dirname(__DIR__) . '/includes/header.php';
         How Much Does<br><span style="color:#D4A843;">Downtime</span> Really Cost?
       </h1>
       <p class="fade-in fade-in-delay-2 mt-6 text-lg leading-relaxed max-w-2xl" style="color:#9CA3AF;">
-        Most businesses underestimate IT downtime costs by 60%. This calculator shows your true annual exposure — including the hidden costs most tools ignore.
+        Most Florida Panhandle businesses underestimate <strong style="color:#D4A843;font-weight:600;">IT downtime costs</strong> by 60%. This free downtime cost calculator shows your true annual exposure — including the hidden costs most tools ignore.
       </p>
     </div>
   </div>
@@ -476,6 +526,29 @@ require_once dirname(__DIR__) . '/includes/header.php';
   </div>
 </section>
 
+<!-- FAQ — visible content required for FAQPage schema to qualify for Google rich results -->
+<section style="padding-bottom:5rem;position:relative;z-index:1;">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="fade-in" style="margin-bottom:2.5rem;text-align:center;">
+      <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.18em;color:#6B7280;text-transform:uppercase;margin-bottom:0.75rem;">Common Questions</div>
+      <h2 style="font-size:clamp(1.5rem,3vw,2rem);font-weight:900;letter-spacing:-0.02em;color:#F9FAFB;">IT Downtime Cost — Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-list">
+      <?php foreach ($faq_items as $i => $faq): ?>
+      <div class="faq-item fade-in" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="border-bottom:1px solid rgba(255,255,255,0.06);<?= $i === 0 ? 'border-top:1px solid rgba(255,255,255,0.06);' : '' ?>">
+        <button class="faq-trigger" aria-expanded="false" onclick="toggleFaq(this)" style="width:100%;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.25rem 0;background:none;border:none;cursor:pointer;text-align:left;">
+          <span itemprop="name" style="font-size:0.95rem;font-weight:600;color:#F9FAFB;line-height:1.4;"><?= htmlspecialchars($faq['q']) ?></span>
+          <span class="faq-icon" style="flex-shrink:0;font-size:1.2rem;color:#D4A843;transition:transform 0.25s;">+</span>
+        </button>
+        <div class="faq-body" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" style="display:none;padding-bottom:1.25rem;">
+          <p itemprop="text" style="font-size:0.88rem;color:#9CA3AF;line-height:1.75;margin:0;"><?= htmlspecialchars($faq['a']) ?></p>
+        </div>
+      </div>
+      <?php endforeach; ?>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section style="padding-bottom:6rem;position:relative;z-index:1;">
   <div class="max-w-7xl mx-auto px-6">
@@ -495,6 +568,21 @@ require_once dirname(__DIR__) . '/includes/header.php';
     </div>
   </div>
 </section>
+
+<!-- FAQ STYLES + TOGGLE -->
+<style>
+  .faq-trigger:hover span:first-child { color: #D4A843; }
+  .faq-trigger[aria-expanded="true"] .faq-icon { transform: rotate(45deg); }
+  .faq-body { overflow: hidden; }
+</style>
+<script>
+function toggleFaq(btn) {
+  const expanded = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', !expanded);
+  const body = btn.nextElementSibling;
+  body.style.display = expanded ? 'none' : 'block';
+}
+</script>
 
 <!-- RESPONSIVE STYLES -->
 <style>
