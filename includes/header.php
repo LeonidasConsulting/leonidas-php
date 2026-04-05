@@ -22,6 +22,8 @@ $canonical_url    ??= $page_url ?? 'https://leonidastek.com/';
 $og_title         ??= $page_title;
 $og_description   ??= $meta_description;
 $og_image         ??= 'https://leonidastek.com/assets/og-home.png';
+$og_image_width   ??= 1200;
+$og_image_height  ??= 630;
 $page_css         ??= '';
 
 $b = SITE_BASE; // shorthand
@@ -45,8 +47,8 @@ $is_services = strpos($current_path, $b . '/services') === 0;
   <meta property="og:description" content="<?= htmlspecialchars($og_description, ENT_QUOTES) ?>"/>
   <meta property="og:url" content="<?= htmlspecialchars($canonical_url, ENT_QUOTES) ?>"/>
   <meta property="og:image" content="<?= htmlspecialchars($og_image, ENT_QUOTES) ?>"/>
-  <meta property="og:image:width" content="1200"/>
-  <meta property="og:image:height" content="630"/>
+  <meta property="og:image:width" content="<?= (int)$og_image_width ?>"/>
+  <meta property="og:image:height" content="<?= (int)$og_image_height ?>"/>
   <meta property="og:site_name" content="Leonidas"/>
   <meta property="og:locale" content="en_US"/>
   <meta name="twitter:card" content="summary_large_image"/>

@@ -27,7 +27,9 @@ $is_article       = true;
 
 $json_ld_image = !empty($post['image']) ? SITE_URL . '/' . ltrim($post['image'], '/') : null;
 if ($json_ld_image) {
-    $og_image = $json_ld_image;
+    $og_image        = $json_ld_image;
+    $og_image_width  = 1200;
+    $og_image_height = 654;
 }
 $og_title       = htmlspecialchars($post['title']) . ' | Leonidas Blog';
 $og_description = $meta_description;
@@ -43,7 +45,12 @@ $json_ld = [
     'description'   => $post['excerpt'] ?? '',
 ];
 if ($json_ld_image) {
-    $json_ld['image'] = $json_ld_image;
+    $json_ld['image'] = [
+        '@type'  => 'ImageObject',
+        'url'    => $json_ld_image,
+        'width'  => 1200,
+        'height' => 654,
+    ];
 }
 $page_json_ld = '<script type="application/ld+json">' . json_encode($json_ld, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';
 
@@ -106,7 +113,9 @@ require_once dirname(__DIR__) . '/includes/header.php';
   <?php if (!empty($post['image'])): ?>
   <img src="<?= htmlspecialchars($post['image'], ENT_QUOTES) ?>"
        alt="<?= htmlspecialchars($post['title'], ENT_QUOTES) ?>"
+       width="1200" height="654"
        loading="eager"
+       fetchpriority="high"
        class="fade-in"
        style="width:100%;border-radius:0.75rem;margin-bottom:2.5rem;display:block;max-height:460px;object-fit:cover;"
        itemprop="image">
