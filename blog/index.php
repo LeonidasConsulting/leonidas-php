@@ -54,12 +54,6 @@ require_once dirname(__DIR__) . '/includes/header.php';
 </section>
 
 <!-- Blog AI Assistant -->
-<?php
-$manifest = implode("\n", array_map(
-    fn($p) => ($p['category'] ?? 'General') . '|' . $p['title'] . '|' . $p['slug'] . '|' . BlogManager::getTopicsForCategory($p['category'] ?? ''),
-    $posts
-));
-?>
 <section style="max-width:1280px;margin:0 auto;padding:0 1.5rem 3rem;">
   <div id="blogAssistant" style="background:rgba(255,255,255,0.02);border:1px solid rgba(212,168,67,0.15);border-radius:1rem;overflow:hidden;">
     <div style="padding:1.1rem 1.5rem;border-bottom:1px solid rgba(212,168,67,0.1);display:flex;align-items:center;gap:0.85rem;">
@@ -68,7 +62,7 @@ $manifest = implode("\n", array_map(
       </div>
       <div>
         <div style="font-weight:700;font-size:0.85rem;color:#FFFFFF;">Leonidas Blog Assistant</div>
-        <div style="font-size:0.72rem;color:#6B7280;">Ask me to find articles on any topic</div>
+        <div style="font-size:0.72rem;color:#6B7280;">Ask me anything — I can read and summarize our articles</div>
       </div>
     </div>
     <div id="baMessages" style="display:none;flex-direction:column;gap:0.75rem;padding:1rem 1.25rem;max-height:260px;overflow-y:auto;"></div>
@@ -81,7 +75,6 @@ $manifest = implode("\n", array_map(
   </div>
 </section>
 <script>
-window.BLOG_MANIFEST = <?= json_encode($manifest) ?>;
 (function(){
   var chatHistory=[],sending=false;
   var msgBox=document.getElementById('baMessages');
@@ -105,7 +98,8 @@ window.BLOG_MANIFEST = <?= json_encode($manifest) ?>;
     el.style.cssText=role==='user'
       ?'align-self:flex-end;background:linear-gradient(135deg,#D4A843,#B8860B);color:#0A0A1A;padding:0.5rem 0.85rem;border-radius:12px 12px 2px 12px;font-size:0.82rem;max-width:80%;'
       :'align-self:flex-start;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.07);color:#E5E7EB;padding:0.5rem 0.85rem;border-radius:12px 12px 12px 2px;font-size:0.82rem;max-width:85%;line-height:1.55;';
-    el.innerHTML=html;
+    // safeHtml is HTML-escaped then processed by baFormat — only whitelisted tags present
+    el.insertAdjacentHTML('beforeend', safeHtml);
     msgBox.style.display='flex';
     msgBox.appendChild(el);
     msgBox.scrollTop=msgBox.scrollHeight;
@@ -121,7 +115,7 @@ window.BLOG_MANIFEST = <?= json_encode($manifest) ?>;
     fetch('<?= SITE_URL ?>/chat/blog-api.php',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({messages:chatHistory,manifest:window.BLOG_MANIFEST||''})
+      body:JSON.stringify({messages:chatHistory})
     })
     .then(function(r){return r.json();})
     .then(function(data){
