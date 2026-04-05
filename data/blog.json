@@ -3,187 +3,218 @@
     "title": "5 Cybersecurity Threats Every Business Must Prepare for in 2026",
     "category": "Cybersecurity",
     "slug": "5-cybersecurity-threats-2026",
-    "date": "2026-04-02"
+    "date": "2026-04-02",
+    "image": "assets/images/blog/5-cybersecurity-threats-2026.jpg"
   },
   {
     "title": "SD-WAN vs. MPLS: Which WAN Technology Is Right for Your Business?",
     "category": "Networking",
     "slug": "sd-wan-vs-mpls",
-    "date": "2026-03-30"
+    "date": "2026-03-30",
+    "image": "assets/images/blog/sd-wan-vs-mpls.jpg"
   },
   {
     "title": "VoIP 101: What Every Business Needs to Know Before Switching",
     "category": "VoIP",
     "slug": "voip-101",
-    "date": "2026-03-27"
+    "date": "2026-03-27",
+    "image": "assets/images/blog/voip-101.jpg"
   },
   {
     "title": "POTS Line Replacement: Modern Alternatives for Elevator Phones, Alarms, and Fax Lines",
     "category": "Telecom",
     "slug": "pots-line-replacement",
-    "date": "2026-03-25"
+    "date": "2026-03-25",
+    "image": "assets/images/blog/pots-line-replacement.jpg"
   },
   {
     "title": "AI-Native Networks: What AIOps Means for Business IT",
     "category": "Industry Trends",
     "slug": "ai-native-networks-aiops",
-    "date": "2026-03-21"
+    "date": "2026-03-21",
+    "image": "assets/images/blog/ai-native-networks-aiops.jpg"
   },
   {
     "title": "Leonidas: 20 Years of Managed IT Excellence",
     "category": "Leonidas",
     "slug": "leonidas-20-years",
-    "date": "2026-03-19"
+    "date": "2026-03-19",
+    "image": "assets/images/blog/leonidas-20-years.jpg"
   },
   {
     "title": "Unified Endpoint Management (UEM): One Platform to Rule Them All",
     "category": "Managed IT",
     "slug": "unified-endpoint-management",
-    "date": "2026-03-17"
+    "date": "2026-03-17",
+    "image": "assets/images/blog/unified-endpoint-management.jpg"
   },
   {
     "title": "Is Your Business Ready for AI-Powered Cyberattacks?",
     "category": "Cybersecurity",
     "slug": "ai-powered-cyberattacks",
-    "date": "2026-03-15"
+    "date": "2026-03-15",
+    "image": "assets/images/blog/ai-powered-cyberattacks.jpg"
   },
   {
     "title": "What Is SASE and Why Is It the Future of Network Security?",
     "category": "Networking",
     "slug": "what-is-sase",
-    "date": "2026-03-13"
+    "date": "2026-03-13",
+    "image": "assets/images/blog/what-is-sase.jpg"
   },
   {
     "title": "UCaaS Trends in 2026: What's Changing in Unified Communications",
     "category": "VoIP",
     "slug": "ucaas-trends-2026",
-    "date": "2026-03-11"
+    "date": "2026-03-11",
+    "image": "assets/images/blog/ucaas-trends-2026.jpg"
   },
   {
     "title": "Telecom Expense Management: Stop Overpaying for Connectivity",
     "category": "Telecom",
     "slug": "telecom-expense-management",
-    "date": "2026-03-08"
+    "date": "2026-03-08",
+    "image": "assets/images/blog/telecom-expense-management.jpg"
   },
   {
     "title": "Hybrid Work IT: Building Infrastructure for the Modern Workforce",
     "category": "Industry Trends",
     "slug": "hybrid-work-it",
-    "date": "2026-03-04"
+    "date": "2026-03-04",
+    "image": "assets/images/blog/hybrid-work-it.jpg"
   },
   {
     "title": "Our Approach to Cybersecurity: How Leonidas Protects Your Business",
     "category": "Leonidas",
     "slug": "leonidas-cybersecurity-approach",
-    "date": "2026-03-01"
+    "date": "2026-03-01",
+    "image": "assets/images/blog/leonidas-cybersecurity-approach.jpg"
   },
   {
     "title": "IT Asset Management: Tracking What You Own and What It Costs",
     "category": "Managed IT",
     "slug": "it-asset-management",
-    "date": "2026-02-25"
+    "date": "2026-02-25",
+    "image": "assets/images/blog/it-asset-management.jpg"
   },
   {
     "title": "Zero Trust Security: A Practical Guide for Small Businesses",
     "category": "Cybersecurity",
     "slug": "zero-trust-security-smbs",
-    "date": "2026-02-21"
+    "date": "2026-02-21",
+    "image": "assets/images/blog/zero-trust-security-smbs.jpg"
   },
   {
     "title": "Wi-Fi 7 Is Here: Should Your Business Upgrade?",
     "category": "Networking",
     "slug": "wifi-7-business-upgrade",
-    "date": "2026-02-17"
+    "date": "2026-02-17",
+    "image": "assets/images/blog/wifi-7-business-upgrade.jpg"
   },
   {
     "title": "RingCentral vs. Microsoft Teams Phone: Which Is Right for Your Business?",
     "category": "VoIP",
     "slug": "ringcentral-vs-teams-phone",
-    "date": "2026-02-13"
+    "date": "2026-02-13",
+    "image": "assets/images/blog/ringcentral-vs-teams-phone.jpg"
   },
   {
     "title": "Multi-Carrier WAN Strategy: Why One ISP Is Never Enough",
     "category": "Telecom",
     "slug": "multi-carrier-wan-strategy",
-    "date": "2026-02-11"
+    "date": "2026-02-11",
+    "image": "assets/images/blog/multi-carrier-wan-strategy.jpg"
   },
   {
     "title": "Cloud vs. On-Premises: Which IT Model Is Right for Your Business?",
     "category": "Industry Trends",
     "slug": "cloud-vs-on-premises",
-    "date": "2026-02-07"
+    "date": "2026-02-07",
+    "image": "assets/images/blog/cloud-vs-on-premises.jpg"
   },
   {
     "title": "Why Choose Leonidas as Your Managed IT Partner",
     "category": "Leonidas",
     "slug": "why-choose-leonidas",
-    "date": "2026-02-04"
+    "date": "2026-02-04",
+    "image": "assets/images/blog/why-choose-leonidas.jpg"
   },
   {
     "title": "Disaster Recovery Testing: When Was the Last Time You Actually Tested Your Backups?",
     "category": "Managed IT",
     "slug": "disaster-recovery-testing",
-    "date": "2026-02-02"
+    "date": "2026-02-02",
+    "image": "assets/images/blog/disaster-recovery-testing.jpg"
   },
   {
     "title": "How to Recognize and Prevent Phishing Attacks",
     "category": "Cybersecurity",
     "slug": "recognize-prevent-phishing-attacks",
-    "date": "2026-01-30"
+    "date": "2026-01-30",
+    "image": "assets/images/blog/recognize-prevent-phishing-attacks.jpg"
   },
   {
     "title": "5G and Fixed Wireless Access: A Real Alternative for Business Internet?",
     "category": "Networking",
     "slug": "5g-fixed-wireless-business",
-    "date": "2026-01-26"
+    "date": "2026-01-26",
+    "image": "assets/images/blog/5g-fixed-wireless-business.jpg"
   },
   {
     "title": "The Ultimate Cloud Phone Buying Guide for Small Businesses",
     "category": "VoIP",
     "slug": "cloud-phone-buying-guide",
-    "date": "2026-01-22"
+    "date": "2026-01-22",
+    "image": "assets/images/blog/cloud-phone-buying-guide.jpg"
   },
   {
     "title": "Business Internet Speed: How Much Bandwidth Does Your Company Actually Need?",
     "category": "Telecom",
     "slug": "business-internet-bandwidth-guide",
-    "date": "2026-01-18"
+    "date": "2026-01-18",
+    "image": "assets/images/blog/business-internet-bandwidth-guide.jpg"
   },
   {
     "title": "2026 Compliance Landscape: What's Changed and What You Need to Know",
     "category": "Industry Trends",
     "slug": "2026-compliance-landscape",
-    "date": "2026-01-16"
+    "date": "2026-01-16",
+    "image": "assets/images/blog/2026-compliance-landscape.jpg"
   },
   {
     "title": "5 Signs You've Outgrown Your Current IT Provider",
     "category": "Leonidas",
     "slug": "5-signs-outgrown-it-provider",
-    "date": "2026-01-13"
+    "date": "2026-01-13",
+    "image": "assets/images/blog/5-signs-outgrown-it-provider.jpg"
   },
   {
     "title": "Proactive IT vs. Break-Fix: Why Waiting for Problems Costs More",
     "category": "Managed IT",
     "slug": "proactive-it-vs-break-fix",
-    "date": "2026-01-10"
+    "date": "2026-01-10",
+    "image": "assets/images/blog/proactive-it-vs-break-fix.jpg"
   },
   {
     "title": "Ransomware Recovery: What to Do When Your Business Gets Hit",
     "category": "Cybersecurity",
     "slug": "ransomware-recovery-guide",
-    "date": "2026-01-06"
+    "date": "2026-01-06",
+    "image": "assets/images/blog/ransomware-recovery-guide.jpg"
   },
   {
     "title": "SIP Trunking Explained: What It Is and Why It Matters",
     "category": "Networking",
     "slug": "sip-trunking-explained",
-    "date": "2026-01-04"
+    "date": "2026-01-04",
+    "image": "assets/images/blog/sip-trunking-explained.jpg"
   },
   {
     "title": "How Leonidas Deploys Unified Communications for Businesses",
     "category": "VoIP",
     "slug": "leonidas-uc-deployment",
-    "date": "2026-01-02"
+    "date": "2026-01-02",
+    "image": "assets/images/blog/leonidas-uc-deployment.jpg"
   },
   {
     "title": "How to Read Your Telecom Invoice: A Guide to Finding Hidden Charges",
@@ -206,37 +237,43 @@
     "title": "The Hidden Costs of Outdated IT Infrastructure",
     "category": "Industry Trends",
     "slug": "hidden-costs-outdated-it",
-    "date": "2025-12-26"
+    "date": "2025-12-26",
+    "image": "assets/images/blog/hidden-costs-outdated-it.jpg"
   },
   {
     "title": "The Leonidas Promise: What Sets Our Managed IT Services Apart",
     "category": "Leonidas",
     "slug": "leonidas-promise",
-    "date": "2025-12-24"
+    "date": "2025-12-24",
+    "image": "assets/images/blog/leonidas-promise.jpg"
   },
   {
     "title": "Building a Technology Roadmap for Your Business",
     "category": "Managed IT",
     "slug": "technology-roadmap",
-    "date": "2025-12-20"
+    "date": "2025-12-20",
+    "image": "assets/images/blog/technology-roadmap.jpg"
   },
   {
     "title": "What Is Endpoint Detection and Response (EDR)?",
     "category": "Cybersecurity",
     "slug": "what-is-edr",
-    "date": "2025-12-17"
+    "date": "2025-12-17",
+    "image": "assets/images/blog/what-is-edr.jpg"
   },
   {
     "title": "Wireless Network Design: Why Your Office Wi-Fi Might Be Failing You",
     "category": "Networking",
     "slug": "wireless-network-design",
-    "date": "2025-12-15"
+    "date": "2025-12-15",
+    "image": "assets/images/blog/wireless-network-design.jpg"
   },
   {
     "title": "The Future of Business Communications: What's Next After UCaaS",
     "category": "VoIP",
     "slug": "future-business-communications",
-    "date": "2025-12-11"
+    "date": "2025-12-11",
+    "image": "assets/images/blog/future-business-communications.jpg"
   },
   {
     "title": "Ethernet over Copper vs. Fiber Internet: Which Is Right for Your Business?",
@@ -259,37 +296,43 @@
     "title": "How Businesses Are Using Microsoft Copilot to Boost Productivity",
     "category": "Industry Trends",
     "slug": "microsoft-copilot-business",
-    "date": "2025-12-03"
+    "date": "2025-12-03",
+    "image": "assets/images/blog/microsoft-copilot-business.jpg"
   },
   {
     "title": "Our Security Stack: The Tools and Practices Behind Leonidas Cybersecurity",
     "category": "Leonidas",
     "slug": "leonidas-security-stack",
-    "date": "2025-12-01"
+    "date": "2025-12-01",
+    "image": "assets/images/blog/leonidas-security-stack.jpg"
   },
   {
     "title": "How to Evaluate an MSP: 10 Questions to Ask Before You Sign",
     "category": "Managed IT",
     "slug": "how-to-evaluate-msp",
-    "date": "2025-11-28"
+    "date": "2025-11-28",
+    "image": "assets/images/blog/how-to-evaluate-msp.jpg"
   },
   {
     "title": "Why Multi-Factor Authentication Is Non-Negotiable in 2026",
     "category": "Cybersecurity",
     "slug": "multi-factor-authentication-2026",
-    "date": "2025-11-25"
+    "date": "2025-11-25",
+    "image": "assets/images/blog/multi-factor-authentication-2026.jpg"
   },
   {
     "title": "Network Monitoring: What You Can't See Can Hurt You",
     "category": "Networking",
     "slug": "network-monitoring",
-    "date": "2025-11-22"
+    "date": "2025-11-22",
+    "image": "assets/images/blog/network-monitoring.jpg"
   },
   {
     "title": "Switching to VoIP: A Step-by-Step Guide for Businesses",
     "category": "VoIP",
     "slug": "switching-to-voip-guide",
-    "date": "2025-11-20"
+    "date": "2025-11-20",
+    "image": "assets/images/blog/switching-to-voip-guide.jpg"
   },
   {
     "title": "Business Internet Failover: How to Keep Your Office Online When Your Primary Connection Fails",
@@ -312,7 +355,8 @@
     "title": "HIPAA Compliance for IT: What Healthcare Businesses Need to Know",
     "category": "Industry Trends",
     "slug": "hipaa-compliance-it-guide",
-    "date": "2025-11-13"
+    "date": "2025-11-13",
+    "image": "assets/images/blog/hipaa-compliance-it-guide.jpg"
   },
   {
     "title": "Hurricane Season IT Preparedness: What Florida Panhandle Businesses Need Before the Storm",
@@ -335,25 +379,29 @@
     "title": "Understanding MSP Pricing Models: What You're Really Paying For",
     "category": "Managed IT",
     "slug": "msp-pricing-models",
-    "date": "2025-11-08"
+    "date": "2025-11-08",
+    "image": "assets/images/blog/msp-pricing-models.jpg"
   },
   {
     "title": "Patch Management: The Boring Fix That Prevents Breaches",
     "category": "Cybersecurity",
     "slug": "patch-management-prevents-breaches",
-    "date": "2025-11-06"
+    "date": "2025-11-06",
+    "image": "assets/images/blog/patch-management-prevents-breaches.jpg"
   },
   {
     "title": "How Fiber Internet Is Changing Business Connectivity",
     "category": "Networking",
     "slug": "fiber-internet-business",
-    "date": "2025-11-03"
+    "date": "2025-11-03",
+    "image": "assets/images/blog/fiber-internet-business.jpg"
   },
   {
     "title": "IP Phones vs. Softphones: Which Is Right for Your Team?",
     "category": "VoIP",
     "slug": "ip-phones-vs-softphones",
-    "date": "2025-10-30"
+    "date": "2025-10-30",
+    "image": "assets/images/blog/ip-phones-vs-softphones.jpg"
   },
   {
     "title": "Dedicated Internet Access vs. Business Broadband: What Your Business Is Actually Paying For",
@@ -376,7 +424,8 @@
     "title": "Passwordless Authentication: Is Your Business Ready to Ditch Passwords?",
     "category": "Industry Trends",
     "slug": "passwordless-authentication-business",
-    "date": "2025-10-25"
+    "date": "2025-10-25",
+    "image": "assets/images/blog/passwordless-authentication-business.jpg"
   },
   {
     "title": "IT Support for Hospitality Businesses in the Florida Panhandle: What Makes It Different",
@@ -399,25 +448,29 @@
     "title": "IT Staff Augmentation: When to Outsource and When to Hire",
     "category": "Managed IT",
     "slug": "it-staff-augmentation",
-    "date": "2025-10-19"
+    "date": "2025-10-19",
+    "image": "assets/images/blog/it-staff-augmentation.jpg"
   },
   {
     "title": "Incident Response Planning: Are You Ready for a Breach?",
     "category": "Cybersecurity",
     "slug": "incident-response-planning",
-    "date": "2025-10-15"
+    "date": "2025-10-15",
+    "image": "assets/images/blog/incident-response-planning.jpg"
   },
   {
     "title": "Network Access Control (NAC): Who and What Is on Your Network?",
     "category": "Networking",
     "slug": "network-access-control-nac",
-    "date": "2025-10-12"
+    "date": "2025-10-12",
+    "image": "assets/images/blog/network-access-control-nac.jpg"
   },
   {
     "title": "Contact Center Solutions: What Mid-Market Businesses Need to Know",
     "category": "VoIP",
     "slug": "contact-center-solutions",
-    "date": "2025-10-10"
+    "date": "2025-10-10",
+    "image": "assets/images/blog/contact-center-solutions.jpg"
   },
   {
     "title": "Microsoft Copilot for Business: What IT Teams Are Actually Seeing After Six Months",
@@ -440,25 +493,29 @@
     "title": "IT Budgeting for Small Businesses: How to Plan Your Tech Spend",
     "category": "Managed IT",
     "slug": "it-budgeting-small-businesses",
-    "date": "2025-10-05"
+    "date": "2025-10-05",
+    "image": "assets/images/blog/it-budgeting-small-businesses.jpg"
   },
   {
     "title": "Dark Web Monitoring: Why Your Business Can't Afford to Ignore It",
     "category": "Cybersecurity",
     "slug": "dark-web-monitoring",
-    "date": "2025-10-03"
+    "date": "2025-10-03",
+    "image": "assets/images/blog/dark-web-monitoring.jpg"
   },
   {
     "title": "What Is Network Segmentation and Why Does Every Business Need It?",
     "category": "Networking",
     "slug": "network-segmentation",
-    "date": "2025-09-29"
+    "date": "2025-09-29",
+    "image": "assets/images/blog/network-segmentation.jpg"
   },
   {
     "title": "The POTS Line Sunset: What It Means for Your Business",
     "category": "VoIP",
     "slug": "pots-line-sunset",
-    "date": "2025-09-27"
+    "date": "2025-09-27",
+    "image": "assets/images/blog/pots-line-sunset.jpg"
   },
   {
     "title": "What Is a SOC 2 Report and Does Your Business Need to Care About It?",
@@ -487,25 +544,29 @@
     "title": "Business Continuity vs. Disaster Recovery: What's the Difference and Why You Need Both",
     "category": "Managed IT",
     "slug": "business-continuity-vs-disaster-recovery",
-    "date": "2025-09-20"
+    "date": "2025-09-20",
+    "image": "assets/images/blog/business-continuity-vs-disaster-recovery.jpg"
   },
   {
     "title": "IoT Security: Protecting the Devices You Forgot About",
     "category": "Cybersecurity",
     "slug": "iot-security",
-    "date": "2025-09-16"
+    "date": "2025-09-16",
+    "image": "assets/images/blog/iot-security.jpg"
   },
   {
     "title": "What Is SD-WAN as a Service and Should Your Business Use It?",
     "category": "Networking",
     "slug": "sd-wan-as-a-service",
-    "date": "2025-09-14"
+    "date": "2025-09-14",
+    "image": "assets/images/blog/sd-wan-as-a-service.jpg"
   },
   {
     "title": "Cloud Phone Migration: How to Move Your Business Phone System to the Cloud",
     "category": "VoIP",
     "slug": "cloud-phone-migration",
-    "date": "2025-09-10"
+    "date": "2025-09-10",
+    "image": "assets/images/blog/cloud-phone-migration.jpg"
   },
   {
     "title": "Edge Computing Explained: What It Is and When It Actually Makes Sense for Your Business",
@@ -528,25 +589,29 @@
     "title": "Understanding SLAs: What Your MSP Agreement Should Actually Include",
     "category": "Managed IT",
     "slug": "understanding-slas",
-    "date": "2025-09-04"
+    "date": "2025-09-04",
+    "image": "assets/images/blog/understanding-slas.jpg"
   },
   {
     "title": "Password Managers for Business: Why Your Team Needs One",
     "category": "Cybersecurity",
     "slug": "password-managers-business",
-    "date": "2025-09-02"
+    "date": "2025-09-02",
+    "image": "assets/images/blog/password-managers-business.jpg"
   },
   {
     "title": "QoS for VoIP: How to Stop Choppy Calls and Dropped Audio on Your Business Network",
     "category": "Networking",
     "slug": "qos-for-voip",
-    "date": "2025-08-31"
+    "date": "2025-08-31",
+    "image": "assets/images/blog/qos-for-voip.jpg"
   },
   {
     "title": "RingCX vs. Five9: Choosing the Right AI Contact Center Platform",
     "category": "VoIP",
     "slug": "ringcx-vs-five9-contact-center",
-    "date": "2025-08-29"
+    "date": "2025-08-29",
+    "image": "assets/images/blog/ringcx-vs-five9-contact-center.jpg"
   },
   {
     "title": "The Consumerization of IT: Why Employee Tech Expectations Are Reshaping Business Infrastructure",
@@ -569,43 +634,50 @@
     "title": "Microsoft 365 Administration: Why Businesses Shouldn't Manage It Alone",
     "category": "Managed IT",
     "slug": "microsoft-365-administration",
-    "date": "2025-08-24"
+    "date": "2025-08-24",
+    "image": "assets/images/blog/microsoft-365-administration.jpg"
   },
   {
     "title": "Building a Cybersecurity Culture in Your Organization",
     "category": "Cybersecurity",
     "slug": "cybersecurity-culture",
-    "date": "2025-08-20"
+    "date": "2025-08-20",
+    "image": "assets/images/blog/cybersecurity-culture.jpg"
   },
   {
     "title": "What Is a VPN and Does Your Business Actually Need One?",
     "category": "Networking",
     "slug": "what-is-vpn-business",
-    "date": "2025-08-17"
+    "date": "2025-08-17",
+    "image": "assets/images/blog/what-is-vpn-business.jpg"
   },
   {
     "title": "Auto-Attendant and IVR Setup: Getting Your Business Phone Tree Right",
     "category": "VoIP",
     "slug": "auto-attendant-ivr-setup",
-    "date": "2025-08-15"
+    "date": "2025-08-15",
+    "image": "assets/images/blog/auto-attendant-ivr-setup.jpg"
   },
   {
     "title": "Help Desk vs. Service Desk: What's the Difference and What Does Your Business Need?",
     "category": "Managed IT",
     "slug": "help-desk-vs-service-desk",
-    "date": "2025-08-12"
+    "date": "2025-08-12",
+    "image": "assets/images/blog/help-desk-vs-service-desk.jpg"
   },
   {
     "title": "How to Secure Your Business Email Against Phishing and Spoofing",
     "category": "Cybersecurity",
     "slug": "secure-business-email",
-    "date": "2025-08-08"
+    "date": "2025-08-08",
+    "image": "assets/images/blog/secure-business-email.jpg"
   },
   {
     "title": "NOC Services: What a Network Operations Center Does for Your Business",
     "category": "Networking",
     "slug": "noc-services",
-    "date": "2025-08-06"
+    "date": "2025-08-06",
+    "image": "assets/images/blog/noc-services.jpg"
   },
   {
     "title": "Call Recording Laws for Businesses: What You Need to Know Before You Press Record",
@@ -638,19 +710,22 @@
     "title": "IT Onboarding and Offboarding: Why It's a Security Risk You Can't Ignore",
     "category": "Managed IT",
     "slug": "it-onboarding-offboarding-security",
-    "date": "2025-08-01"
+    "date": "2025-08-01",
+    "image": "assets/images/blog/it-onboarding-offboarding-security.jpg"
   },
   {
     "title": "Cloud Security Best Practices for Businesses",
     "category": "Cybersecurity",
     "slug": "cloud-security-best-practices",
-    "date": "2025-07-28"
+    "date": "2025-07-28",
+    "image": "assets/images/blog/cloud-security-best-practices.jpg"
   },
   {
     "title": "Firewall Management: Why Set-and-Forget Is Costing Your Business",
     "category": "Networking",
     "slug": "firewall-management-best-practices",
-    "date": "2025-07-26"
+    "date": "2025-07-26",
+    "image": "assets/images/blog/firewall-management-best-practices.jpg"
   },
   {
     "title": "Microsoft Teams Rooms: What to Know Before Outfitting Your Conference Rooms",
@@ -690,13 +765,15 @@
     "title": "The Anatomy of a Cyberattack: How Breaches Actually Happen",
     "category": "Cybersecurity",
     "slug": "anatomy-of-a-cyberattack",
-    "date": "2025-07-18"
+    "date": "2025-07-18",
+    "image": "assets/images/blog/anatomy-of-a-cyberattack.jpg"
   },
   {
     "title": "VLAN Design for Business: Segmenting Your Network Without the Complexity",
     "category": "Networking",
     "slug": "vlan-design-for-business",
-    "date": "2025-07-14"
+    "date": "2025-07-14",
+    "image": "assets/images/blog/vlan-design-for-business.jpg"
   },
   {
     "title": "Co-Managed IT Services: The Hybrid Model That Works When You Have an Internal IT Team",
@@ -719,13 +796,15 @@
     "title": "Managed Detection and Response (MDR): What It Is and Why Your Business Needs It",
     "category": "Cybersecurity",
     "slug": "managed-detection-response-mdr",
-    "date": "2025-07-09"
+    "date": "2025-07-09",
+    "image": "assets/images/blog/managed-detection-response-mdr.jpg"
   },
   {
     "title": "Meraki vs. Fortinet: Choosing the Right Firewall for Your Business",
     "category": "Networking",
     "slug": "meraki-vs-fortinet-firewall",
-    "date": "2025-07-07"
+    "date": "2025-07-07",
+    "image": "assets/images/blog/meraki-vs-fortinet-firewall.jpg"
   },
   {
     "title": "Shadow IT: What It Is, Why Employees Use It, and How to Bring It Under Control",
@@ -754,7 +833,8 @@
     "title": "What Every Business Should Know About Cyber Insurance in 2026",
     "category": "Cybersecurity",
     "slug": "cyber-insurance-2026",
-    "date": "2025-07-01"
+    "date": "2025-07-01",
+    "image": "assets/images/blog/cyber-insurance-2026.jpg"
   },
   {
     "title": "Power over Ethernet (PoE): How to Simplify Device Deployment in Your Office Network",
@@ -794,7 +874,8 @@
     "title": "DNS Security: The Most Overlooked Layer in Your Cybersecurity Stack",
     "category": "Cybersecurity",
     "slug": "dns-security",
-    "date": "2025-06-21"
+    "date": "2025-06-21",
+    "image": "assets/images/blog/dns-security.jpg"
   },
   {
     "title": "Structured Cabling: Why Getting the Foundation Right Saves Thousands Later",
@@ -817,79 +898,92 @@
     "title": "Privileged Access Management: Why Admin Credentials Are Your Biggest Risk",
     "category": "Cybersecurity",
     "slug": "privileged-access-management",
-    "date": "2025-06-16"
+    "date": "2025-06-16",
+    "image": "assets/images/blog/privileged-access-management.jpg"
   },
   {
     "title": "How to Build a Cybersecurity Budget When You Don't Have a CISO",
     "category": "Cybersecurity",
     "slug": "cybersecurity-budget-without-ciso",
-    "date": "2025-06-13"
+    "date": "2025-06-13",
+    "image": "assets/images/blog/cybersecurity-budget-without-ciso.jpg"
   },
   {
     "title": "Compliance Frameworks Explained: NIST, CIS, CMMC, and What They Mean for Your Business",
     "category": "Cybersecurity",
     "slug": "compliance-frameworks-nist-cis-cmmc",
-    "date": "2025-06-09"
+    "date": "2025-06-09",
+    "image": "assets/images/blog/compliance-frameworks-nist-cis-cmmc.jpg"
   },
   {
     "title": "Vendor Risk Management: Protecting Your Business from Third-Party Threats",
     "category": "Cybersecurity",
     "slug": "vendor-risk-management",
-    "date": "2025-06-06"
+    "date": "2025-06-06",
+    "image": "assets/images/blog/vendor-risk-management.jpg"
   },
   {
     "title": "Post-Quantum Cryptography: Preparing Your Business for the Next Era of Encryption",
     "category": "Cybersecurity",
     "slug": "post-quantum-cryptography",
-    "date": "2025-06-04"
+    "date": "2025-06-04",
+    "image": "assets/images/blog/post-quantum-cryptography.jpg"
   },
   {
     "title": "What Is an MSSP and How Is It Different from an MSP?",
     "category": "Cybersecurity",
     "slug": "what-is-mssp",
-    "date": "2025-06-02"
+    "date": "2025-06-02",
+    "image": "assets/images/blog/what-is-mssp.jpg"
   },
   {
     "title": "Remote Work Security: A Practical Guide for Distributed Teams",
     "category": "Cybersecurity",
     "slug": "remote-work-security",
-    "date": "2025-05-29"
+    "date": "2025-05-29",
+    "image": "assets/images/blog/remote-work-security.jpg"
   },
   {
     "title": "Cybersecurity Frameworks Comparison: Picking the Right One for Your Industry",
     "category": "Cybersecurity",
     "slug": "cybersecurity-frameworks-comparison",
-    "date": "2025-05-25"
+    "date": "2025-05-25",
+    "image": "assets/images/blog/cybersecurity-frameworks-comparison.jpg"
   },
   {
     "title": "Third-Party Risk: How Your Vendors Could Be Your Weakest Link",
     "category": "Cybersecurity",
     "slug": "third-party-risk",
-    "date": "2025-05-21"
+    "date": "2025-05-21",
+    "image": "assets/images/blog/third-party-risk.jpg"
   },
   {
     "title": "Business Email Compromise: The $50 Billion Scam Targeting Your Finance Team",
     "category": "Cybersecurity",
     "slug": "business-email-compromise-bec",
-    "date": "2025-05-17"
+    "date": "2025-05-17",
+    "image": "assets/images/blog/business-email-compromise-bec.jpg"
   },
   {
     "title": "Security Awareness Training: Why Phishing Simulations Change Employee Behavior",
     "category": "Cybersecurity",
     "slug": "security-awareness-training",
-    "date": "2025-05-15"
+    "date": "2025-05-15",
+    "image": "assets/images/blog/security-awareness-training.jpg"
   },
   {
     "title": "Credential Stuffing Attacks: Why Reused Passwords Put Your Business at Risk",
     "category": "Cybersecurity",
     "slug": "credential-stuffing-attacks",
-    "date": "2025-05-11"
+    "date": "2025-05-11",
+    "image": "assets/images/blog/credential-stuffing-attacks.jpg"
   },
   {
     "title": "Supply Chain Cyberattacks: How Hackers Use Your Vendors to Get to You",
     "category": "Cybersecurity",
     "slug": "supply-chain-cyberattacks",
-    "date": "2025-05-08"
+    "date": "2025-05-08",
+    "image": "assets/images/blog/supply-chain-cyberattacks.jpg"
   },
   {
     "title": "AI-Powered Phishing: How Cybercriminals Are Using Language Models Against Your Business",
