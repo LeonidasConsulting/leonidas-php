@@ -38,7 +38,7 @@ $page_css = '
     padding: 1.25rem 1.5rem;
     transition: border-color 0.4s, box-shadow 0.4s;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
   }
   .metric-card::before {
     content: "";
@@ -56,8 +56,9 @@ $page_css = '
     letter-spacing: -0.03em;
     color: #D4A843;
     font-variant-numeric: tabular-nums;
-    transition: color 0.4s;
+    transition: color 0.4s, font-size 0.3s;
     line-height: 1;
+    white-space: nowrap;
   }
   .metric-card.risk-high   .metric-value { color: #F97316; }
   .metric-card.risk-critical .metric-value { color: #EF4444; }
@@ -568,6 +569,15 @@ require_once dirname(__DIR__) . '/includes/header.php';
   const animTargets = {};
   const animCurrent = {};
 
+  // Scale font-size so large dollar strings don't overflow their card
+  function fitValue(el) {
+    const len = el.textContent.length;
+    if      (len > 10) el.style.fontSize = '0.85rem';
+    else if (len > 8)  el.style.fontSize = '1.1rem';
+    else if (len > 6)  el.style.fontSize = '1.45rem';
+    else               el.style.fontSize = '';  // CSS clamp handles it
+  }
+
   function animateNumber(el, target) {
     const key = el.id;
     animTargets[key] = target;
@@ -577,9 +587,15 @@ require_once dirname(__DIR__) . '/includes/header.php';
       const cur  = animCurrent[key] || 0;
       const tgt  = animTargets[key];
       const diff = tgt - cur;
-      if (Math.abs(diff) < 1) { animCurrent[key] = tgt; el.textContent = formatDollar(tgt); return; }
+      if (Math.abs(diff) < 1) {
+        animCurrent[key] = tgt;
+        el.textContent = formatDollar(tgt);
+        fitValue(el);
+        return;
+      }
       animCurrent[key] = cur + diff * 0.18;
       el.textContent = formatDollar(animCurrent[key]);
+      fitValue(el);
       requestAnimationFrame(tick);
     }
     requestAnimationFrame(tick);
@@ -662,6 +678,7 @@ require_once dirname(__DIR__) . '/includes/header.php';
 
     // ── CTA headline amount ──
     ctaAmount.textContent = formatDollar(annualTotal) + '/yr';
+    fitValue(ctaAmount);
   }
 
   // ── Event listeners ──
