@@ -300,13 +300,15 @@ require_once dirname(__DIR__) . '/includes/header.php';
               <text x="68"  y="68"  font-size="7" fill="#FBBF24"  font-family="Inter,sans-serif" font-weight="600">MOD</text>
               <text x="130" y="68"  font-size="7" fill="#F97316"  font-family="Inter,sans-serif" font-weight="600">HIGH</text>
               <text x="183" y="128" font-size="7" fill="#EF4444"  font-family="Inter,sans-serif" font-weight="600">CRIT</text>
-              <!-- Needle -->
-              <g id="gauge-needle" style="transform-origin:110px 110px;transform:rotate(-88deg);">
-                <line x1="110" y1="110" x2="110" y2="32"
-                      stroke="rgba(255,255,255,0.9)" stroke-width="2.5" stroke-linecap="round"
-                      filter="url(#needleGlow)"/>
-                <circle cx="110" cy="110" r="6" fill="#0A0A1A" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
-                <circle cx="110" cy="110" r="3" fill="#D4A843"/>
+              <!-- Needle — translated to centre so rotation is always around (0,0) -->
+              <g transform="translate(110, 110)">
+                <g id="gauge-needle" style="transform-origin:0 0;transform:rotate(-88deg);">
+                  <line x1="0" y1="0" x2="0" y2="-78"
+                        stroke="rgba(255,255,255,0.9)" stroke-width="2.5" stroke-linecap="round"
+                        filter="url(#needleGlow)"/>
+                  <circle cx="0" cy="0" r="6" fill="#0A0A1A" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+                  <circle cx="0" cy="0" r="3" fill="#D4A843"/>
+                </g>
               </g>
             </svg>
 
