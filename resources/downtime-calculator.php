@@ -678,7 +678,7 @@ require_once dirname(__DIR__) . '/includes/header.php';
 
     // ── CTA headline amount ──
     ctaAmount.textContent = formatDollar(annualTotal) + '/yr';
-    fitValue(ctaAmount);
+    ctaAmount.style.fontSize = ''; // always inherit h2 size
   }
 
   // ── Event listeners ──
