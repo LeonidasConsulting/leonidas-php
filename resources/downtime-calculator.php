@@ -1,6 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
 require_once dirname(__DIR__) . '/includes/config.php';
 
 $page_title       = 'IT Downtime Cost Calculator | Leonidas — Florida Panhandle';
@@ -621,9 +619,11 @@ require_once dirname(__DIR__) . '/includes/header.php';
     // ── Risk badge + cards ──
     badge.className = 'risk-badge ' + badgeClass;
     riskLbl.textContent = risk;
-    calcPanel.className = 'calc-panel fade-in' + (panelClass ? ' ' + panelClass : '');
+    calcPanel.classList.remove('risk-high', 'risk-critical');
+    if (panelClass) calcPanel.classList.add(panelClass);
     cards.forEach(c => {
-      c.className = 'metric-card' + (panelClass ? ' ' + panelClass : '');
+      c.classList.remove('risk-high', 'risk-critical');
+      if (panelClass) c.classList.add(panelClass);
     });
 
     // ── Breakdown bars ──
