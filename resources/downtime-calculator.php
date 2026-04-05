@@ -221,7 +221,7 @@ require_once dirname(__DIR__) . '/includes/header.php';
 
           <!-- Employees -->
           <div style="margin-bottom:2rem;">
-            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.75rem;">
+            <div class="slider-header" style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.75rem;">
               <label style="font-size:0.88rem;color:#9CA3AF;font-weight:500;">Employees Affected by an Outage</label>
               <span id="emp-display" style="font-size:1.5rem;font-weight:800;color:#D4A843;letter-spacing:-0.02em;">25</span>
             </div>
@@ -234,7 +234,7 @@ require_once dirname(__DIR__) . '/includes/header.php';
 
           <!-- Wage -->
           <div style="margin-bottom:2rem;">
-            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.75rem;">
+            <div class="slider-header" style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.75rem;">
               <label style="font-size:0.88rem;color:#9CA3AF;font-weight:500;">Average Hourly Wage</label>
               <span id="wage-display" style="font-size:1.5rem;font-weight:800;color:#D4A843;letter-spacing:-0.02em;">$28</span>
             </div>
@@ -273,7 +273,7 @@ require_once dirname(__DIR__) . '/includes/header.php';
           <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.18em;color:#6B7280;text-transform:uppercase;margin-bottom:1.75rem;">Your Risk Profile</div>
 
           <!-- Gauge -->
-          <div style="display:flex;flex-direction:column;align-items:center;margin-bottom:1.75rem;">
+          <div class="gauge-wrap" style="display:flex;flex-direction:column;align-items:center;margin-bottom:1.75rem;">
             <svg viewBox="0 0 220 130" style="width:100%;max-width:280px;" aria-label="Risk gauge">
               <defs>
                 <linearGradient id="gaugeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -311,7 +311,7 @@ require_once dirname(__DIR__) . '/includes/header.php';
           </div>
 
           <!-- Metric cards -->
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;margin-bottom:0.75rem;">
+          <div class="metric-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;margin-bottom:0.75rem;">
             <div class="metric-card" id="card-hour">
               <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.14em;color:#6B7280;text-transform:uppercase;margin-bottom:0.5rem;">Per Hour</div>
               <div class="metric-value" id="val-hour">$350</div>
@@ -378,7 +378,7 @@ require_once dirname(__DIR__) . '/includes/header.php';
         </div>
 
         <!-- Dollar breakdown -->
-        <div>
+        <div class="breakdown-dollar">
           <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;color:#6B7280;text-transform:uppercase;margin-bottom:1.25rem;">Your Annual Breakdown</div>
           <div class="compare-row">
             <span style="font-size:0.88rem;color:#9CA3AF;">Direct productivity loss</span>
@@ -479,7 +479,7 @@ require_once dirname(__DIR__) . '/includes/header.php';
 <!-- CTA -->
 <section style="padding-bottom:6rem;position:relative;z-index:1;">
   <div class="max-w-7xl mx-auto px-6">
-    <div class="fade-in" style="background:linear-gradient(135deg,rgba(212,168,67,0.08) 0%,rgba(212,168,67,0.03) 100%);border:1px solid rgba(212,168,67,0.2);border-radius:1.5rem;padding:3rem;text-align:center;position:relative;overflow:hidden;">
+    <div class="fade-in cta-inner" style="background:linear-gradient(135deg,rgba(212,168,67,0.08) 0%,rgba(212,168,67,0.03) 100%);border:1px solid rgba(212,168,67,0.2);border-radius:1.5rem;padding:3rem;text-align:center;position:relative;overflow:hidden;">
       <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center top,rgba(212,168,67,0.06) 0%,transparent 60%);pointer-events:none;"></div>
       <div style="position:relative;">
         <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.18em;color:#D4A843;text-transform:uppercase;margin-bottom:1rem;">No Cost, No Obligation</div>
@@ -498,9 +498,62 @@ require_once dirname(__DIR__) . '/includes/header.php';
 
 <!-- RESPONSIVE STYLES -->
 <style>
+  /* ── Tablet: collapse multi-col grids ── */
   @media (max-width: 768px) {
     .calc-grid, .breakdown-grid, .compare-cols, .stats-grid { grid-template-columns: 1fr !important; }
-    .calc-grid { gap: 2rem !important; }
+    .calc-grid { gap: 1.5rem !important; }
+  }
+
+  /* ── Mobile: full layout rework ── */
+  @media (max-width: 640px) {
+
+    /* Panel: reduce horizontal padding so content has room */
+    .calc-panel { padding: 1.25rem 1rem !important; }
+
+    /* Metric cards: switch to 1-col stacked rows, value on the right */
+    .metric-grid {
+      grid-template-columns: 1fr !important;
+      gap: 0.5rem !important;
+    }
+    .metric-card {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      padding: 0.75rem 1rem !important;
+      gap: 0.75rem !important;
+    }
+    .metric-card > div:first-child {
+      margin-bottom: 0 !important;
+      font-size: 0.7rem !important;
+      flex-shrink: 0;
+    }
+    .metric-value {
+      font-size: clamp(1.2rem, 5vw, 1.6rem) !important;
+      transition: none !important; /* fitValue() handles sizing */
+    }
+
+    /* Gauge: constrain so it doesn't dominate */
+    .gauge-wrap svg { max-width: 220px !important; }
+
+    /* Slider label rows: stack on very narrow screens */
+    .slider-header {
+      flex-wrap: wrap !important;
+      gap: 0.25rem 0 !important;
+    }
+
+    /* Stats grid: already collapses via 768px rule, just tighten padding */
+    .stat-chip { padding: 1rem 1.25rem !important; }
+
+    /* Comparison numbers: shrink the big inline 2rem values */
+    #cmp-unmanaged, #cmp-managed {
+      font-size: clamp(1.4rem, 5vw, 1.8rem) !important;
+    }
+
+    /* CTA section: less padding */
+    .cta-inner { padding: 2rem 1.25rem !important; }
+
+    /* Breakdown grid dollar column: full width, less padding */
+    .breakdown-dollar { padding: 1rem !important; }
   }
 </style>
 
