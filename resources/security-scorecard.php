@@ -143,7 +143,7 @@ require_once dirname(__DIR__) . '/includes/header.php';
 </section>
 
 <!-- RESULTS STATE -->
-<section id="results-state" style="display:none;padding-bottom:5rem;position:relative;z-index:1;">
+<section id="results-state" style="display:none;padding-top:6rem;padding-bottom:5rem;position:relative;z-index:1;">
   <div class="max-w-4xl mx-auto px-6">
     <div style="display:flex;flex-direction:column;align-items:center;margin-bottom:3rem;">
       <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.18em;color:#6B7280;text-transform:uppercase;margin-bottom:1.5rem;">
@@ -248,6 +248,7 @@ require_once dirname(__DIR__) . '/includes/header.php';
   function showResults(data) {
     loadSec.style.display = 'none';
     resSec.style.display  = 'block';
+    window.scrollTo({top: 0, behavior: 'smooth'});
     document.getElementById('result-domain').textContent = data.domain;
 
     var ring  = document.getElementById('score-ring');
