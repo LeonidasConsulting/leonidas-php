@@ -151,6 +151,25 @@ require_once dirname(__DIR__) . '/includes/header.php';
     </div>
   </section>
 
+  <!-- SECURITY SCORECARD CTA -->
+  <section class="py-16 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="fade-in" style="background:linear-gradient(135deg,rgba(74,222,128,0.05) 0%,rgba(74,222,128,0.01) 100%);border:1px solid rgba(74,222,128,0.15);border-radius:1.25rem;padding:2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
+        <div style="flex:1;min-width:260px;">
+          <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.18em;color:#4ADE80;text-transform:uppercase;margin-bottom:0.75rem;">Free Security Scan</div>
+          <h2 style="font-size:clamp(1.4rem,2.5vw,2rem);font-weight:900;letter-spacing:-0.02em;color:#FFFFFF;margin:0 0 0.75rem;">Is your domain protected against email spoofing?</h2>
+          <p style="font-size:0.9rem;color:#9CA3AF;margin:0;line-height:1.6;">Our free Business Security Scorecard checks SPF, DMARC, DKIM, SSL, HTTPS redirect, and security headers — and gives you an actionable score in seconds.</p>
+        </div>
+        <div style="flex-shrink:0;">
+          <a href="<?= $b ?>/resources/security-scorecard" style="display:inline-flex;align-items:center;gap:0.6rem;background:#4ADE80;color:#0A0A1A;font-weight:700;font-size:0.9rem;padding:0.85rem 1.75rem;border-radius:0.6rem;text-decoration:none;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">
+            Scan My Domain
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- RELATED BLOG POSTS -->
   <section class="py-20 px-6" style="background:rgba(5,5,16,0.6);">
     <div class="max-w-7xl mx-auto">
