@@ -4,20 +4,7 @@ require_once dirname(__DIR__) . '/includes/config.php';
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); exit; }
 header('Content-Type: application/json');
 
-// Rate limit: 5 scans / hr per IP (same pattern as contact-proxy.php)
-$ip      = $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
-$rl_file = dirname(__DIR__) . '/data/rl_scan_' . md5($ip) . '.json';
-$rl      = file_exists($rl_file) ? json_decode(file_get_contents($rl_file), true) : ['count'=>0,'window'=>time()+3600];
-if (time() > ($rl['window'] ?? 0)) { $rl = ['count'=>0,'window'=>time()+3600]; }
-if (($rl['count'] ?? 0) >= 5) {
-    http_response_code(429);
-    echo json_encode(['error'=>'Rate limit reached. Try again in an hour.']);
-    exit;
-}
-$rl['count']++;
-file_put_contents($rl_file, json_encode($rl), LOCK_EX);
-
-// Sanitize + validate domain
+// Sanitize + validate domain first (needed for per-domain rate limit key)
 $raw    = trim($_POST['domain'] ?? '');
 $domain = preg_replace('#^https?://#i', '', $raw);
 $domain = strtok($domain, '/?#');
@@ -28,6 +15,19 @@ if (!$domain || strlen($domain) > 253 ||
     echo json_encode(['error'=>'Please enter a valid domain (e.g. yourbusiness.com).']);
     exit;
 }
+
+// Rate limit: 5 scans / hr per IP per domain — each unique domain gets its own counter
+$ip      = $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
+$rl_file = dirname(__DIR__) . '/data/rl_scan_' . md5($ip . '|' . $domain) . '.json';
+$rl      = file_exists($rl_file) ? json_decode(file_get_contents($rl_file), true) : ['count'=>0,'window'=>time()+3600];
+if (time() > ($rl['window'] ?? 0)) { $rl = ['count'=>0,'window'=>time()+3600]; }
+if (($rl['count'] ?? 0) >= 5) {
+    http_response_code(429);
+    echo json_encode(['error'=>'Rate limit reached for this domain. Try again in an hour.']);
+    exit;
+}
+$rl['count']++;
+file_put_contents($rl_file, json_encode($rl), LOCK_EX);
 
 // curl runner — name assembled at runtime so static scanners don't false-positive on the curl API name
 $curl_run = call_user_func(function() { return 'curl_' . 'ex' . 'ec'; });
