@@ -36,11 +36,11 @@ $page_json_ld =
         'url' => $page_url, 'applicationCategory' => 'SecurityApplication', 'operatingSystem' => 'Any',
         'offers' => ['@type' => 'Offer', 'price' => '0', 'priceCurrency' => 'USD'],
         'author' => ['@type' => 'Organization', 'name' => 'Leonidas', 'url' => SITE_URL],
-    ], JSON_UNESCAPED_SLASHES) . '</script>' .
+    ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' .
     '<script type="application/ld+json">' . json_encode([
         '@context' => 'https://schema.org', '@type' => 'FAQPage',
         'mainEntity' => $faq_schema,
-    ], JSON_UNESCAPED_SLASHES) . '</script>' .
+    ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' .
     '<script type="application/ld+json">' . json_encode([
         '@context' => 'https://schema.org', '@type' => 'BreadcrumbList',
         'itemListElement' => [
@@ -48,7 +48,7 @@ $page_json_ld =
             ['@type' => 'ListItem', 'position' => 2, 'name' => 'Resources',  'item' => SITE_URL . '/resources'],
             ['@type' => 'ListItem', 'position' => 3, 'name' => 'Ransomware Readiness Quiz', 'item' => $page_url],
         ],
-    ], JSON_UNESCAPED_SLASHES) . '</script>';
+    ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';
 
 $page_css = '
   .quiz-card { display:none; }
@@ -61,6 +61,7 @@ $page_css = '
   .q-answers { display:flex; flex-direction:column; gap:0.75rem; }
   .q-btn { display:flex; align-items:center; gap:1rem; width:100%; padding:1rem 1.25rem; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.09); border-radius:0.75rem; color:#D1D5DB; font-size:0.92rem; text-align:left; cursor:pointer; transition:background 0.15s, border-color 0.15s; }
   .q-btn:hover { background:rgba(212,168,67,0.08); border-color:rgba(212,168,67,0.3); color:#FFFFFF; }
+  .q-btn:focus-visible { outline:2px solid #D4A843; outline-offset:2px; }
   .q-letter { flex-shrink:0; width:28px; height:28px; border-radius:50%; background:rgba(212,168,67,0.12); border:1px solid rgba(212,168,67,0.28); color:#D4A843; font-size:0.78rem; font-weight:700; display:flex; align-items:center; justify-content:center; }
 
   .q-progress-bar { height:3px; background:rgba(255,255,255,0.07); border-radius:2px; margin-bottom:0.6rem; }
