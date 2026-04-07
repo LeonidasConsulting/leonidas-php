@@ -95,3 +95,45 @@ $page_css = '
 
 require_once dirname(__DIR__) . '/includes/header.php';
 ?>
+
+<!-- HERO -->
+<section id="quiz-hero" style="padding-top:8rem;padding-bottom:5rem;position:relative;overflow:hidden;">
+  <div class="orb" style="width:700px;height:700px;background:radial-gradient(circle,rgba(212,168,67,0.05) 0%,transparent 70%);top:-200px;right:-200px;"></div>
+  <div class="orb" style="width:400px;height:400px;background:radial-gradient(circle,rgba(239,68,68,0.03) 0%,transparent 70%);bottom:-100px;left:-100px;animation-delay:2s;"></div>
+  <div class="max-w-2xl mx-auto px-6 text-center">
+    <div class="section-label fade-in" style="display:inline-flex;align-items:center;gap:0.75rem;margin-bottom:1.5rem;">
+      <span style="font-size:0.7rem;font-weight:700;letter-spacing:0.18em;color:#D4A843;text-transform:uppercase;">Free Risk Assessment</span>
+    </div>
+    <h1 class="fade-in fade-in-delay-1" style="font-size:clamp(2.2rem,5vw,3.8rem);font-weight:900;letter-spacing:-0.03em;line-height:1.08;color:#FFFFFF;margin-bottom:1.25rem;">
+      How Ready Is Your Business<br><span style="color:#D4A843;">for a Ransomware Attack?</span>
+    </h1>
+    <p class="fade-in fade-in-delay-2" style="font-size:1.05rem;color:#9CA3AF;max-width:500px;margin:0 auto 2.5rem;line-height:1.7;">
+      10 questions. 2 minutes. <strong style="color:#D4A843;font-weight:600;">Instant score</strong> across backup, access control, patching, and training — with a clear gap report.
+    </p>
+    <button type="button" onclick="startQuiz()" class="fade-in fade-in-delay-2" style="display:inline-flex;align-items:center;gap:0.6rem;background:#D4A843;color:#0A0A1A;font-weight:700;font-size:1rem;padding:0.9rem 2rem;border-radius:0.6rem;border:none;cursor:pointer;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">
+      Start the Quiz &#x2192;
+    </button>
+    <p class="fade-in fade-in-delay-2" style="font-size:0.78rem;color:#374151;margin-top:1rem;">No signup &middot; Results in under 2 minutes &middot; Free</p>
+  </div>
+</section>
+
+<!-- QUIZ SECTION -->
+<section id="quiz-section" style="display:none;padding-top:5rem;padding-bottom:5rem;">
+  <div class="max-w-2xl mx-auto px-6">
+    <div style="margin-bottom:2rem;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.6rem;">
+        <span id="q-count-label" style="font-size:0.75rem;color:#6B7280;">Question 1 of 10</span>
+        <button type="button" id="back-btn" class="q-back" style="margin-top:0;" disabled>&#x2190; Back</button>
+      </div>
+      <div class="q-progress-bar"><div id="progress-fill" class="q-progress-fill" style="width:0%;"></div></div>
+    </div>
+    <!-- QUESTION CARDS — added in Task 3 -->
+  </div>
+</section>
+
+<!-- RESULTS SECTION -->
+<section id="results-section" style="display:none;padding-top:6rem;padding-bottom:5rem;">
+  <!-- RESULTS CONTENT — added in Task 4 -->
+</section>
+
+<?php require_once dirname(__DIR__) . '/includes/footer.php'; ?>
