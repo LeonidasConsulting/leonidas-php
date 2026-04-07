@@ -295,6 +295,24 @@ require_once dirname(__DIR__) . '/includes/header.php';
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="py-20 px-6" style="background:rgba(5,5,16,0.6);">
+  <div class="max-w-3xl mx-auto">
+    <div class="mb-12 fade-in text-center">
+      <div class="section-label justify-center">FAQ</div>
+      <h2 style="font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900;letter-spacing:-0.02em;color:#F9FAFB;">Common questions about the quiz.</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:1rem;">
+      <?php foreach ($faq_items as $faq): ?>
+      <div class="fade-in" style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.07);border-radius:0.875rem;padding:1.5rem;">
+        <div style="font-weight:700;color:#F9FAFB;margin-bottom:0.6rem;font-size:0.95rem;"><?= htmlspecialchars($faq['q']) ?></div>
+        <div style="color:#9CA3AF;font-size:0.88rem;line-height:1.7;"><?= htmlspecialchars($faq['a']) ?></div>
+      </div>
+      <?php endforeach; ?>
+    </div>
+  </div>
+</section>
+
 <script>
 var QUESTIONS = [
   { text:'How often are backups tested?',

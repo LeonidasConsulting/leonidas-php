@@ -26,6 +26,7 @@ $static_pages = [
     ['loc'=>'/industries/professional-services', 'lastmod'=>'2026-04-03', 'changefreq'=>'monthly', 'priority'=>'0.7'],
     ['loc'=>'/resources/downtime-calculator', 'lastmod'=>'2026-04-05', 'changefreq'=>'monthly', 'priority'=>'0.7'],
     ['loc'=>'/resources/security-scorecard', 'lastmod'=>'2026-04-05', 'changefreq'=>'monthly', 'priority'=>'0.7'],
+    ['loc'=>'/resources/ransomware-quiz',    'lastmod'=>'2026-04-06', 'changefreq'=>'monthly', 'priority'=>'0.7'],
     ['loc'=>'/privacy-policy', 'lastmod'=>'2026-04-03', 'changefreq'=>'yearly', 'priority'=>'0.2'],
     ['loc'=>'/terms-and-conditions', 'lastmod'=>'2026-04-03', 'changefreq'=>'yearly', 'priority'=>'0.2'],
 ];
