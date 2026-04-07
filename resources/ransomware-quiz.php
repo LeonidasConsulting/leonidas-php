@@ -241,7 +241,58 @@ require_once dirname(__DIR__) . '/includes/header.php';
 
 <!-- RESULTS SECTION -->
 <section id="results-section" style="display:none;padding-top:6rem;padding-bottom:5rem;">
-  <!-- RESULTS CONTENT — added in Task 4 -->
+  <div class="max-w-4xl mx-auto px-6">
+
+    <!-- Score ring -->
+    <div style="display:flex;flex-direction:column;align-items:center;margin-bottom:3rem;">
+      <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.18em;color:#6B7280;text-transform:uppercase;margin-bottom:1.5rem;">Your Ransomware Readiness Score</div>
+      <div id="results-ring-wrap" style="margin-bottom:1.25rem;">
+        <svg viewBox="0 0 200 200" style="width:190px;height:190px;" aria-label="Ransomware readiness score">
+          <circle cx="100" cy="100" r="80" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="14"/>
+          <circle id="score-ring" cx="100" cy="100" r="80" fill="none" stroke="#4ADE80"
+                  stroke-width="14" stroke-linecap="round"
+                  stroke-dasharray="0 503" transform="rotate(-90 100 100)"/>
+          <text id="score-number" x="100" y="93" text-anchor="middle"
+                font-size="44" font-weight="900" fill="#FFFFFF" font-family="Inter,sans-serif">0</text>
+          <text x="100" y="116" text-anchor="middle" font-size="13" fill="#6B7280" font-family="Inter,sans-serif">out of 100</text>
+        </svg>
+      </div>
+      <div id="score-label"   style="font-size:1.1rem;font-weight:700;margin-bottom:0.4rem;"></div>
+      <div id="score-summary" style="font-size:0.88rem;color:#6B7280;max-width:420px;text-align:center;line-height:1.6;"></div>
+    </div>
+
+    <!-- Category bars -->
+    <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.07);border-radius:1rem;padding:1.75rem;margin-bottom:1.5rem;">
+      <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.15em;color:#6B7280;text-transform:uppercase;margin-bottom:1.25rem;">Score by Category</div>
+      <div id="cat-bars"></div>
+    </div>
+
+    <!-- Per-question breakdown -->
+    <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.07);border-radius:1rem;padding:1.75rem;margin-bottom:2rem;">
+      <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.15em;color:#6B7280;text-transform:uppercase;margin-bottom:1.25rem;">Detailed Breakdown</div>
+      <div id="breakdown-list"></div>
+    </div>
+
+    <!-- Retake -->
+    <div style="text-align:center;margin-bottom:3rem;">
+      <button type="button" onclick="retakeQuiz()" style="background:none;border:1px solid rgba(212,168,67,0.3);color:#D4A843;padding:0.625rem 1.5rem;border-radius:0.5rem;cursor:pointer;font-size:0.85rem;font-weight:600;">&#x2190; Retake Quiz</button>
+    </div>
+
+    <!-- CTA card -->
+    <div style="background:linear-gradient(135deg,rgba(212,168,67,0.08),rgba(212,168,67,0.03));border:1px solid rgba(212,168,67,0.2);border-radius:1.25rem;padding:2.5rem;text-align:center;position:relative;overflow:hidden;">
+      <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center top,rgba(212,168,67,0.06) 0%,transparent 60%);pointer-events:none;"></div>
+      <div style="position:relative;">
+        <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.18em;color:#D4A843;text-transform:uppercase;margin-bottom:0.75rem;">Close Every Gap</div>
+        <h2 style="font-size:clamp(1.4rem,3vw,2rem);font-weight:900;color:#FFFFFF;margin-bottom:0.875rem;">Free 30-minute ransomware risk assessment</h2>
+        <p style="font-size:0.92rem;color:#9CA3AF;max-width:460px;margin:0 auto 1.75rem;line-height:1.6;">We'll walk through your results, explain each gap in plain terms, and give you a prioritized action plan — no commitment required.</p>
+        <a href="<?= $b ?>/contact" style="display:inline-flex;align-items:center;gap:0.6rem;background:#D4A843;color:#0A0A1A;font-weight:700;font-size:0.95rem;padding:0.875rem 2rem;border-radius:0.6rem;text-decoration:none;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">
+          Book My Free Assessment
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
 </section>
 
 <?php require_once dirname(__DIR__) . '/includes/footer.php'; ?>
