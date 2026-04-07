@@ -155,8 +155,8 @@ require_once dirname(__DIR__) . '/includes/header.php';
       <div class="q-text">How long would it take to recover from a full ransomware infection?</div>
       <div class="q-answers">
         <button type="button" class="q-btn" data-q="2" data-val="10" data-text="Under 4 hours — we have a tested recovery plan"><span class="q-letter">A</span><span>Under 4 hours — we have a tested recovery plan</span></button>
-        <button type="button" class="q-btn" data-q="2" data-val="5"  data-text="1-3 days — we would figure it out"><span class="q-letter">B</span><span>1–3 days — we'd figure it out</span></button>
-        <button type="button" class="q-btn" data-q="2" data-val="0"  data-text="Honestly not sure"><span class="q-letter">C</span><span>We're honestly not sure</span></button>
+        <button type="button" class="q-btn" data-q="2" data-val="5"  data-text="1–3 days — we'd figure it out"><span class="q-letter">B</span><span>1–3 days — we'd figure it out</span></button>
+        <button type="button" class="q-btn" data-q="2" data-val="0"  data-text="We're honestly not sure"><span class="q-letter">C</span><span>We're honestly not sure</span></button>
       </div>
     </div>
 
