@@ -295,4 +295,231 @@ require_once dirname(__DIR__) . '/includes/header.php';
   </div>
 </section>
 
+<script>
+var QUESTIONS = [
+  { text:'How often are backups tested?',
+    gap:'Untested backups are not reliable backups. Schedule a quarterly restore drill.' },
+  { text:'Where are backups stored?',
+    gap:'On-network backups get encrypted too. Isolate backups to immutable cloud or offsite media.' },
+  { text:'How long would it take to recover from a full ransomware infection?',
+    gap:'Without a tested recovery plan, ransomware response becomes improvised and expensive.' },
+  { text:'Is MFA enabled for email and remote access?',
+    gap:'MFA blocks over 99% of credential-based attacks. Enable and enforce it on all accounts.' },
+  { text:'How are admin and privileged accounts managed?',
+    gap:'Admin rights on daily-use accounts dramatically expand your attack surface. Separate them.' },
+  { text:'What happens when an employee leaves?',
+    gap:'Departed employees with active accounts are an open door. Automate deprovisioning.' },
+  { text:'How quickly are critical security patches applied?',
+    gap:'Ransomware operators exploit known vulnerabilities within hours of disclosure. Patch fast.' },
+  { text:'What endpoint protection is in place?',
+    gap:'Traditional antivirus misses modern ransomware strains. Upgrade to an EDR solution.' },
+  { text:'How often do employees receive security awareness training?',
+    gap:'Employees are the most targeted entry point. Regular training reduces click rates by 70%.' },
+  { text:'Do you have a written incident response plan?',
+    gap:'Without a response plan, the first 24 hours after an attack cost the most. Plan now.' }
+];
+
+var CATEGORIES = [
+  { name:'Backup & Recovery',              questions:[0,1,2], max:30 },
+  { name:'Access Control',                 questions:[3,4,5], max:30 },
+  { name:'Patching & Endpoint Protection', questions:[6,7],   max:20 },
+  { name:'Training & Response',            questions:[8,9],   max:20 }
+];
+
+var state = { current: 0, answers: new Array(10).fill(null) };
+
+var heroSec    = document.getElementById('quiz-hero');
+var quizSec    = document.getElementById('quiz-section');
+var resultsSec = document.getElementById('results-section');
+var backBtn    = document.getElementById('back-btn');
+var countLabel = document.getElementById('q-count-label');
+var progFill   = document.getElementById('progress-fill');
+
+function scoreColor(pct) {
+  return pct >= 80 ? '#4ADE80' : pct >= 60 ? '#A3E635' : pct >= 40 ? '#FBBF24' : '#EF4444';
+}
+function scoreLabel(score) {
+  if (score >= 80) return { text:'Strong Posture',      summary:'Your controls are solid. A few refinements could close remaining exposure.' };
+  if (score >= 60) return { text:'Moderate Risk',        summary:'Meaningful gaps exist that ransomware operators actively exploit.' };
+  if (score >= 40) return { text:'High Risk',            summary:'Multiple critical controls are missing. Address these before an incident forces your hand.' };
+  return               { text:'Critical \u2014 Act Now', summary:'Your business is highly exposed. Ransomware operators target exactly this profile.' };
+}
+
+function showCard(index) {
+  document.querySelectorAll('.quiz-card').forEach(function(c) { c.classList.remove('active'); });
+  document.getElementById('q' + (index + 1)).classList.add('active');
+  countLabel.textContent = 'Question ' + (index + 1) + ' of 10';
+  progFill.style.width   = (index / 10 * 100) + '%';
+  backBtn.disabled       = (index === 0);
+}
+
+function startQuiz() {
+  state.current = 0;
+  state.answers = new Array(10).fill(null);
+  heroSec.style.display    = 'none';
+  resultsSec.style.display = 'none';
+  quizSec.style.display    = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  showCard(0);
+}
+
+function goBack() {
+  if (state.current > 0) {
+    state.answers[state.current] = null;
+    state.current--;
+    showCard(state.current);
+  }
+}
+
+function selectAnswer(qIndex, val, text) {
+  state.answers[qIndex] = { value: val, text: text };
+  if (qIndex < 9) {
+    state.current = qIndex + 1;
+    showCard(state.current);
+  } else {
+    showResults();
+  }
+}
+
+document.getElementById('quiz-section').addEventListener('click', function(e) {
+  var btn = e.target.closest('.q-btn');
+  if (btn) selectAnswer(+btn.dataset.q, +btn.dataset.val, btn.dataset.text);
+});
+
+backBtn.addEventListener('click', goBack);
+
+function showResults() {
+  var CIRC = 2 * Math.PI * 80;
+  quizSec.style.display    = 'none';
+  resultsSec.style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  var total = state.answers.reduce(function(s, a) { return s + (a ? a.value : 0); }, 0);
+  var color = scoreColor(total);
+  var lbl   = scoreLabel(total);
+
+  var ring = document.getElementById('score-ring');
+  ring.setAttribute('stroke', color);
+  ring.setAttribute('stroke-dasharray', '0 ' + CIRC);
+  requestAnimationFrame(function() {
+    requestAnimationFrame(function() {
+      ring.setAttribute('stroke-dasharray', (total / 100 * CIRC) + ' ' + CIRC);
+    });
+  });
+
+  var numEl = document.getElementById('score-number');
+  var cur = 0;
+  (function tick() {
+    var diff = total - cur;
+    if (Math.abs(diff) < 1) { numEl.textContent = total; return; }
+    cur += diff * 0.12;
+    numEl.textContent = Math.round(cur);
+    requestAnimationFrame(tick);
+  })();
+
+  var labelEl   = document.getElementById('score-label');
+  var summaryEl = document.getElementById('score-summary');
+  labelEl.textContent   = lbl.text;
+  labelEl.style.color   = color;
+  summaryEl.textContent = lbl.summary;
+
+  buildCategoryBars();
+  buildBreakdown();
+}
+
+function buildCategoryBars() {
+  var container = document.getElementById('cat-bars');
+  container.textContent = '';
+  CATEGORIES.forEach(function(cat) {
+    var catScore = cat.questions.reduce(function(s, qi) {
+      return s + (state.answers[qi] ? state.answers[qi].value : 0);
+    }, 0);
+    var pct   = Math.round(catScore / cat.max * 100);
+    var color = scoreColor(pct);
+
+    var row = document.createElement('div');
+    row.className = 'cat-bar-row';
+
+    var lbl = document.createElement('div');
+    lbl.className = 'cat-bar-label';
+    var nameSpan  = document.createElement('span');
+    nameSpan.textContent = cat.name;
+    var scoreSpan = document.createElement('span');
+    scoreSpan.textContent      = catScore + ' / ' + cat.max;
+    scoreSpan.style.color      = color;
+    scoreSpan.style.fontWeight = '600';
+    lbl.appendChild(nameSpan);
+    lbl.appendChild(scoreSpan);
+
+    var track = document.createElement('div');
+    track.className = 'cat-bar-track';
+    var fill = document.createElement('div');
+    fill.className        = 'cat-bar-fill';
+    fill.style.background = color;
+    fill.style.width      = '0%';
+    track.appendChild(fill);
+
+    row.appendChild(lbl);
+    row.appendChild(track);
+    container.appendChild(row);
+
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() { fill.style.width = pct + '%'; });
+    });
+  });
+}
+
+function buildBreakdown() {
+  var container = document.getElementById('breakdown-list');
+  container.textContent = '';
+  QUESTIONS.forEach(function(q, i) {
+    var ans   = state.answers[i];
+    var val   = ans ? ans.value : 0;
+    var icon  = val === 10 ? '\u2713' : val === 5 ? '\u007e' : '\u2717';
+    var color = val === 10 ? '#4ADE80' : val === 5 ? '#FBBF24' : '#EF4444';
+
+    var row = document.createElement('div');
+    row.className = 'breakdown-row';
+
+    var iconEl = document.createElement('div');
+    iconEl.className   = 'breakdown-icon';
+    iconEl.textContent = icon;
+    iconEl.style.color = color;
+
+    var content = document.createElement('div');
+    content.className = 'breakdown-content';
+
+    var qEl = document.createElement('div');
+    qEl.className   = 'breakdown-q';
+    qEl.textContent = q.text;
+
+    var ansEl = document.createElement('div');
+    ansEl.className   = 'breakdown-answer';
+    ansEl.textContent = ans ? ans.text : '\u2014';
+
+    content.appendChild(qEl);
+    content.appendChild(ansEl);
+
+    if (val < 10) {
+      var gapEl = document.createElement('div');
+      gapEl.className   = 'breakdown-gap';
+      gapEl.textContent = q.gap;
+      content.appendChild(gapEl);
+    }
+
+    row.appendChild(iconEl);
+    row.appendChild(content);
+    container.appendChild(row);
+  });
+}
+
+function retakeQuiz() {
+  state.current = 0;
+  state.answers = new Array(10).fill(null);
+  resultsSec.style.display = 'none';
+  heroSec.style.display    = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
 <?php require_once dirname(__DIR__) . '/includes/footer.php'; ?>
