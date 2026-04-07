@@ -127,7 +127,115 @@ require_once dirname(__DIR__) . '/includes/header.php';
       </div>
       <div class="q-progress-bar"><div id="progress-fill" class="q-progress-fill" style="width:0%;"></div></div>
     </div>
-    <!-- QUESTION CARDS — added in Task 3 -->
+    <!-- Q1 -->
+    <div id="q1" class="quiz-card">
+      <div class="q-category">Backup &amp; Recovery</div>
+      <div class="q-text">How often are backups tested?</div>
+      <div class="q-answers">
+        <button type="button" class="q-btn" data-q="0" data-val="10" data-text="We test restores at least quarterly"><span class="q-letter">A</span><span>We test restores at least quarterly</span></button>
+        <button type="button" class="q-btn" data-q="0" data-val="5"  data-text="We have backups but rarely test restores"><span class="q-letter">B</span><span>We have backups but rarely test restores</span></button>
+        <button type="button" class="q-btn" data-q="0" data-val="0"  data-text="No regular backup or test process"><span class="q-letter">C</span><span>No regular backup or test process</span></button>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div id="q2" class="quiz-card">
+      <div class="q-category">Backup &amp; Recovery</div>
+      <div class="q-text">Where are backups stored?</div>
+      <div class="q-answers">
+        <button type="button" class="q-btn" data-q="1" data-val="10" data-text="Offsite or cloud, isolated from the main network"><span class="q-letter">A</span><span>Offsite or cloud, isolated from the main network</span></button>
+        <button type="button" class="q-btn" data-q="1" data-val="5"  data-text="On a local server or NAS on the same network"><span class="q-letter">B</span><span>On a local server or NAS on the same network</span></button>
+        <button type="button" class="q-btn" data-q="1" data-val="0"  data-text="Device-level backups only"><span class="q-letter">C</span><span>Device-level backups only</span></button>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div id="q3" class="quiz-card">
+      <div class="q-category">Backup &amp; Recovery</div>
+      <div class="q-text">How long would it take to recover from a full ransomware infection?</div>
+      <div class="q-answers">
+        <button type="button" class="q-btn" data-q="2" data-val="10" data-text="Under 4 hours — we have a tested recovery plan"><span class="q-letter">A</span><span>Under 4 hours — we have a tested recovery plan</span></button>
+        <button type="button" class="q-btn" data-q="2" data-val="5"  data-text="1-3 days — we would figure it out"><span class="q-letter">B</span><span>1–3 days — we'd figure it out</span></button>
+        <button type="button" class="q-btn" data-q="2" data-val="0"  data-text="Honestly not sure"><span class="q-letter">C</span><span>We're honestly not sure</span></button>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div id="q4" class="quiz-card">
+      <div class="q-category">Access Control</div>
+      <div class="q-text">Is multi-factor authentication (MFA) enabled for email and remote access?</div>
+      <div class="q-answers">
+        <button type="button" class="q-btn" data-q="3" data-val="10" data-text="Yes, required for all users"><span class="q-letter">A</span><span>Yes, required for all users</span></button>
+        <button type="button" class="q-btn" data-q="3" data-val="5"  data-text="Enabled for some accounts but not enforced"><span class="q-letter">B</span><span>Enabled for some accounts but not enforced</span></button>
+        <button type="button" class="q-btn" data-q="3" data-val="0"  data-text="Not in place"><span class="q-letter">C</span><span>Not in place</span></button>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div id="q5" class="quiz-card">
+      <div class="q-category">Access Control</div>
+      <div class="q-text">How are admin and privileged accounts managed?</div>
+      <div class="q-answers">
+        <button type="button" class="q-btn" data-q="4" data-val="10" data-text="Separate admin accounts, least-privilege enforced"><span class="q-letter">A</span><span>Separate admin accounts, least-privilege enforced</span></button>
+        <button type="button" class="q-btn" data-q="4" data-val="5"  data-text="IT staff use admin rights for day-to-day work"><span class="q-letter">B</span><span>IT staff use admin rights for day-to-day work</span></button>
+        <button type="button" class="q-btn" data-q="4" data-val="0"  data-text="Most users have local admin on their machines"><span class="q-letter">C</span><span>Most users have local admin on their machines</span></button>
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div id="q6" class="quiz-card">
+      <div class="q-category">Access Control</div>
+      <div class="q-text">What happens when an employee leaves?</div>
+      <div class="q-answers">
+        <button type="button" class="q-btn" data-q="5" data-val="10" data-text="Accounts disabled same day, access audited"><span class="q-letter">A</span><span>Accounts disabled same day, access audited</span></button>
+        <button type="button" class="q-btn" data-q="5" data-val="5"  data-text="Usually within a few days"><span class="q-letter">B</span><span>Usually within a few days</span></button>
+        <button type="button" class="q-btn" data-q="5" data-val="0"  data-text="No formal offboarding process"><span class="q-letter">C</span><span>No formal offboarding process</span></button>
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div id="q7" class="quiz-card">
+      <div class="q-category">Patching &amp; Endpoint Protection</div>
+      <div class="q-text">How quickly are critical security patches applied?</div>
+      <div class="q-answers">
+        <button type="button" class="q-btn" data-q="6" data-val="10" data-text="Within 72 hours across all devices"><span class="q-letter">A</span><span>Within 72 hours across all devices</span></button>
+        <button type="button" class="q-btn" data-q="6" data-val="5"  data-text="Within a few weeks, when we get around to it"><span class="q-letter">B</span><span>Within a few weeks, when we get around to it</span></button>
+        <button type="button" class="q-btn" data-q="6" data-val="0"  data-text="No regular patching process"><span class="q-letter">C</span><span>No regular patching process</span></button>
+      </div>
+    </div>
+
+    <!-- Q8 -->
+    <div id="q8" class="quiz-card">
+      <div class="q-category">Patching &amp; Endpoint Protection</div>
+      <div class="q-text">What endpoint protection is in place?</div>
+      <div class="q-answers">
+        <button type="button" class="q-btn" data-q="7" data-val="10" data-text="EDR/XDR (CrowdStrike, SentinelOne, Defender for Business, etc.)"><span class="q-letter">A</span><span>EDR/XDR (CrowdStrike, SentinelOne, Defender for Business, etc.)</span></button>
+        <button type="button" class="q-btn" data-q="7" data-val="5"  data-text="Standard antivirus only"><span class="q-letter">B</span><span>Standard antivirus only</span></button>
+        <button type="button" class="q-btn" data-q="7" data-val="0"  data-text="No dedicated endpoint protection"><span class="q-letter">C</span><span>No dedicated endpoint protection</span></button>
+      </div>
+    </div>
+
+    <!-- Q9 -->
+    <div id="q9" class="quiz-card">
+      <div class="q-category">Training &amp; Response</div>
+      <div class="q-text">How often do employees receive security awareness training?</div>
+      <div class="q-answers">
+        <button type="button" class="q-btn" data-q="8" data-val="10" data-text="Formal training at least annually plus phishing simulations"><span class="q-letter">A</span><span>Formal training at least annually + phishing simulations</span></button>
+        <button type="button" class="q-btn" data-q="8" data-val="5"  data-text="Occasional reminders or one-time onboarding training"><span class="q-letter">B</span><span>Occasional reminders or one-time onboarding training</span></button>
+        <button type="button" class="q-btn" data-q="8" data-val="0"  data-text="No formal security training"><span class="q-letter">C</span><span>No formal security training</span></button>
+      </div>
+    </div>
+
+    <!-- Q10 -->
+    <div id="q10" class="quiz-card">
+      <div class="q-category">Training &amp; Response</div>
+      <div class="q-text">Do you have a written incident response plan?</div>
+      <div class="q-answers">
+        <button type="button" class="q-btn" data-q="9" data-val="10" data-text="Documented, tested, and staff know their roles"><span class="q-letter">A</span><span>Documented, tested, and staff know their roles</span></button>
+        <button type="button" class="q-btn" data-q="9" data-val="5"  data-text="Informal plan — people know roughly what to do"><span class="q-letter">B</span><span>Informal plan — people know roughly what to do</span></button>
+        <button type="button" class="q-btn" data-q="9" data-val="0"  data-text="No plan in place"><span class="q-letter">C</span><span>No plan in place</span></button>
+      </div>
+    </div>
   </div>
 </section>
 
