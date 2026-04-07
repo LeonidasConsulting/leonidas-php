@@ -220,7 +220,7 @@ require_once dirname(__DIR__) . '/includes/header.php';
       <div class="q-category">Training &amp; Response</div>
       <div class="q-text">How often do employees receive security awareness training?</div>
       <div class="q-answers">
-        <button type="button" class="q-btn" data-q="8" data-val="10" data-text="Formal training at least annually plus phishing simulations"><span class="q-letter">A</span><span>Formal training at least annually + phishing simulations</span></button>
+        <button type="button" class="q-btn" data-q="8" data-val="10" data-text="Formal training at least annually + phishing simulations"><span class="q-letter">A</span><span>Formal training at least annually + phishing simulations</span></button>
         <button type="button" class="q-btn" data-q="8" data-val="5"  data-text="Occasional reminders or one-time onboarding training"><span class="q-letter">B</span><span>Occasional reminders or one-time onboarding training</span></button>
         <button type="button" class="q-btn" data-q="8" data-val="0"  data-text="No formal security training"><span class="q-letter">C</span><span>No formal security training</span></button>
       </div>
